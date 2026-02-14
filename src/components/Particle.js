@@ -1,52 +1,71 @@
-import React from "react";
+import React, { useMemo } from "react";
 import Particles from "react-tsparticles";
 
+/**
+ * Robotics-themed particle background: connected nodes (grid-like),
+ * white/cyan palette, subtle motion.
+ */
 function Particle() {
+  const config = useMemo(
+    () => ({
+      fullScreen: { enable: false },
+      background: { color: { value: "transparent" } },
+      particles: {
+        number: {
+          value: 60,
+          density: { enable: true, value_area: 800 },
+        },
+        color: { value: ["#ffffff", "#7dd3fc", "#22d3ee", "#a78bfa"] },
+        shape: { type: "edge" },
+        opacity: {
+          value: { min: 0.15, max: 0.5 },
+          animation: { enable: true, speed: 0.8, sync: false, opacity_min: 0.1 },
+        },
+        size: { value: { min: 0.5, max: 1.5 } },
+        links: {
+          enable: true,
+          distance: 140,
+          color: "#ffffff",
+          opacity: 0.12,
+          width: 0.8,
+        },
+        move: {
+          enable: true,
+          speed: 0.4,
+          direction: "none",
+          random: true,
+          straight: false,
+          outModes: { default: "out" },
+        },
+      },
+      interactivity: {
+        events: {
+          onHover: { enable: true, mode: "grab" },
+          onClick: { enable: true, mode: "push" },
+        },
+        modes: {
+          grab: {
+            distance: 180,
+            links: { opacity: 0.25, color: "#7dd3fc" },
+          },
+          push: { quantity: 2 },
+        },
+      },
+      detectRetina: true,
+    }),
+    []
+  );
+
   return (
     <Particles
       id="tsparticles"
-      params={{
-        particles: {
-          number: {
-            value: 160,
-            density: {
-              enable: true,
-              value_area: 1500,
-            },
-          },
-          line_linked: {
-            enable: false,
-            opacity: 0.03,
-          },
-          move: {
-            direction: "right",
-            speed: 0.05,
-          },
-          size: {
-            value: 1,
-          },
-          opacity: {
-            anim: {
-              enable: true,
-              speed: 1,
-              opacity_min: 0.05,
-            },
-          },
-        },
-        interactivity: {
-          events: {
-            onclick: {
-              enable: true,
-              mode: "push",
-            },
-          },
-          modes: {
-            push: {
-              particles_nb: 1,
-            },
-          },
-        },
-        retina_detect: true,
+      options={config}
+      style={{
+        position: "fixed",
+        left: 0,
+        top: 0,
+        width: "100%",
+        height: "100%",
       }}
     />
   );

@@ -252,10 +252,13 @@ button:focus {
 }
 #tsparticles {
   position: fixed !important;
-  background-repeat: no-repeat !important;
-  background-size: cover !important;
-  width: 100%;
-  height: 100%;
+  left: 0 !important;
+  top: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  z-index: -2 !important;
+  pointer-events: auto !important;
+  background: linear-gradient(to left, rgb(10 22 56), rgb(18, 43, 93)) !important;
 }
 
 .home-header {
