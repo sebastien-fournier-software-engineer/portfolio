@@ -19,7 +19,7 @@ function scrollToSection(e, sectionId) {
     e.preventDefault();
     const el = document.getElementById(sectionId);
     if (el) {
-        el.scrollIntoView({ behavior: "smooth", block: "nearest" });
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
     }
 }
 
