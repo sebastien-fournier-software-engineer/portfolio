@@ -7,6 +7,7 @@ import About from "./components/About/About";
 import Projects from "./components/Projects/Projects";
 import Footer from "./components/Footer";
 import Resume from "./components/Resume/ResumeNew";
+import { LanguageProvider } from "./context/LanguageContext";
 import "./style.css";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -23,7 +24,7 @@ function App() {
   }, []);
 
   return (
-    <>
+    <LanguageProvider>
       <Preloader load={load} />
       <div className="App" id={load ? "no-scroll" : "scroll"}>
         <Particle />
@@ -34,7 +35,7 @@ function App() {
         <Resume />
         <Footer />
       </div>
-    </>
+    </LanguageProvider>
   );
 }
 

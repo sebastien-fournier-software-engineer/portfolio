@@ -4,16 +4,13 @@ import Nav from "react-bootstrap/Nav";
 import Container from "react-bootstrap/Container";
 import logo from "../Assets/logo.png";
 import Button from "react-bootstrap/Button";
-import { CgGitFork } from "react-icons/cg";
-import { ImBlog } from "react-icons/im";
 import {
-    AiFillStar,
     AiOutlineHome,
     AiOutlineFundProjectionScreen,
     AiOutlineUser,
 } from "react-icons/ai";
-
 import { CgFileDocument } from "react-icons/cg";
+import { useLanguage } from "../context/LanguageContext";
 
 function scrollToSection(e, sectionId) {
     e.preventDefault();
@@ -26,6 +23,7 @@ function scrollToSection(e, sectionId) {
 function NavBar() {
     const [expand, updateExpanded] = useState(false);
     const [navColour, updateNavbar] = useState(false);
+    const { language, toggleLanguage } = useLanguage();
 
     function scrollHandler() {
         if (window.scrollY >= 20) {
@@ -104,14 +102,14 @@ function NavBar() {
                         </Nav.Item>
 
 
-                        <Nav.Item className="fork-btn">
+                        <Nav.Item>
                             <Button
-                                href="https://github.com/sebastien-fournier-software-robotics/portfolio"
-                                target="_blank"
-                                className="fork-btn-inner"
+                                className="lang-toggle-btn"
+                                onClick={toggleLanguage}
                             >
-                                <CgGitFork style={{ fontSize: "1.2em" }} />{" "}
-                                <AiFillStar style={{ fontSize: "1.1em" }} />
+                                <span className={language === "en" ? "lang-active" : "lang-inactive"} role="img" aria-label="English">🇬🇧</span>
+                                {" / "}
+                                <span className={language === "fr" ? "lang-active" : "lang-inactive"} role="img" aria-label="Français">🇫🇷</span>
                             </Button>
                         </Nav.Item>
                     </Nav>
