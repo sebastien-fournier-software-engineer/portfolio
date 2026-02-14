@@ -9,6 +9,8 @@ function Particle() {
   const config = useMemo(
     () => ({
       fullScreen: { enable: false },
+      pauseOnBlur: false,
+      pauseOnOutsideViewport: false,
       background: { color: { value: "transparent" } },
       particles: {
         number: {
