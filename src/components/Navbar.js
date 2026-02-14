@@ -108,6 +108,7 @@ function NavBar() {
                                 className="lang-toggle-btn"
                                 onClick={toggleLanguage}
                             >
+                                <span className="lang-toggle-corners" />
                                 <span className={language === "en" ? "lang-active" : "lang-inactive"} role="img" aria-label="English">🇬🇧</span>
                                 {" / "}
                                 <span className={language === "fr" ? "lang-active" : "lang-inactive"} role="img" aria-label="Français">🇫🇷</span>

@@ -862,33 +862,135 @@ button:focus {
   }
 }
 
+/* ---- Language Toggle: Rectangle with corner brackets ---- */
 .lang-toggle-btn {
+  position: relative !important;
   background-color: transparent !important;
-  border: 1.5px solid #03c84b !important;
+  border: none !important;
   color: #03c84b !important;
-  text-shadow: 0 0 8px rgba(0, 204, 68, 0.6), 0 0 20px rgba(0, 204, 68, 0.6);
-  box-shadow: 0 0 6px rgba(0, 204, 68, 0.3);
-  padding: 0.3rem 0.7rem !important;
+  padding: 0.55rem 1.1rem !important;
   margin-top: 0.45rem !important;
   font-weight: 600 !important;
   font-size: 0.9em !important;
   letter-spacing: 1px;
-  transition: all 0.3s ease-out 0s !important;
+  transition: color 0.3s ease, text-shadow 0.3s ease, background-color 0.3s ease !important;
+  overflow: visible !important;
 }
 
+/* Shared styles for all four corner brackets */
+.lang-toggle-btn::before,
+.lang-toggle-btn::after,
+.lang-toggle-corners::before,
+.lang-toggle-corners::after {
+  content: "" !important;
+  position: absolute !important;
+  width: 10px !important;
+  height: 10px !important;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+  display: block !important;
+  background: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  z-index: 2 !important;
+}
+
+/* Top-left corner */
+.lang-toggle-btn::before {
+  top: 0 !important;
+  left: 0 !important;
+  border-top: 2px solid #03c84b !important;
+  border-left: 2px solid #03c84b !important;
+  border-bottom: none !important;
+  border-right: none !important;
+}
+
+/* Bottom-right corner */
+.lang-toggle-btn::after {
+  bottom: 0 !important;
+  right: 0 !important;
+  top: auto !important;
+  left: auto !important;
+  border-bottom: 2px solid #03c84b !important;
+  border-right: 2px solid #03c84b !important;
+  border-top: none !important;
+  border-left: none !important;
+  width: 10px !important;
+  height: 10px !important;
+}
+
+/* Helper span for the other two corners */
+.lang-toggle-corners {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  pointer-events: none !important;
+}
+
+/* Top-right corner */
+.lang-toggle-corners::before {
+  content: "" !important;
+  top: 0 !important;
+  right: 0 !important;
+  left: auto !important;
+  border-top: 2px solid #03c84b !important;
+  border-right: 2px solid #03c84b !important;
+  border-bottom: none !important;
+  border-left: none !important;
+}
+
+/* Bottom-left corner */
+.lang-toggle-corners::after {
+  content: "" !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  top: auto !important;
+  right: auto !important;
+  border-bottom: 2px solid #03c84b !important;
+  border-left: 2px solid #03c84b !important;
+  border-top: none !important;
+  border-right: none !important;
+}
+
+/* Hover — corners move outward */
+.lang-toggle-btn:hover::before {
+  top: -3px !important;
+  left: -3px !important;
+  border-color: #00ff8c !important;
+  filter: drop-shadow(0 0 4px rgba(0, 255, 140, 0.5));
+}
+
+.lang-toggle-btn:hover::after {
+  bottom: -3px !important;
+  right: -3px !important;
+  border-color: #00ff8c !important;
+  filter: drop-shadow(0 0 4px rgba(0, 255, 140, 0.5));
+}
+
+.lang-toggle-btn:hover .lang-toggle-corners::before {
+  top: -3px !important;
+  right: -3px !important;
+  border-color: #00ff8c !important;
+  filter: drop-shadow(0 0 4px rgba(0, 255, 140, 0.5));
+}
+
+.lang-toggle-btn:hover .lang-toggle-corners::after {
+  bottom: -3px !important;
+  left: -3px !important;
+  border-color: #00ff8c !important;
+  filter: drop-shadow(0 0 4px rgba(0, 255, 140, 0.5));
+}
+
+/* Subtle background glow on hover */
 .lang-toggle-btn:hover {
-  transform: translateY(-1px) !important;   
-  background-color: rgba(3, 200, 75, 0.15) !important;
-  border-color: #03c84b !important;
-  box-shadow: 0 0 10px rgba(3, 200, 75, 0.4);
+  background-color: rgba(3, 200, 75, 0.08) !important;
+  text-shadow: 0 0 10px rgba(0, 255, 140, 0.5) !important;
 }
 
 .lang-toggle-btn:focus {
-  box-shadow: 0 0 10px rgba(0, 204, 68, 0.6) !important;
-}
-
-.lang-toggle-btn::after {
-  display: none !important;
+  box-shadow: none !important;
+  outline: none !important;
 }
 
 .lang-active {
