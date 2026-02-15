@@ -66,9 +66,13 @@ const SATS = [
     freqX: 0.30, freqY: 0.47, freqZ: 0.37,
     phaseX: 0, phaseY: Math.PI / 3, phaseZ: Math.PI / 5,
   },
-  { // Satellite B — tighter, faster, tilted orbit
+  { // Satellite B — tighter, faster, tilted orbit (smaller dot)
     ...SAT_DEFAULTS,
+    radius: 0.025,
+    glowScale: 0.22,
     orbitRadius: 0.85,
+    trailDotSize: 0.010,
+    trailOpacity: 0.30,
     freqX: 0.43, freqY: 0.31, freqZ: 0.53,
     phaseX: Math.PI / 2, phaseY: Math.PI / 7, phaseZ: Math.PI * 0.8,
   },
