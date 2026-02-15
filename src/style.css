@@ -491,7 +491,7 @@ button:focus {
 .home-contact-btn {
   color: #ffffff !important;
   background-color: #1a1a1a !important;
-  border-color: #1a1a1a !important;
+  border: 1.5px solid #1a1a1a !important;
   border-radius: 6px !important;
   font-weight: 500 !important;
   font-family: "Space Grotesk", sans-serif !important;
