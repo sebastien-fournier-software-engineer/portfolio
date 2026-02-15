@@ -1,5 +1,6 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
+import Button from "react-bootstrap/Button";
 import homeLogo from "../../Assets/robot_dev.png";
 import Particle from "../Particle";
 import Home2 from "./Home2";
@@ -10,8 +11,11 @@ import {
     AiFillGithub,
     AiOutlineTwitter,
     AiFillInstagram,
+    AiOutlineDownload,
 } from "react-icons/ai";
 import { FaLinkedinIn } from "react-icons/fa";
+import { MdOutlineEmail } from "react-icons/md";
+import pdf from "../../Assets/../Assets/CV_ingenieur_robotique_vision.pdf";
 
 function Home() {
     return (
@@ -35,6 +39,29 @@ function Home() {
 
                             <div style={{ padding: 50, textAlign: "left" }}>
                                 <Type />
+                            </div>
+
+                            <div className="home-buttons">
+                                <Button
+                                    className="home-contact-btn"
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        document.getElementById("contact")?.scrollIntoView({ behavior: "smooth", block: "start" });
+                                    }}
+                                >
+                                    <MdOutlineEmail style={{ marginBottom: "2px" }} />
+                                    &nbsp;Contact Me
+                                </Button>
+
+                                <Button
+                                    variant="primary"
+                                    href={pdf}
+                                    target="_blank"
+                                    className="home-download-btn"
+                                >
+                                    <AiOutlineDownload style={{ marginBottom: "2px" }} />
+                                    &nbsp;Download CV
+                                </Button>
                             </div>
                         </Col>
 
@@ -63,7 +90,7 @@ function Home() {
             </Container>
             <Home2 />
 
-            <Container>
+            <Container id="contact">
                 <Row style={{ paddingTop: "50px", paddingBottom: "80px" }}>
                     <Col md={12} className="home-about-social">
                         <h1>Find Me On</h1>

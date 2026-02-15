@@ -478,6 +478,71 @@ button:focus {
   }
 }
 
+/* --- 5d-bis. Home CTA buttons (Contact Me + Download CV) --- */
+
+.home-buttons {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-left: 50px;
+  padding-top: 10px;
+}
+
+.home-contact-btn {
+  color: #ffffff !important;
+  background-color: #1a1a1a !important;
+  border-color: #1a1a1a !important;
+  border-radius: 6px !important;
+  font-weight: 500 !important;
+  font-family: "Space Grotesk", sans-serif !important;
+  letter-spacing: 0.02em;
+  padding: 0.55rem 1.5rem !important;
+  font-size: 1rem !important;
+  transition: all 0.3s ease !important;
+}
+
+.home-contact-btn:hover {
+  color: #ffffff !important;
+  background-color: #333333 !important;
+  border-color: #333333 !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+}
+
+.home-download-btn {
+  border-radius: 6px !important;
+  font-weight: 500 !important;
+  font-family: "Space Grotesk", sans-serif !important;
+  letter-spacing: 0.02em;
+  padding: 0.55rem 1.5rem !important;
+  font-size: 1rem !important;
+  background-color: transparent !important;
+  color: #1a1a1a !important;
+  border: 1.5px solid #1a1a1a !important;
+  transition: all 0.3s ease !important;
+}
+
+.home-download-btn:hover {
+  background-color: #1a1a1a !important;
+  color: #ffffff !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+}
+
+@media (max-width: 767px) {
+  .home-buttons {
+    padding-left: 50px;
+    justify-content: flex-start;
+    gap: 0.75rem;
+  }
+
+  .home-contact-btn,
+  .home-download-btn {
+    font-size: 0.85rem !important;
+    padding: 0.45rem 1rem !important;
+  }
+}
+
 /* --- 5e. Avatar --- */
 
 .myAvtar {
