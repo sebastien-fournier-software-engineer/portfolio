@@ -14,10 +14,7 @@ function Footer() {
         <Container fluid className="footer">
             <Row>
                 <Col md="4" className="footer-copywright">
-                    <h3>{t("footer.designed")}</h3>
-                </Col>
-                <Col md="4" className="footer-copywright">
-                    <h3>Copyright© {year} Seb Fournier</h3>
+                    <h3>©{year} Sébastien Fournier | Portfolio | {t("footer.designed")}</h3>
                 </Col>
                 <Col md="4" className="footer-body">
                     <ul className="footer-icons">

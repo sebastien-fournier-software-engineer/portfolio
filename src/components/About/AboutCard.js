@@ -30,7 +30,7 @@ function AboutCard() {
           <p style={{ color: "#888888", fontStyle: "italic" }}>
             {t("aboutCard.quote")}{" "}
           </p>
-          <footer className="blockquote-footer">Seb</footer>
+          <footer className="blockquote-footer">Sébastien</footer>
         </blockquote>
       </Card.Body>
     </Card>

@@ -28,7 +28,7 @@ function FindMeOn() {
                         </li>
                         <li className="social-icons">
                             <a
-                                href="https://www.linkedin.com/in/sebastienfournierconnect/"
+                                href="https://www.linkedin.com/in/sebastien-fournier-software-robotics/"
                                 target="_blank"
                                 rel="noreferrer"
                                 className="icon-colour  home-social-icons"

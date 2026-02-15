@@ -165,13 +165,13 @@ const translations = {
     intro: {
       en: (
         <>
-          Hi everyone! I'm <span className="purple">Seb Fournier</span>{" "}
+          Hi everyone! I'm <span className="purple">Sébastien Fournier</span>{" "}
           from <span className="purple">France</span>.
         </>
       ),
       fr: (
         <>
-          Bonjour à tous ! Je suis <span className="purple">Seb Fournier</span>{" "}
+          Bonjour à tous ! Je suis <span className="purple">Sébastien Fournier</span>{" "}
           originaire de <span className="purple">France</span>.
         </>
       ),
@@ -237,8 +237,8 @@ const translations = {
   /* ------------------------------------------------------------------ */
   footer: {
     designed: {
-      en: "Designed and Developed by Seb Fournier",
-      fr: "Conçu et développé par Seb Fournier",
+      en: "All rights reserved",
+      fr: "Tout droits réservés",
     },
   },
 };

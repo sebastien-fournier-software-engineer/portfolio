@@ -31,7 +31,7 @@ function Home() {
 
                             <h1 className="heading-name">
                                 {t("home.iAm")}
-                                <strong className="main-name"> SEB FOURNIER</strong>
+                                <strong className="main-name"> SEBASTIEN FOURNIER</strong>
                             </h1>
 
                             <div style={{ padding: 50, textAlign: "left" }}>
