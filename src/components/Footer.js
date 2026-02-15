@@ -24,7 +24,7 @@ function Footer() {
                         <li className="social-icons">
                             <a
                                 href="https://github.com/sebastien-fournier-software-robotics"
-                                style={{ color: "white" }}
+                                style={{ color: "#e0e0e0" }}
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
@@ -34,7 +34,7 @@ function Footer() {
                         <li className="social-icons">
                             <a
                                 href="https://www.linkedin.com/in/sebastien-fournier-software-robotics/"
-                                style={{ color: "white" }}
+                                style={{ color: "#e0e0e0" }}
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >

@@ -8,7 +8,7 @@ function Github() {
       style={{
         justifyContent: "center",
         paddingBottom: "10px",
-        color: "white",
+        color: "#1a1a1a",
       }}
     >
       <h1 className="project-heading pb-4" style={{ paddingBottom: "20px" }}>
@@ -18,7 +18,7 @@ function Github() {
         username="sebastien-fournier-software-robotics"
         blockSize={30}
         blockMargin={10}
-        color="#c084f5"
+        color="#333333"
         fontSize={20}
       />
     </Row>
