@@ -1,13 +1,42 @@
-import React, { createContext, useState, useContext, useCallback, useMemo } from "react";
+import React, { createContext, useState, useContext, useCallback, useMemo, useRef } from "react";
 import translations from "../translations";
 
 const LanguageContext = createContext();
 
+/**
+ * Duration (ms) for the exit half of the animation.
+ * The enter half mirrors this via a CSS transition.
+ */
+const EXIT_MS = 200;
+
 export function LanguageProvider({ children }) {
   const [language, setLanguage] = useState("fr");
+  /** "idle" | "exit" | "enter" */
+  const [phase, setPhase] = useState("idle");
+  const timerRef = useRef(null);
 
   const toggleLanguage = useCallback(() => {
-    setLanguage((prev) => (prev === "en" ? "fr" : "en"));
+    /* Prevent double-toggling while an animation is in flight. */
+    if (timerRef.current) return;
+
+    /* Phase 1 — slide + fade old content out */
+    setPhase("exit");
+
+    timerRef.current = setTimeout(() => {
+      /* Phase 2 — swap language, then immediately set the "enter" pose
+         so the wrapper starts at the opposite offset. */
+      setLanguage((prev) => (prev === "en" ? "fr" : "en"));
+      setPhase("enter");
+
+      /* Phase 3 — next frame: remove the class so CSS transitions
+         the wrapper smoothly back to its resting position. */
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          setPhase("idle");
+          timerRef.current = null;
+        });
+      });
+    }, EXIT_MS);
   }, []);
 
   /**
@@ -46,7 +75,9 @@ export function LanguageProvider({ children }) {
 
   return (
     <LanguageContext.Provider value={ctx}>
-      {children}
+      <div className={`lang-transition ${phase !== "idle" ? `lang-${phase}` : ""}`}>
+        {children}
+      </div>
     </LanguageContext.Provider>
   );
 }

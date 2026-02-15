@@ -1250,3 +1250,34 @@ button:focus {
   font-weight: 400;
   vertical-align: middle;
 }
+
+/* ---------- Language-switch slide transition ---------- */
+.lang-transition {
+  opacity: 1;
+  transform: none;
+  /* Only the "enter → idle" leg should be animated; the exit and
+     the instant jump to the enter pose are handled by the classes.
+     IMPORTANT: use `none` instead of `translateX(0)` so that
+     position: fixed children (navbar) stay relative to the viewport. */
+}
+
+/* Phase 1 — old content slides out to the left and fades */
+.lang-transition.lang-exit {
+  transition: transform 0.2s cubic-bezier(0.4, 0, 1, 1),
+              opacity  0.2s cubic-bezier(0.4, 0, 1, 1);
+  transform: translateX(-18px);
+  opacity: 0;
+}
+
+/* Phase 2 — new content is placed to the right, invisible (no transition!) */
+.lang-transition.lang-enter {
+  transition: none;
+  transform: translateX(18px);
+  opacity: 0;
+}
+
+/* Phase 3 — back to idle: CSS transitions slide it to centre */
+.lang-transition:not(.lang-exit):not(.lang-enter) {
+  transition: transform 0.25s cubic-bezier(0, 0, 0.2, 1),
+              opacity  0.25s cubic-bezier(0, 0, 0.2, 1);
+}
