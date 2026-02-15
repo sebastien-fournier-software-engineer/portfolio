@@ -6,8 +6,7 @@ import Home from "./components/Home/Home";
 import About from "./components/About/About";
 import Projects from "./components/Projects/Projects";
 import Footer from "./components/Footer";
-import Resume from "./components/Resume/ResumeNew";
-import { LanguageProvider } from "./context/LanguageContext";
+import { LanguageProvider } from "./Context/LanguageContext";
 import "./style.css";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -32,7 +31,6 @@ function App() {
         <Home />
         <About />
         <Projects />
-        <Resume />
         <Footer />
       </div>
     </LanguageProvider>
