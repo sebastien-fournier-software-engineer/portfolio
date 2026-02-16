@@ -1,8 +1,8 @@
 import React from "react";
 import { Container } from "react-bootstrap";
-import Techstack from "../About/Techstack";
-import Toolstack from "../About/Toolstack";
-import { useLanguage } from "../../Context/LanguageContext";
+import Techstack from "./About/Techstack";
+import Toolstack from "./About/Toolstack";
+import { useLanguage } from "../Context/LanguageContext";
 
 function Skills() {
   const { t } = useLanguage();
