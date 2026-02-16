@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import FlipAvatar from "../FlipAvatar";
+import FlipAvatar from "./FlipAvatar";
 import CustomerCarousel from "../Home/CustomerCarousel";
 import { useLanguage } from "../../Context/LanguageContext";
 

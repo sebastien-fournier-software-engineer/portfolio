@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import avatarImg from "../Assets/avatar.svg";
-import profileImg from "../Assets/profile_picture.jpg";
+import avatarImg from "../../Assets/avatar.svg";
+import profileImg from "../../Assets/profile_picture.jpg";
 
 function FlipAvatar({ interval = 5000 }) {
   const [flipped, setFlipped] = useState(false);
