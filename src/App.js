@@ -7,7 +7,7 @@ import About from "./components/About/About";
 import Projects from "./components/Projects/Projects";
 import Footer from "./components/Footer";
 import FindMeOn from "./components/FindMeOn";
-import Skills from "./components/Skills";
+import Skills from "./components/Skills/Skills";
 import { LanguageProvider } from "./Context/LanguageContext";
 import "./style.css";
 import "./App.css";
