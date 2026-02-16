@@ -53,9 +53,9 @@ const translations = {
     },
 
     /* ------------------------------------------------------------------ */
-    /*  Home2 (introduction / À Propos)                                    */
+    /*  About (À Propos)                                                   */
     /* ------------------------------------------------------------------ */
-    home2: {
+    about: {
         title: {
             en: "About",
             fr: "À Propos",
@@ -147,16 +147,6 @@ const translations = {
                     visions technologiques en une réalité durable.
                 </>
             ),
-        },
-    },
-
-    /* ------------------------------------------------------------------ */
-    /*  About section                                                      */
-    /* ------------------------------------------------------------------ */
-    about: {
-        knowWho: {
-            en: <>Know Who <strong className="purple">I'M</strong></>,
-            fr: <>Découvrez <strong className="purple">qui je suis</strong></>,
         },
     },
 

@@ -2,7 +2,6 @@ import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import ParticleSphere from "../ParticleSphere";
-import Home2 from "./Home2";
 import Type from "./Type";
 import {
     AiOutlineDownload,
@@ -75,7 +74,6 @@ function Home() {
                     </Row>
                 </Container>
             </Container>
-            <Home2 />
         </section>
     );
 }
