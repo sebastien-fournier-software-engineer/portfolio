@@ -508,6 +508,7 @@ button:focus {
   background-repeat: no-repeat;
   padding-bottom: 30px !important;
   padding-top: 30px !important;
+  min-height: 100vh;
   contain: layout style;
 }
 
@@ -711,23 +712,84 @@ button:focus {
 .home-about-section {
   position: relative;
   z-index: 1;
-  padding-bottom: 70px !important;
-  padding-top: 70px !important;
+  padding-top: 4rem !important;
+  padding-bottom: 4rem !important;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-about-section > .container {
+  width: 100%;
+}
+
+.home-about-title {
+  font-size: 2.4em !important;
+  font-family: "Space Grotesk", sans-serif !important;
+  font-weight: 600 !important;
+  margin-bottom: 0.75rem !important;
 }
 
 .home-about-description {
   color: #1a1a1a !important;
-  padding-top: 100px !important;
-  padding-bottom: 20px !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
   text-align: center;
 }
 
+.home-about-subtitle {
+  text-align: center !important;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1.15em;
+  font-weight: 500;
+  font-style: italic;
+  color: var(--imp-text-color);
+  opacity: 0.9;
+  margin-bottom: 1.5rem !important;
+}
+
 .home-about-body {
-  padding-top: 50px;
-  font-size: 1.15em !important;
+  padding-top: 1.25rem;
+  font-size: 1.1em !important;
   text-align: left;
   color: #333333;
-  line-height: 1.8;
+  line-height: 1.7;
+}
+
+.home-about-body ul {
+  margin: 1rem 0;
+  padding-left: 1.5rem;
+}
+
+.home-about-body li {
+  margin-bottom: 0.75rem;
+}
+
+@media (max-height: 800px) {
+  .home-about-title {
+    font-size: 2em !important;
+  }
+  .home-about-body {
+    font-size: 1em !important;
+    line-height: 1.6;
+  }
+  .home-about-body li {
+    margin-bottom: 0.5rem;
+  }
+}
+
+@media (max-height: 700px) {
+  .home-about-title {
+    font-size: 1.7em !important;
+  }
+  .home-about-body {
+    font-size: 0.95em !important;
+    line-height: 1.5;
+  }
+  .home-about-subtitle {
+    font-size: 1em;
+  }
 }
 
 .home-about-social {

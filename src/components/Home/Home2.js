@@ -11,18 +11,15 @@ function Home2() {
       <Container>
         <Row className="align-items-center">
           <Col md={8} className="home-about-description">
-            <h1 style={{ fontSize: "2.6em", fontFamily: "'Space Grotesk', sans-serif", fontWeight: 600 }}>
+            <h1 className="home-about-title">
               {t("home2.title")}
             </h1>
-            <p className="home-about-body">
-              {t("home2.body")}
-              <br />
-              <br />
-              {t("home2.interests")}
-              <br />
-              <br />
-              {t("home2.frameworks")}
+            <p className="home-about-subtitle">
+              {t("home2.subtitle")}
             </p>
+            <div className="home-about-body">
+              {t("home2.body")}
+            </div>
           </Col>
           <Col md={4} className="myAvtar">
             <FlipAvatar interval={5000} />

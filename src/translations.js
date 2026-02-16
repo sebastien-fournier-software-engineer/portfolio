@@ -53,91 +53,98 @@ const translations = {
     },
 
     /* ------------------------------------------------------------------ */
-    /*  Home2 (introduction)                                               */
+    /*  Home2 (introduction / À Propos)                                    */
     /* ------------------------------------------------------------------ */
     home2: {
         title: {
-            en: <>LET ME <span className="purple"> INTRODUCE </span> MYSELF</>,
-            fr: <>LAISSEZ-MOI <span className="purple"> ME PRÉSENTER</span></>,
+            en: "About",
+            fr: "À Propos",
+        },
+        subtitle: {
+            en: "« Who am I? »",
+            fr: "« Qui suis-je ? »",
         },
         body: {
             en: (
                 <>
-                    I'm a Software Engineer who loves transforming ideas into
-                    reliable, scalable products. Over time, I've explored several
-                    technologies and found my passion in building high-performance
-                    systems and intuitive user experiences.
+                    Hybrid engineer with 6 years of experience in healthcare,
+                    industry, and transportation, I turn complex concepts into
+                    high-performance systems. At the intersection of software
+                    architecture, advanced robotics, and embedded intelligence, I
+                    ensure that technological innovation translates                     into reliable
+                    operational reality.
                     <br /><br />
-                    I'm proficient in
-                    <i>
-                        <b className="purple">
-                            {" "}JavaScript, C++, Rust, Node.js, and Java{" "}
-                        </b>
-                    </i>
-                    — and I enjoy working across both backend and frontend stacks.
+                    <strong>My various roles</strong>
+                    <ul>
+                        <li>
+                            <strong>The Architect:</strong> I structure your
+                            projects to build robust, maintainable systems. My goal
+                            is to ensure software reliability from the design phase
+                            to support the long-term evolution of your solutions.
+                        </li>
+                        <li>
+                            <strong>The Field &amp; Infrastructure Expert:</strong>{" "}
+                            With an operational mindset, I support infrastructures
+                            and CI/CD pipelines that streamline team workflows. I
+                            rely on relevant simulation and solid observability to
+                            secure the transition to real-world testing.
+                        </li>
+                        <li>
+                            <strong>The Strategic Partner:</strong> From design to
+                            deployment, I provide end-to-end expertise. Bilingual
+                            and pedagogical, I lead teams using a cross-functional
+                            language to turn your complex challenges into tangible
+                            results, both in industry and research centers.
+                        </li>
+                    </ul>
+                    My approach is based on an iterative methodology and a strong
+                    ability to prioritize the most critical challenges. Beyond
+                    technical expertise, I put my energy and proactivity at the
+                    service of the collective. Let&apos;s work together to turn your
+                    technological visions into lasting reality.
                 </>
             ),
             fr: (
                 <>
-                    Je suis un ingénieur logiciel passionné par la transformation
-                    d'idées en produits fiables et évolutifs. Au fil du temps,
-                    j'ai exploré plusieurs technologies et trouvé ma passion dans
-                    la construction de systèmes performants et d'expériences
-                    utilisateur intuitives.
+                    Ingénieur au profil hybride avec 6 ans d&apos;expérience
+                    dans les secteurs de la santé, de l&apos;industrie et des transports,
+                    je transforme des concepts complexes en systèmes performants. À
+                    l&apos;intersection de l&apos;architecture logicielle, de la robotique
+                    avancée et de l&apos;intelligence embarquée, j&apos;interviens pour
+                    garantir que l&apos;innovation technologique se traduise par une
+                    réalité opérationnelle fiable.
                     <br /><br />
-                    Je maîtrise
-                    <i>
-                        <b className="purple">
-                            {" "}JavaScript, C++, Rust, Node.js et Java{" "}
-                        </b>
-                    </i>
-                    — et j'aime travailler aussi bien côté backend que frontend.
-                </>
-            ),
-        },
-        interests: {
-            en: (
-                <>
-                    My key areas of interest include developing
-                    <i>
-                        <b className="purple">
-                            {" "}Web Applications, Blockchain Solutions,{" "}
-                        </b>
-                    </i>
-                    and exploring new ways to bridge on-chain and off-chain systems.
-                </>
-            ),
-            fr: (
-                <>
-                    Mes principaux domaines d'intérêt incluent le développement
-                    <i>
-                        <b className="purple">
-                            {" "}d'applications Web, de solutions Blockchain,{" "}
-                        </b>
-                    </i>
-                    et l'exploration de nouvelles façons de relier les systèmes on-chain et off-chain.
-                </>
-            ),
-        },
-        frameworks: {
-            en: (
-                <>
-                    Whenever possible, I love building projects with
-                    <b className="purple"> Node.js </b> and modern frameworks like{" "}
-                    <i>
-                        <b className="purple">React.js</b> and{" "}
-                        <b className="purple">Next.js</b>.
-                    </i>
-                </>
-            ),
-            fr: (
-                <>
-                    Dès que possible, j'adore construire des projets avec
-                    <b className="purple"> Node.js </b> et des frameworks modernes comme{" "}
-                    <i>
-                        <b className="purple">React.js</b> et{" "}
-                        <b className="purple">Next.js</b>.
-                    </i>
+                    <strong>Mes différentes casquettes</strong>
+                    <ul>
+                        <li>
+                            <strong>L&apos;Architecte :</strong> Je structure vos projets
+                            pour bâtir des systèmes robustes et maintenables. Mon
+                            objectif est d&apos;assurer la fiabilité logicielle dès la
+                            conception pour soutenir l&apos;évolution de vos solutions
+                            sur le long terme.
+                        </li>
+                        <li>
+                            <strong>L&apos;Expert Terrain &amp; Infrastructure :</strong>{" "}
+                            Avec une vision opérationnelle, j&apos;apporte un soutien aux
+                            infrastructures et pipelines CI/CD qui
+                            facilitent le quotidien des équipes. Je m&apos;appuie sur une
+                            simulation pertinente et une observabilité solide pour
+                            sécuriser le passage aux tests en conditions réelles.
+                        </li>
+                        <li>
+                            <strong>Le Partenaire Stratégique :</strong> De la conception
+                            au déploiement, j&apos;apporte une expertise complète.
+                            Bilingue et pédagogue, j&apos;anime les équipes en utilisant
+                            un langage multi-métier pour transformer vos
+                            enjeux complexes en résultats tangibles, en entreprise comme
+                            en centre de recherche.
+                        </li>
+                    </ul>
+                    Ma méthode repose sur une approche itérative et une
+                    forte capacité à prioriser les défis les plus critiques. Au-delà de
+                    l&apos;expertise technique, je mets mon énergie et ma proactivité au
+                    service d&apos;un collectif. Avançons ensemble pour transformer vos
+                    visions technologiques en une réalité durable.
                 </>
             ),
         },
@@ -252,12 +259,12 @@ const translations = {
                     <strong className="purple">R&amp;D d&apos;une entreprise</strong>{" "}
                     en pleine accélération ou que vous dirigiez l&apos;{" "}
                     <strong className="purple">innovation</strong>{" "}
-                    au sein d’un centre de recherche, je serais ravi d’échanger avec vous. Contactez-moi pour transformer vos concepts les plus complexes en solutions réelles, robustes et déployables.
+                    au sein d'un centre de recherche, je serais ravi d'échanger avec vous. Contactez-moi pour transformer vos concepts les plus complexes en solutions réelles, robustes et déployables.
                     <br /><br />
                     Vous êtes un{" "}
                     <strong className="purple">partenaire technologique</strong> ou un{" "}
                     <strong className="purple">bureau d&apos;études</strong>{" "}
-                    à la recherche d’une expertise de pointe en robotique, architecture logicielle ou Computer Vision&nbsp;?
+                    à la recherche d'une expertise de pointe en robotique, architecture logicielle ou Computer Vision&nbsp;?
                     Rencontrons-nous pour donner vie à vos projets les plus ambitieux.
                 </>
             ),
