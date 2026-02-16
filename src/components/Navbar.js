@@ -3,7 +3,8 @@ import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
-import { AiOutlineFundProjectionScreen, AiOutlineUser, AiOutlineMail } from "react-icons/ai";
+import { AiOutlineFundProjectionScreen, AiOutlineUser, AiOutlineMail, AiFillGithub } from "react-icons/ai";
+import { FaLinkedinIn } from "react-icons/fa";
 import { useLanguage } from "../Context/LanguageContext";
 import logo from "../Assets/home_logo.png";
 
@@ -149,9 +150,32 @@ function NavBar() {
                                 <UKFlag className={flagClass("en")} />
                             </Button>
                         </Nav.Item>
+
                     </Nav>
                 </Navbar.Collapse>
             </Container>
+
+            {/* Social icons — pinned to the far right edge of the navbar */}
+            <div className="navbar-social-icons">
+                <a
+                    href="https://www.linkedin.com/in/sebastien-fournier-software-robotics/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="navbar-social-link"
+                    aria-label="LinkedIn"
+                >
+                    <FaLinkedinIn />
+                </a>
+                <a
+                    href="https://github.com/sebastien-fournier-software-robotics"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="navbar-social-link"
+                    aria-label="GitHub"
+                >
+                    <AiFillGithub />
+                </a>
+            </div>
         </Navbar>
     );
 }

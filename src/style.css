@@ -346,6 +346,60 @@ button:focus {
   width: 100%;
 }
 
+/* --- 4e2. Navbar social icons (far right, separated from tabs) --- */
+
+.navbar-social-icons {
+  position: absolute;
+  right: 1.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  z-index: 2;
+}
+
+.navbar-social-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #333333 !important;
+  font-size: 1.2em;
+  width: 40px;
+  height: 40px;
+  background: #ffffff;
+  border-radius: 50%;
+  border: 1.5px solid #d0d0d0;
+  transition: 0.3s ease;
+}
+
+/* Subtle dark circle behind icon (matches home-social-icons) */
+.navbar-social-link::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: #1a1a1a;
+  transition: 0.3s ease;
+  transform: scale(0.9);
+  z-index: -1;
+}
+
+.navbar-social-link:hover::before {
+  transform: scale(1.1);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.navbar-social-link:hover {
+  color: #ffffff !important;
+  background: #1a1a1a !important;
+  border-color: #1a1a1a !important;
+}
+
 /* --- 4f. Navbar mobile overrides --- */
 
 @media (max-width: 767px) {
@@ -362,6 +416,11 @@ button:focus {
 
   .nav-link {
     padding: 0.7rem 1rem !important;
+  }
+
+  /* Hide social icons on mobile to avoid overlap with hamburger */
+  .navbar-social-icons {
+    display: none;
   }
 }
 
