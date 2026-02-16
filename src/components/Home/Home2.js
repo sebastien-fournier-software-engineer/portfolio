@@ -1,6 +1,7 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import FlipAvatar from "../FlipAvatar";
+import CustomerCarousel from "./CustomerCarousel";
 import { useLanguage } from "../../Context/LanguageContext";
 
 function Home2() {
@@ -19,6 +20,9 @@ function Home2() {
             </p>
             <div className="home-about-body">
               {t("home2.body")}
+            </div>
+            <div className="home-about-carousel-wrap">
+              <CustomerCarousel />
             </div>
           </Col>
           <Col md={4} className="myAvtar">

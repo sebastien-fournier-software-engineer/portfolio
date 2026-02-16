@@ -650,6 +650,10 @@ button:focus {
     padding-top: 2em !important;
     padding-bottom: 2em !important;
   }
+  .home-about-section .myAvtar {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
 }
 
 /* --- 5e-bis. Flip Avatar Card --- */
@@ -657,6 +661,7 @@ button:focus {
 .flip-avatar-container {
   perspective: 1000px;
   width: 100%;
+  min-width: 200px;
   max-width: 280px;
   margin: 0 auto;
   cursor: pointer;
@@ -712,8 +717,8 @@ button:focus {
 .home-about-section {
   position: relative;
   z-index: 1;
-  padding-top: 4rem !important;
-  padding-bottom: 4rem !important;
+  padding-top: 2rem !important;
+  padding-bottom: 2rem !important;
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -724,8 +729,17 @@ button:focus {
   width: 100%;
 }
 
+.home-about-section > .container > .row:first-child {
+  flex: 1;
+  min-height: 0;
+}
+
+.home-about-section .myAvtar {
+  padding-top: 0 !important;
+}
+
 .home-about-title {
-  font-size: 2.4em !important;
+  font-size: clamp(1.5em, 4vh, 2.2em) !important;
   font-family: "Space Grotesk", sans-serif !important;
   font-weight: 600 !important;
   margin-bottom: 0.75rem !important;
@@ -741,54 +755,148 @@ button:focus {
 .home-about-subtitle {
   text-align: center !important;
   font-family: "Space Grotesk", sans-serif;
-  font-size: 1.15em;
+  font-size: clamp(0.95em, 2vh, 1.1em);
   font-weight: 500;
   font-style: italic;
   color: var(--imp-text-color);
   opacity: 0.9;
-  margin-bottom: 1.5rem !important;
+  margin-bottom: 1rem !important;
 }
 
 .home-about-body {
   padding-top: 1.25rem;
-  font-size: 1.1em !important;
+  font-size: clamp(0.8em, 1.8vh, 1em) !important;
   text-align: left;
   color: #333333;
-  line-height: 1.7;
+  line-height: 1.65;
 }
 
 .home-about-body ul {
   margin: 1rem 0;
-  padding-left: 1.5rem;
+  padding-left: 1.2rem;
 }
 
 .home-about-body li {
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.6rem;
 }
+
+/* --- Customer logos carousel --- */
+
+.home-about-carousel-wrap {
+  padding-top: 2rem;
+  margin-top: 2rem;
+  padding-bottom: 1rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  flex-shrink: 0;
+}
+
+.customer-carousel {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+
+.customer-carousel::before,
+.customer-carousel::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 80px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.customer-carousel::before {
+  left: 0;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.95), transparent);
+}
+
+.customer-carousel::after {
+  right: 0;
+  background: linear-gradient(to left, rgba(255, 255, 255, 0.9), transparent);
+}
+
+.customer-carousel-track {
+  display: flex;
+  width: max-content;
+  animation: customerCarouselScroll 30s linear infinite;
+}
+
+.customer-carousel-set {
+  display: flex;
+  gap: 3rem;
+  padding-right: 3rem;
+  flex-shrink: 0;
+}
+
+.customer-carousel-item {
+  flex-shrink: 0;
+}
+
+.customer-carousel-item img {
+  height: clamp(40px, 8vh, 56px);
+  width: auto;
+  max-width: 200px;
+  object-fit: contain;
+  opacity: 0.5;
+  filter: grayscale(30%);
+  transition: opacity 0.3s ease;
+}
+
+.customer-carousel-item:hover img {
+  opacity: 0.8;
+}
+
+@keyframes customerCarouselScroll {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-25%, 0, 0);
+  }
+}
+
 
 @media (max-height: 800px) {
   .home-about-title {
-    font-size: 2em !important;
+    font-size: 1.6em !important;
   }
   .home-about-body {
-    font-size: 1em !important;
-    line-height: 1.6;
+    font-size: 0.9em !important;
+    line-height: 1.45;
   }
   .home-about-body li {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.25rem;
+  }
+  .home-about-carousel-wrap {
+    padding-top: 0.75rem;
   }
 }
 
 @media (max-height: 700px) {
+  .home-about-section {
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
+  }
   .home-about-title {
-    font-size: 1.7em !important;
+    font-size: 1.4em !important;
   }
   .home-about-body {
-    font-size: 0.95em !important;
-    line-height: 1.5;
+    font-size: 0.82em !important;
+    line-height: 1.4;
   }
   .home-about-subtitle {
-    font-size: 1em;
+    font-size: 0.9em;
+  }
+  .home-about-carousel-wrap {
+    padding-top: 0.5rem;
+  }
+  .customer-carousel-item img {
+    height: 36px !important;
+  }
+  .home-about-section .flip-avatar-container {
+    max-width: 200px;
   }
 }
 

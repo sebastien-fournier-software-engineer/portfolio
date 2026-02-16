@@ -43,7 +43,7 @@ function App() {
 }
 // Portfolio TODO list:
 // [x] : présentation + CV / Contact Me button(scroll to contact) + animation
-// TODO : Qui suis-je ?
+// [x] : About
 // TODO : Compétences + stack
 // TODO : Expériences / clients
 // TODO : Projets
