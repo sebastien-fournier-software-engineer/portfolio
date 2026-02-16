@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import Container from "react-bootstrap/Container";
@@ -86,17 +86,14 @@ function NavBar() {
     /** Current language ("en" | "fr"), toggle callback, and t() translator from context. */
     const { language, toggleLanguage, t } = useLanguage();
 
-    /**
-     * Adds the "sticky" class to the navbar once the user has scrolled
-     * 20 px or more, which activates the frosted-glass overlay via CSS.
-     */
-    function scrollHandler() {
+    const scrollHandler = useCallback(() => {
         updateNavbar(window.scrollY >= 20);
-    }
+    }, []);
 
-    // NOTE: listener is re-attached on every render — acceptable for a
-    // single-page portfolio; a useEffect cleanup could be added later.
-    window.addEventListener("scroll", scrollHandler);
+    useEffect(() => {
+        window.addEventListener("scroll", scrollHandler, { passive: true });
+        return () => window.removeEventListener("scroll", scrollHandler);
+    }, [scrollHandler]);
 
     /**
      * Returns the appropriate CSS class for a flag SVG based on

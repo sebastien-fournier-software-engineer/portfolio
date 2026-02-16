@@ -99,10 +99,11 @@ export default function ParticleSphere() {
 
     const renderer = new THREE.WebGLRenderer({
       alpha: true,
-      antialias: true,
+      antialias: false,
+      powerPreference: "low-power",
     });
     renderer.setSize(width, height);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
     container.appendChild(renderer.domElement);
 
     /* --- Particle group (so everything rotates together) --- */
@@ -132,7 +133,7 @@ export default function ParticleSphere() {
 
     /* --- Invisible sphere for raycasting --- */
     const hitSphere = new THREE.Mesh(
-      new THREE.SphereGeometry(radius * 1.15, 32, 16),
+      new THREE.SphereGeometry(radius * 1.15, 16, 8),
       new THREE.MeshBasicMaterial({ visible: false })
     );
     group.add(hitSphere);
@@ -154,7 +155,7 @@ export default function ParticleSphere() {
     const trailShaderMat = new THREE.ShaderMaterial({
       uniforms: {
         uColor: { value: new THREE.Color(0x1a1a1a) },
-        uPixelRatio: { value: Math.min(window.devicePixelRatio, 2) },
+        uPixelRatio: { value: Math.min(window.devicePixelRatio, 1.5) },
       },
       vertexShader: /* glsl */ `
         attribute float aSize;
@@ -225,16 +226,22 @@ export default function ParticleSphere() {
 
     let satTime = 0;
 
-    /* --- Raycaster & mouse --- */
+    /* --- Raycaster & mouse (throttled to ~60 Hz) --- */
     const raycaster = new THREE.Raycaster();
     const mouseNDC = new THREE.Vector2(-10, -10); // start off-screen
 
+    let mouseMoveScheduled = false;
     function onMouseMove(e) {
-      const rect = container.getBoundingClientRect();
-      mouseNDC.x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
-      mouseNDC.y = -((e.clientY - rect.top) / rect.height) * 2 + 1;
+      if (mouseMoveScheduled) return;
+      mouseMoveScheduled = true;
+      requestAnimationFrame(() => {
+        const rect = container.getBoundingClientRect();
+        mouseNDC.x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
+        mouseNDC.y = -((e.clientY - rect.top) / rect.height) * 2 + 1;
+        mouseMoveScheduled = false;
+      });
     }
-    window.addEventListener("mousemove", onMouseMove);
+    window.addEventListener("mousemove", onMouseMove, { passive: true });
 
     /* --- Animation state --- */
     let currentSpeedMul = 1.0;
@@ -356,9 +363,9 @@ export default function ParticleSphere() {
       camera.aspect = w / h;
       camera.updateProjectionMatrix();
       renderer.setSize(w, h);
-      trailShaderMat.uniforms.uPixelRatio.value = Math.min(window.devicePixelRatio, 2);
+      trailShaderMat.uniforms.uPixelRatio.value = Math.min(window.devicePixelRatio, 1.5);
     }
-    window.addEventListener("resize", onResize);
+    window.addEventListener("resize", onResize, { passive: true });
 
     /* --- Cleanup --- */
     return () => {

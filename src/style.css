@@ -29,6 +29,8 @@ html, body {
 
 html {
   scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 
   /* Section backgrounds — light & clean */
   --section-background-color: linear-gradient(
@@ -142,14 +144,13 @@ button:focus {
   z-index: 0;
   pointer-events: none;
   opacity: 0;
-  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: opacity;
+  transition: opacity 0.4s ease;
 
-  /* Clean frosted white glass */
-  background: rgba(255, 255, 255, 0.85);
-
-  /* Frosted glass */
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  /* Clean frosted white glass — reduced blur for perf */
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 
   box-shadow:
     0 1px 0 rgba(0, 0, 0, 0.05),
@@ -215,7 +216,7 @@ button:focus {
 .navbar {
   position: fixed !important;
   z-index: 100 !important;
-  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  transition: padding 0.3s ease, background-color 0.3s ease !important;
   padding: 0.3rem 2rem !important;
   font-size: 1.05rem !important;
   font-family: "Space Grotesk", "Inter", sans-serif !important;
@@ -489,6 +490,9 @@ button:focus {
   width: 100% !important;
   height: 100% !important;
   z-index: 0 !important;
+  will-change: transform;
+  contain: strict;
+  pointer-events: none;
 }
 
 /* --- 5c. Hero layout --- */
@@ -504,6 +508,7 @@ button:focus {
   background-repeat: no-repeat;
   padding-bottom: 30px !important;
   padding-top: 30px !important;
+  contain: layout style;
 }
 
 .home-content {
@@ -882,12 +887,10 @@ button:focus {
 .project-card-view {
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06) !important;
   color: #1a1a1a !important;
-  background-color: rgba(255, 255, 255, 0.9) !important;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  background-color: rgba(255, 255, 255, 0.95) !important;
   border: 1px solid rgba(0, 0, 0, 0.06) !important;
   opacity: 1 !important;
-  transition: all 0.3s ease 0s !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
   height: 100% !important;
   border-radius: 8px !important;
 }
@@ -916,13 +919,11 @@ button:focus {
 }
 
 .blog-card-view {
-  background-color: rgba(255, 255, 255, 0.9) !important;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  background-color: rgba(255, 255, 255, 0.95) !important;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06) !important;
   color: #1a1a1a !important;
   border: 1px solid rgba(0, 0, 0, 0.06) !important;
-  transition: all 0.3s ease 0s !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
   height: 100% !important;
   border-radius: 8px !important;
 }
@@ -1004,7 +1005,7 @@ button:focus {
   border-radius: 24px !important;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
   overflow: hidden !important;
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, outline-color 0.3s ease;
   width: fit-content !important;
   cursor: pointer !important;
   color: #333333;

@@ -5,13 +5,17 @@ import Particles from "react-tsparticles";
  * Neural-cloud particle background: dark grey/black nodes
  * connected like a network of neurons on a white canvas.
  * Organic, slow movement — sober and premium.
+ *
+ * Performance-optimised: reduced count, disabled per-particle
+ * animations, limited link distance, and FPS cap.
  */
 function Particle() {
   const config = useMemo(
     () => ({
       fullScreen: { enable: false },
-      pauseOnBlur: false,
-      pauseOnOutsideViewport: false,
+      pauseOnBlur: true,
+      pauseOnOutsideViewport: true,
+      fpsLimit: 30,
       background: { color: { value: "transparent" } },
       particles: {
         number: {
@@ -54,17 +58,12 @@ function Particle() {
           random: true,
           straight: false,
           outModes: { default: "bounce" },
-          attract: {
-            enable: true,
-            rotateX: 600,
-            rotateY: 1200,
-          },
         },
       },
       interactivity: {
         events: {
           onHover: { enable: true, mode: "grab" },
-          onClick: { enable: true, mode: "push" },
+          onClick: { enable: false },
         },
         modes: {
           grab: {
@@ -74,7 +73,6 @@ function Particle() {
               color: "#555555",
             },
           },
-          push: { quantity: 2 },
         },
       },
       detectRetina: true,

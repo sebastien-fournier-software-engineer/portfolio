@@ -31,12 +31,23 @@ function App() {
         <Navbar />
         <Home />
         <About />
+        <section id="skills" style={{ minHeight: "50vh", padding: "80px 0" }} />
+        <section id="experiences" style={{ minHeight: "50vh", padding: "80px 0" }} />
         <Projects />
+        <section id="education" style={{ minHeight: "50vh", padding: "80px 0" }} />
         <FindMeOn />
         <Footer />
       </div>
     </LanguageProvider>
   );
 }
-
+// Portfolio TODO list:
+// [x] : présentation + CV / Contact Me button(scroll to contact) + animation
+// TODO : Qui suis-je ?
+// TODO : Compétences + stack
+// TODO : Expériences / clients
+// TODO : Projets
+// TODO : Formation
+// TODO : (Certifications)
+// [x] : Contact Section : CTA + Liens : Mail / LinkedIn / GitHub
 export default App;
