@@ -10,7 +10,7 @@ function Footer() {
         <Container fluid className="footer">
             <Row>
                 <Col md={12} className="footer-copywright">
-                    <h3>©{year} Sébastien Fournier | Portfolio | {t("footer.designed")}</h3>
+                    <h3>©{year} Sébastien Fournier | Portfolio | {t("footer.allRightsReserved")}</h3>
                 </Col>
             </Row>
         </Container>

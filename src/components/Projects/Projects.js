@@ -16,7 +16,7 @@ function Projects() {
     <Container fluid className="project-section" id="project">
       <Container>
         <h1 className="project-heading">
-          {t("projects.heading")}
+          {t("projects.title")}
         </h1>
         <p style={{ color: "#555555" }}>
           {t("projects.subtitle")}

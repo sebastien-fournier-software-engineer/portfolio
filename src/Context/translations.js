@@ -21,7 +21,7 @@ const translations = {
     },
 
     /* ------------------------------------------------------------------ */
-    /*  Home (hero section)                                                */
+    /*  Home                                                               */
     /* ------------------------------------------------------------------ */
     home: {
         greeting: { en: "Hello There!", fr: "Bonjour !" },
@@ -31,7 +31,7 @@ const translations = {
     },
 
     /* ------------------------------------------------------------------ */
-    /*  Typewriter strings                                                 */
+    /*  Typewriter                                                         */
     /* ------------------------------------------------------------------ */
     typewriter: {
         strings: {
@@ -53,7 +53,7 @@ const translations = {
     },
 
     /* ------------------------------------------------------------------ */
-    /*  About (À Propos)                                                   */
+    /*  About                                                              */
     /* ------------------------------------------------------------------ */
     about: {
         title: {
@@ -151,14 +151,14 @@ const translations = {
     },
 
     /* ------------------------------------------------------------------ */
-    /*  Skills / Compétences section                                      */
+    /*  Skills                                                             */
     /* ------------------------------------------------------------------ */
     skills: {
-        skillset: {
+        title: {
             en: <>Professional <strong className="purple">Skillset</strong> & <strong className="purple">Tools</strong></>,
             fr: <>Compétences <strong className="purple">professionnelles</strong> & <strong className="purple">outils</strong></>,
         },
-        valueProposition: {
+        valuePillarsTitle: {
             en: "What I bring to the table",
             fr: "Ma valeur apportée",
         },
@@ -192,11 +192,7 @@ const translations = {
                 },
             },
         },
-        expertiseDomains: {
-            en: "Operations, management & support",
-            fr: "Opérationnel, gestion & accompagnement",
-        },
-        categoriesSectionTitle: {
+        categoriesTitle: {
             en: "Technical expertise",
             fr: "Expertise technique",
         },
@@ -265,6 +261,10 @@ const translations = {
                 },
                 tech: ["Agile", "Scrum", "Facilitation", "Roadmap"],
             },
+        },
+        operationalTitle: {
+            en: "Operations, management & support",
+            fr: "Opérationnel, gestion & accompagnement",
         },
         operationalItems: {
             en: [
@@ -335,10 +335,10 @@ const translations = {
     },
 
     /* ------------------------------------------------------------------ */
-    /*  Projects section                                                   */
+    /*  Projects                                                           */
     /* ------------------------------------------------------------------ */
     projects: {
-        heading: {
+        title: {
             en: <>My Recent <strong className="purple">Works</strong></>,
             fr: <>Mes <strong className="purple">projets</strong> récents</>,
         },
@@ -349,7 +349,7 @@ const translations = {
     },
 
     /* ------------------------------------------------------------------ */
-    /*  FindMeOn (contact section)                                         */
+    /*  FindMeOn                                                           */
     /* ------------------------------------------------------------------ */
     findMeOn: {
         title: {
@@ -394,7 +394,7 @@ const translations = {
     /*  Footer                                                             */
     /* ------------------------------------------------------------------ */
     footer: {
-        designed: {
+        allRightsReserved: {
             en: "All rights reserved",
             fr: "Tous droits réservés",
         },

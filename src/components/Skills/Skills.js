@@ -83,11 +83,11 @@ function Skills() {
   return (
     <section id="skills" className="skills-section" style={{ minHeight: "50vh", padding: "80px 0" }}>
       <Container>
-        <h1 className="project-heading">{t("skills.skillset")}</h1>
+        <h1 className="project-heading">{t("skills.title")}</h1>
 
         {/* Value proposition */}
         <div className="skills-value-proposition">
-          <h3 className="skills-value-title">{t("skills.valueProposition")}</h3>
+          <h3 className="skills-value-title">{t("skills.valuePillarsTitle")}</h3>
           <Row className="skills-value-pillars">
             {VALUE_PILLARS.map(({ key, Icon }) => {
               const pillar = translations.skills.valuePillars[key];
@@ -111,7 +111,7 @@ function Skills() {
 
         {/* Skill categories + Operational */}
         <div className="skills-categories-wrapper">
-          <h3 className="skills-categories-title">{t("skills.categoriesSectionTitle")}</h3>
+          <h3 className="skills-categories-title">{t("skills.categoriesTitle")}</h3>
           <Row className="skills-categories">
             {CATEGORY_KEYS.map((key) => {
               const cat = translations.skills.categories[key];
@@ -150,7 +150,7 @@ function Skills() {
 
           {/* Opérationnel, gestion & accompagnement */}
           <div className="skills-operational">
-            <h3 className="skills-operational-title">{t("skills.expertiseDomains")}</h3>
+            <h3 className="skills-operational-title">{t("skills.operationalTitle")}</h3>
             <div className="skills-operational-tags">
               {(t("skills.operationalItems") || []).map((point, i) => (
                 <span key={i} className="skills-operational-tag">{point}</span>
