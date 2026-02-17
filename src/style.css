@@ -711,18 +711,46 @@ a, button, [role="button"], .btn, [data-bs-toggle], .nav-link, .navbar-toggler {
 .home-type-wrap {
   padding: 50px;
   text-align: left;
+  /* Hauteur fixe pour éviter que les boutons bougent quand le texte long s'affiche */
+  height: 6em;
+  min-height: 6em;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+@media (max-width: 1200px) {
+  /* Laptop */
+  .home-type-wrap {
+    padding: 2rem 2.5rem;
+    height: 5.5em;
+    min-height: 5.5em;
+  }
+}
+
+@media (max-width: 991px) {
+  /* Tablette paysage */
+  .home-type-wrap {
+    padding: 1.75rem 2rem;
+    height: 5em;
+    min-height: 5em;
+  }
 }
 
 @media (max-width: 767px) {
   .home-type-wrap {
     padding: 1.5rem 1rem;
     text-align: center;
+    height: 4.5em;
+    min-height: 4.5em;
   }
 }
 
 @media (max-width: 480px) {
   .home-type-wrap {
     padding: 1rem 0.75rem;
+    height: 4em;
+    min-height: 4em;
   }
 }
 
@@ -738,15 +766,36 @@ a, button, [role="button"], .btn, [data-bs-toggle], .nav-link, .navbar-toggler {
   color: #4a4a4a !important;
 }
 
+/* Laptop */
+@media (max-width: 1200px) {
+  .Typewriter__wrapper {
+    font-size: 1.9em !important;
+  }
+
+  .Typewriter__cursor {
+    font-size: 2.1em !important;
+  }
+}
+
+/* Tablette */
+@media (max-width: 991px) {
+  .Typewriter__wrapper {
+    font-size: 1.6em !important;
+  }
+
+  .Typewriter__cursor {
+    font-size: 1.8em !important;
+  }
+}
+
 @media (max-width: 767px) {
   .Typewriter__wrapper {
     font-size: 1.4em !important;
     font-weight: 500 !important;
-    position: absolute !important;
   }
 
   .Typewriter__cursor {
-    display: none !important;
+    font-size: 1.5em !important;
   }
 }
 
@@ -754,6 +803,10 @@ a, button, [role="button"], .btn, [data-bs-toggle], .nav-link, .navbar-toggler {
 @media (max-width: 480px) {
   .Typewriter__wrapper {
     font-size: 1.15em !important;
+  }
+
+  .Typewriter__cursor {
+    font-size: 1.25em !important;
   }
 }
 
