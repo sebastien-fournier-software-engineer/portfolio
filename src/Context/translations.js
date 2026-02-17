@@ -71,7 +71,7 @@ const translations = {
                     industry, and transportation, I turn complex concepts into
                     high-performance systems. At the intersection of software
                     architecture, advanced robotics, and embedded intelligence, I
-                    ensure that technological innovation translates                     into reliable
+                    ensure that technological innovation translates into reliable
                     operational reality.
                     <br /><br />
                     <strong>My various roles</strong>
@@ -278,7 +278,7 @@ const translations = {
             ],
             fr: [
                 "Prototypage d'outils software et de carte électronique",
-                "Réglages systèmes",
+                "Réglage systèmes",
                 "Support technique et formation",
                 "Rédaction d'études et spécifications",
                 "Chiffrage et Gestion de projets",
@@ -322,7 +322,7 @@ const translations = {
         },
         activities: {
             en: "Outside of coding, I love engaging in activities that keep me creative and inspired:",
-            fr: "En dehors du code, j'adore m'adonner à des activités qui stimulent ma créativité :",
+            fr: "En dehors du code, j'adore m'adonner à des activités qui stimulent ma créativité et mon inspiration :",
         },
         activityList: {
             en: ["Playing Games 🎮", "Writing Tech Blogs ✍️", "Traveling and Exploring New Places 🌍"],
@@ -377,8 +377,7 @@ const translations = {
                 <>
                     Que vous pilotiez la{" "}
                     <strong className="purple">R&amp;D d&apos;une entreprise</strong>{" "}
-                    en pleine accélération ou que vous dirigiez l&apos;{" "}
-                    <strong className="purple">innovation</strong>{" "}
+                    en pleine accélération ou que vous dirigiez l&apos;<strong className="purple">innovation</strong>{" "}
                     au sein d'un centre de recherche, je serais ravi d'échanger avec vous. Contactez-moi pour transformer vos concepts les plus complexes en solutions réelles, robustes et déployables.
                     <br /><br />
                     Vous êtes un{" "}
@@ -397,7 +396,7 @@ const translations = {
     footer: {
         designed: {
             en: "All rights reserved",
-            fr: "Tout droits réservés",
+            fr: "Tous droits réservés",
         },
     },
 };
