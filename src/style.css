@@ -839,6 +839,53 @@ a, button, [role="button"], .btn, [data-bs-toggle], .nav-link, .navbar-toggler {
   }
 }
 
+/* --- 5e-bis. Particle sphere (3D orb) --- */
+
+.particle-sphere-container {
+  width: 100%;
+  height: 550px;
+  position: relative;
+}
+
+/* Laptop (992px - 1199px) */
+@media (max-width: 1199px) {
+  .particle-sphere-container {
+    height: 480px !important;
+  }
+}
+
+/* Tablet (768px - 991px) — ratio 1:1 pour éviter la troncature sur les côtés */
+@media (max-width: 991px) {
+  .particle-sphere-container {
+    aspect-ratio: 1;
+    height: auto !important;
+    max-height: 420px;
+  }
+}
+
+/* Mobile (< 768px) */
+@media (max-width: 767px) {
+  .particle-sphere-container {
+    aspect-ratio: 1;
+    height: auto !important;
+    max-height: 320px;
+  }
+}
+
+/* Petit mobile */
+@media (max-width: 480px) {
+  .particle-sphere-container {
+    max-height: 260px;
+  }
+}
+
+/* Paysage (écran court) */
+@media (orientation: landscape) and (max-height: 500px) {
+  .particle-sphere-container {
+    height: 220px !important;
+  }
+}
+
 /* --- 5e. Avatar --- */
 
 .myAvtar {
@@ -873,7 +920,7 @@ a, button, [role="button"], .btn, [data-bs-toggle], .nav-link, .navbar-toggler {
   }
 }
 
-/* --- 5e-bis. Flip Avatar Card --- */
+/* --- 5e-ter. Flip Avatar Card --- */
 
 .flip-avatar-container {
   perspective: 1000px;

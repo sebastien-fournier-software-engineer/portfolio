@@ -394,11 +394,7 @@ export default function ParticleSphere() {
   return (
     <div
       ref={containerRef}
-      style={{
-        width: "100%",
-        height: "550px",
-        position: "relative",
-      }}
+      className="particle-sphere-container"
     />
   );
 }
