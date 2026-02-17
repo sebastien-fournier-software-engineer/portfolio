@@ -214,7 +214,7 @@ const translations = {
                 tech: ["ROS2", "Nav2", "SLAM Toolbox", "RTAB-Map", "Cartographer"],
             },
             computerVision: {
-                title: { en: "Computer Vision & Edge AI", fr: "Computer Vision & Edge AI" },
+                title: { en: "Computer Vision & Edge\u00A0AI", fr: "Computer Vision & Edge\u00A0AI" },
                 description: {
                     en: "Train, integrate, optimize and industrialize your perception / machine learning pipelines.",
                     fr: "Entraîner, intégrer, optimiser, industrialiser vos pipelines de perception / machine learning.",
