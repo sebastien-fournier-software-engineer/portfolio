@@ -495,8 +495,8 @@ a, button, [role="button"], .btn, [data-bs-toggle], .nav-link, .navbar-toggler {
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
-    /* padding-top 0 pour égaliser l'espace au-dessus du premier tab (À Propos) avec Expérience etc. */
-    padding: 0 0 1rem 0 !important;
+    /* padding-bottom 0 : l'espace icons ↔ bas = navbar-social-icons-mobile padding (0.75rem), comme delimiter ↔ icons */
+    padding: 0 !important;
     margin-top: 0.5rem;
     box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.08);
   }
@@ -539,8 +539,7 @@ a, button, [role="button"], .btn, [data-bs-toggle], .nav-link, .navbar-toggler {
     align-items: center !important;
     justify-content: center !important;
     min-height: 44px;
-    /* padding-top plus grand pour compenser le margin-top de navbar-social-icons-mobile */
-    padding: 1.25rem 0.5rem 0.75rem 0.5rem !important;
+    padding: 0.75rem 0.5rem !important;
   }
 
   .navbar-nav .nav-item .lang-toggle-btn {
@@ -555,14 +554,14 @@ a, button, [role="button"], .btn, [data-bs-toggle], .nav-link, .navbar-toggler {
     display: none;
   }
 
-  /* Social icons dans le menu mobile (affichés quand le menu est ouvert) */
+  /* Social icons dans le menu mobile — espacement = Experience, délimiteur uniquement au-dessus */
   .navbar-social-icons-mobile {
     display: flex !important;
     align-items: center;
     justify-content: center;
     gap: 0.75rem;
-    padding: 1rem 0.5rem 0.5rem;
-    margin-top: 0.5rem;
+    padding: 0.75rem 0.5rem !important;
+    margin-top: 0;
     box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.08);
     width: 100%;
   }
