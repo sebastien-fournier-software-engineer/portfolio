@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import { AiOutlineCarryOut, AiOutlineTeam, AiOutlineTool, AiOutlineShareAlt, AiOutlineCompass, AiOutlineEnvironment, AiOutlineProject, AiOutlineCode, AiOutlineCluster } from "react-icons/ai";
+import { AiOutlineCarryOut, AiOutlineTeam, AiOutlineTool, AiOutlineShareAlt, AiOutlineCompass, AiOutlineEnvironment, AiOutlineLineChart, AiOutlineCode, AiOutlineCluster } from "react-icons/ai";
 import { SiCplusplus, SiSwagger, SiFastapi, SiRos, SiNvidia, SiPytorch, SiTensorflow, SiDocker, SiGitlab, SiGithubactions, SiGrafana, SiBoost, SiRobotframework, SiJira } from "react-icons/si";
 import { useLanguage } from "../../Context/LanguageContext";
 import translations from "../../Context/translations";
@@ -14,7 +14,6 @@ import PlotJugglerIcon from "../../Assets/TechIcons/PlotJuggler.svg";
 import FoxGloveIcon from "../../Assets/TechIcons/FoxGlove.svg";
 import GoogleIcon from "../../Assets/TechIcons/Google.svg";
 import GazeboIcon from "../../Assets/TechIcons/Gazebo.svg";
-import RVizIcon from "../../Assets/TechIcons/RViz.svg";
 import TensorRTIcon from "../../Assets/TechIcons/TensorRT.svg";
 
 const TECH_ICON_IMGS = {
@@ -27,7 +26,6 @@ const TECH_ICON_IMGS = {
   "FoxGlove": FoxGloveIcon,
   "Google Test": GoogleIcon,
   "Gazebo": GazeboIcon,
-  "RViz": RVizIcon,
   "TensorRT": TensorRTIcon,
 };
 
@@ -38,6 +36,7 @@ const TECH_COLORS = {
   "API Rest": "#000000",
   "FastAPI": "#009688",
   "ROS2": "#22314E",
+  "RViz": "#22314E",
   "NVIDIA Jetson": "#76B900",
   "OpenCV": "#00A86B",
   "PyTorch": "#EE4C2C",
@@ -51,6 +50,7 @@ const TECH_COLORS = {
   "Robot Framework": "#00C0B5",
   "Agile": "#0052CC",
   "Scrum": "#0052CC",
+  "Roadmap": "#000000",
   "Google Test": "#34A853",
   "Isaac Sim": "#76B900",
 };
@@ -80,7 +80,7 @@ const TECH_ICONS = {
   "Grafana": SiGrafana,
   "Gazebo": null,
   "Isaac Sim": SiNvidia,
-  "RViz": null,
+  "RViz": SiRos,
   "Google Test": null,
   "Boost": SiBoost,
   "PyTest": null,
@@ -88,7 +88,7 @@ const TECH_ICONS = {
   "Agile": SiJira,
   "Scrum": SiJira,
   "Facilitation": AiOutlineTeam,
-  "Roadmap": AiOutlineProject,
+  "Roadmap": AiOutlineLineChart,
 };
 
 const VALUE_PILLARS = [
