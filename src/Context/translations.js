@@ -206,7 +206,7 @@ const translations = {
                 tech: ["C++", "Python", "microservices", "API Rest", "FastAPI"],
             },
             robotics: {
-                title: { en: "Robotics & Navigation", fr: "Robotique et Navigation" },
+                title: { en: "Robotics", fr: "Robotique" },
                 description: {
                     en: "Navigation and control, sensor fusion, 2D/3D localization, mapping, path planning, obstacle detection and avoidance.",
                     fr: "Navigation et contrôle, fusion de capteurs, localisation 2D/3D, mapping, planification de trajectoires, détection et évitement d'obstacles.",
@@ -256,8 +256,8 @@ const translations = {
             strategy: {
                 title: { en: "Strategy & Business Vision", fr: "Stratégie et vision business" },
                 description: {
-                    en: "Align technical and business stakeholders through clear communication, bilingual (FR/EN) and a shared strategic vision.",
-                    fr: "Aligner les parties prenantes techniques et business grâce à une communication claire, bilingue (FR/EN) et une vision stratégique partagée.",
+                    en: "Align teams and stakeholders through clear, bilingual (FR/EN) communication and shared vision.",
+                    fr: "Aligner les métiers grâce à une communication claire, bilingue (FR/EN) et une vision partagée.",
                 },
                 tech: ["Agile", "Scrum", "Facilitation", "Roadmap"],
             },
