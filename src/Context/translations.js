@@ -187,7 +187,7 @@ const translations = {
             knowledge: {
                 title: { en: "Transfer", fr: "Transmettre" },
                 description: {
-                    en: "Preserve know-how and knowledge.",
+                    en: "Preserve expertise and knowledge.",
                     fr: "Conservez le savoir-faire et les connaissances.",
                 },
             },
@@ -208,7 +208,7 @@ const translations = {
             robotics: {
                 title: { en: "Robotics & Navigation", fr: "Robotique et Navigation" },
                 description: {
-                    en: "Navigation and control, sensor fusion, 2D/3D localization, mapping, trajectory planning, obstacle detection and avoidance.",
+                    en: "Navigation and control, sensor fusion, 2D/3D localization, mapping, path planning, obstacle detection and avoidance.",
                     fr: "Navigation et contrôle, fusion de capteurs, localisation 2D/3D, mapping, planification de trajectoires, détection et évitement d'obstacles.",
                 },
                 tech: ["ROS2", "Nav2", "SLAM Toolbox", "RTAB-Map", "Cartographer"],
