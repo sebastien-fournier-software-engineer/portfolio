@@ -25,6 +25,7 @@
 
 html, body {
   overflow-x: hidden;
+  cursor: url('./Assets/cursor.svg') 4 4, auto;
 }
 
 html {
@@ -57,6 +58,21 @@ html {
 /* Remove default focus ring on buttons */
 button:focus {
   box-shadow: none !important;
+}
+
+/* Text selection highlight — charcoal/grey to match page style */
+::selection {
+  background-color: rgba(45, 45, 45, 0.2);
+  color: inherit;
+}
+::-moz-selection {
+  background-color: rgba(45, 45, 45, 0.2);
+  color: inherit;
+}
+
+/* Custom cursor — charcoal to match page style */
+a, button, [role="button"], .btn, [data-bs-toggle], .nav-link, .navbar-toggler {
+  cursor: url('./Assets/cursor.svg') 4 4, pointer;
 }
 
 
