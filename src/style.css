@@ -2156,6 +2156,8 @@ a, button, [role="button"], .btn, [data-bs-toggle], .nav-link, .navbar-toggler {
   padding: 6px 14px 6px 10px;
   font-size: 0.85em;
   font-weight: 500;
+  font-family: "JetBrains Mono", "Fira Code", "SF Mono", Consolas, monospace;
+  letter-spacing: 0.03em;
   color: #444;
   background: rgba(255, 255, 255, 0.8);
   border-radius: 16px;
@@ -2424,63 +2426,75 @@ a, button, [role="button"], .btn, [data-bs-toggle], .nav-link, .navbar-toggler {
 
 .experiences-meta {
   padding-right: 24px;
+  border-right: 1px solid rgba(0, 0, 0, 0.06);
 }
 
 .experiences-period {
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 0.9em;
+  font-size: 0.78em;
   font-weight: 500;
-  color: #555;
-  margin-bottom: 8px;
+  color: #6b7280;
+  font-family: "JetBrains Mono", "Fira Code", "SF Mono", Consolas, monospace;
+  letter-spacing: 0.04em;
+  margin-bottom: 10px;
 }
 
 .experiences-company {
-  font-size: 1.05em;
+  font-size: 1em;
   font-weight: 600;
-  color: #1a1a1a;
+  color: #111827;
   font-family: "Space Grotesk", sans-serif;
+  letter-spacing: 0.02em;
 }
 
 .experiences-meta-icon {
-  font-size: 1.1em;
-  color: var(--imp-text-color, #2d2d2d);
+  font-size: 0.95em;
+  color: #6b7280;
   flex-shrink: 0;
+  opacity: 0.8;
 }
 
 .experiences-role {
   display: flex;
   align-items: center;
-  gap: 8px;
-  font-size: 1.05em;
+  gap: 10px;
+  font-size: 0.98em;
   margin-bottom: 12px;
-  color: #252525;
+  color: #1f2937;
+  font-weight: 600;
+}
+
+.experiences-role .experiences-meta-icon {
+  opacity: 0.6;
 }
 
 .experiences-description {
-  color: #444;
-  font-size: 0.95em;
-  line-height: 1.6;
+  color: #4b5563;
+  font-size: 0.9em;
+  line-height: 1.65;
   font-family: "Inter", sans-serif;
 }
 
 .experiences-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px 12px;
-  margin-top: 16px;
+  gap: 6px 10px;
+  margin-top: 14px;
 }
 
 .experiences-tag {
   display: inline-block;
-  padding: 6px 14px;
-  font-size: 0.82em;
+  padding: 5px 12px;
+  font-size: 0.75em;
   font-weight: 500;
-  color: #333;
-  background: rgba(255, 255, 255, 0.9);
-  border-radius: 16px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: #374151;
+  font-family: "JetBrains Mono", "Fira Code", "SF Mono", Consolas, monospace;
+  background: rgba(17, 24, 39, 0.04);
+  border-radius: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  letter-spacing: 0.03em;
 }
 
 @media (max-width: 767px) {
@@ -2513,6 +2527,9 @@ a, button, [role="button"], .btn, [data-bs-toggle], .nav-link, .navbar-toggler {
   .experiences-meta {
     padding-right: 0;
     margin-bottom: 12px;
+    border-right: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    padding-bottom: 12px;
   }
   .experiences-period {
     margin-bottom: 4px;
