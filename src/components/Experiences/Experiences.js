@@ -94,11 +94,16 @@ function ExperienceCard({ exp }) {
         : exp.duration;
 
     return (
-        <div className="experiences-card">
+        <div className={`experiences-card${exp.isCurrent ? " experiences-card--ongoing" : ""}`}>
             <Row className="align-items-start">
                 {/* Colonne gauche : entreprise, période, durée cumulée, lieu */}
                 <Col md={3} className="experiences-meta">
-                    <div className="experiences-company">{exp.company}</div>
+                    <div className="experiences-company">
+                        {exp.company}
+                        {exp.isCurrent && (
+                            <span className="experiences-ongoing-badge">{t("experiences.ongoing")}</span>
+                        )}
+                    </div>
                     <div className="experiences-period">
                         <AiOutlineCalendar className="experiences-meta-icon" />
                         <span>{exp.period}</span>
@@ -154,7 +159,7 @@ function ExperienceCard({ exp }) {
 
 function ExperienceTimelineItem({ exp }) {
     return (
-        <div className="experiences-timeline-item">
+        <div className={`experiences-timeline-item${exp.isCurrent ? " experiences-timeline-item--ongoing" : ""}`}>
             <div className="experiences-timeline-node">
                 <span className="experiences-timeline-node-dot" />
             </div>
