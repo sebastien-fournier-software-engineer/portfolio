@@ -324,17 +324,22 @@ const translations = {
             fr: "Principaux postes et collaborations.",
         },
         labels: {
-            project: { en: "Project", fr: "Projet" },
+            project: { en: "Project / Context", fr: "Projet / Contexte" },
             missions: { en: "Missions", fr: "Missions" },
-            achievements: { en: "Key achievements", fr: "Réalisations marquantes" },
+            achievements: { en: "Key achievements", fr: "Réalisations" },
             results: { en: "Results", fr: "Résultats" },
+            tools: { en: "Tools / Stack / Skills", fr: "Outils / Stack / Compétences" },
+            duration: { en: "Duration", fr: "Durée cumulée" },
+            location: { en: "Location", fr: "Lieu" },
         },
         entries: {
             en: [
                 {
-                    company: "Company / Client name",
+                    company: "Freelance",
                     role: "Your role (e.g. Robotics Engineer, Consultant)",
                     period: "2022 – Present",
+                    duration: "2 years",
+                    location: "Remote / Paris",
                     project: "Project name or context.",
                     missions: [
                         "Describe your main missions and responsibilities.",
@@ -353,6 +358,8 @@ const translations = {
                     company: "Another company or client",
                     role: "Previous role",
                     period: "2020 – 2022",
+                    duration: "2 years",
+                    location: "City, Country",
                     project: "Project context.",
                     missions: ["Main mission description."],
                     achievements: ["Main achievement."],
@@ -362,9 +369,11 @@ const translations = {
             ],
             fr: [
                 {
-                    company: "Entreprise / Nom du client",
-                    role: "Votre poste (ex. Ingénieur Robotique, Consultant)",
-                    period: "2022 – Aujourd'hui",
+                    company: "Freelance",
+                    role: "Ingénieur en robotique",
+                    period: "mai 2025 – Aujourd'hui",
+                    duration: "2 ans",
+                    location: "Télétravail / Paris",
                     project: "Nom du projet ou contexte.",
                     missions: [
                         "Décrivez vos principales missions et responsabilités.",
@@ -383,6 +392,8 @@ const translations = {
                     company: "Autre entreprise ou client",
                     role: "Poste précédent",
                     period: "2020 – 2022",
+                    duration: "2 ans",
+                    location: "Ville, Pays",
                     project: "Contexte du projet.",
                     missions: ["Description de la mission principale."],
                     achievements: ["Réalisation principale."],

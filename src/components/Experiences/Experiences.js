@@ -6,6 +6,9 @@ import {
     AiOutlineCheckCircle,
     AiOutlineRocket,
     AiOutlineLineChart,
+    AiOutlineClockCircle,
+    AiOutlineEnvironment,
+    AiOutlineTool,
 } from "react-icons/ai";
 import { FaBriefcase } from "react-icons/fa";
 import { useLanguage } from "../../Context/LanguageContext";
@@ -61,13 +64,27 @@ function ExperienceCard({ exp }) {
     return (
         <div className="experiences-card">
             <Row className="align-items-start">
+                {/* Colonne gauche : entreprise, période, durée cumulée, lieu */}
                 <Col md={3} className="experiences-meta">
+                    <div className="experiences-company">{exp.company}</div>
                     <div className="experiences-period">
                         <AiOutlineCalendar className="experiences-meta-icon" />
                         <span>{exp.period}</span>
                     </div>
-                    <div className="experiences-company">{exp.company}</div>
+                    {exp.duration && (
+                        <div className="experiences-meta-row">
+                            <AiOutlineClockCircle className="experiences-meta-icon" />
+                            <span>{exp.duration}</span>
+                        </div>
+                    )}
+                    {exp.location && (
+                        <div className="experiences-meta-row">
+                            <AiOutlineEnvironment className="experiences-meta-icon" />
+                            <span>{exp.location}</span>
+                        </div>
+                    )}
                 </Col>
+                {/* Colonne droite : poste, contexte, missions, réalisations, résultats, outils */}
                 <Col md={9} className="experiences-content">
                     <div className="experiences-role">
                         <FaBriefcase className="experiences-meta-icon" />
@@ -86,12 +103,15 @@ function ExperienceCard({ exp }) {
                     ))}
 
                     {exp.tags?.length > 0 && (
-                        <div className="experiences-tags">
-                            {exp.tags.map((tag, i) => (
-                                <span key={i} className="experiences-tag">
-                                    {tag}
-                                </span>
-                            ))}
+                        <div className="experiences-block experiences-block--tools">
+                            <ExperienceBlockHeader labelKey="tools" Icon={AiOutlineTool} />
+                            <div className="experiences-tags">
+                                {exp.tags.map((tag, i) => (
+                                    <span key={i} className="experiences-tag">
+                                        {tag}
+                                    </span>
+                                ))}
+                            </div>
                         </div>
                     )}
                 </Col>

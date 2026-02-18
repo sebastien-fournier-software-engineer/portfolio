@@ -2287,7 +2287,7 @@ a, button, [role="button"], .btn, [data-bs-toggle], .nav-link, .navbar-toggler {
 
 /* Timeline: 48px left column for track (center at 24px) + connector, cards start at 48px */
 .experiences-timeline {
-  max-width: 900px;
+  max-width: 960px;
   margin: 0 auto;
   position: relative;
   padding-left: 48px;
@@ -2389,49 +2389,72 @@ a, button, [role="button"], .btn, [data-bs-toggle], .nav-link, .navbar-toggler {
 }
 
 .experiences-meta {
-  padding-right: 24px;
-  border-right: 1px solid rgba(0, 0, 0, 0.06);
+  padding-right: 28px;
+  padding-left: 4px;
+  margin-right: -4px;
+  border-right: 1px solid rgba(0, 0, 0, 0.08);
+  background: linear-gradient(to right, rgba(17, 24, 39, 0.02) 0%, transparent 100%);
+  border-radius: 8px 0 0 8px;
 }
 
-.experiences-period {
+.experiences-company {
+  font-size: 1.05em;
+  font-weight: 700;
+  color: #111827;
+  font-family: "Space Grotesk", sans-serif;
+  letter-spacing: 0.02em;
+  margin-bottom: 14px;
+  line-height: 1.3;
+}
+
+.experiences-period,
+.experiences-meta-row {
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 0.78em;
+  font-size: 0.76em;
   font-weight: 500;
   color: #6b7280;
   font-family: "JetBrains Mono", "Fira Code", "SF Mono", Consolas, monospace;
   letter-spacing: 0.04em;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
+  line-height: 1.4;
 }
 
-.experiences-company {
-  font-size: 1em;
-  font-weight: 600;
-  color: #111827;
-  font-family: "Space Grotesk", sans-serif;
-  letter-spacing: 0.02em;
+.experiences-meta-row:last-child {
+  margin-bottom: 0;
+}
+
+.experiences-meta > div:last-child {
+  margin-bottom: 0;
 }
 
 .experiences-meta-icon {
-  font-size: 0.95em;
+  font-size: 0.9em;
   color: #6b7280;
   flex-shrink: 0;
-  opacity: 0.8;
+  opacity: 0.85;
+}
+
+.experiences-content {
+  padding-left: 4px;
 }
 
 .experiences-role {
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: 0.98em;
-  margin-bottom: 12px;
+  font-size: 1.05em;
+  margin-bottom: 14px;
+  padding-bottom: 12px;
   color: #1f2937;
-  font-weight: 600;
+  font-weight: 700;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
 }
 
 .experiences-role .experiences-meta-icon {
-  opacity: 0.6;
+  opacity: 0.65;
+  color: var(--imp-text-color, #2d2d2d);
 }
 
 .experiences-description {
@@ -2456,7 +2479,7 @@ a, button, [role="button"], .btn, [data-bs-toggle], .nav-link, .navbar-toggler {
   border-color: rgba(0, 0, 0, 0.08);
 }
 
-.experiences-block:first-of-type {
+.experiences-content .experiences-block:first-of-type {
   margin-top: 0;
 }
 
@@ -2497,6 +2520,23 @@ a, button, [role="button"], .btn, [data-bs-toggle], .nav-link, .navbar-toggler {
 
 .experiences-block--results .experiences-block-icon-wrap {
   background: rgba(168, 85, 247, 0.08);
+}
+
+.experiences-block--tools .experiences-block-icon-wrap {
+  background: rgba(245, 158, 11, 0.1);
+}
+
+.experiences-block--tools .experiences-block-icon {
+  color: #d97706;
+}
+
+.experiences-block--tools .experiences-tags {
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+
+.experiences-block--tools .experiences-block-header {
+  margin-bottom: 12px;
 }
 
 .experiences-block-icon {
@@ -2610,14 +2650,23 @@ a, button, [role="button"], .btn, [data-bs-toggle], .nav-link, .navbar-toggler {
     padding: 20px;
   }
   .experiences-meta {
-    padding-right: 0;
-    margin-bottom: 12px;
+    padding: 14px 16px;
+    margin-right: 0;
+    margin-bottom: 16px;
     border-right: none;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-    padding-bottom: 12px;
+    border-bottom: none;
+    background: rgba(17, 24, 39, 0.03);
+    border-radius: 8px;
   }
-  .experiences-period {
-    margin-bottom: 4px;
+  .experiences-meta > div:last-child {
+    margin-bottom: 0;
+  }
+  .experiences-content {
+    padding-left: 0;
+  }
+  .experiences-role {
+    padding-bottom: 10px;
+    margin-bottom: 12px;
   }
 }
 
