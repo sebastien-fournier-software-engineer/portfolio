@@ -67,20 +67,21 @@ const translations = {
         body: {
             en: (
                 <>
-                    Hybrid engineer with 6 years of experience in healthcare,
-                    industry, and transportation, I turn complex concepts into
-                    high-performance systems. At the intersection of software
-                    architecture, advanced robotics, and embedded intelligence, I
-                    ensure that technological innovation translates into reliable
-                    operational reality.
+                    Hybrid Robotics / Software engineer with 6 years of experience
+                    in healthcare, industry, and transportation sectors, I turn
+                    complex concepts into high-performance systems. At the
+                    intersection of software architecture, advanced robotics, and
+                    embedded intelligence, I work to ensure that technological
+                    innovation translates into reliable operational reality.
                     <br /><br />
                     <strong>My various roles</strong>
                     <ul>
                         <li>
                             <strong>The Architect:</strong> I structure your
-                            projects to build robust, maintainable systems. My goal
-                            is to ensure software reliability from the design phase
-                            to support the long-term evolution of your solutions.
+                            projects to build robust and maintainable systems. My
+                            goal is to ensure software reliability from the design
+                            phase to support the long-term evolution of your
+                            solutions.
                         </li>
                         <li>
                             <strong>The Field &amp; Infrastructure Expert:</strong>{" "}
@@ -106,7 +107,7 @@ const translations = {
             ),
             fr: (
                 <>
-                    Ingénieur au profil hybride avec 6 ans d&apos;expérience
+                    Ingénieur au profil hybride Robotique / Logiciel avec 6 ans d&apos;expérience
                     dans les secteurs de la santé, de l&apos;industrie et des transports,
                     je transforme des concepts complexes en systèmes performants. À
                     l&apos;intersection de l&apos;architecture logicielle, de la robotique
