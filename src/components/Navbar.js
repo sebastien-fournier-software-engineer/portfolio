@@ -13,12 +13,17 @@ import logo from "../Assets/home_logo.png";
 /* ------------------------------------------------------------------ */
 
 /**
- * Smoothly scrolls the viewport to the element matching `sectionId`.
- * Prevents the default anchor-link jump so the transition stays fluid.
+ * Smoothly scrolls the viewport to the section matching `sectionId`.
+ * Scrolls to the section title (h1) so it appears at a consistent height below
+ * the fixed navbar. Falls back to the section element if no title is found.
  */
 function scrollToSection(e, sectionId) {
     e.preventDefault();
-    document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth", block: "start" });
+    const section = document.getElementById(sectionId);
+    if (!section) return;
+    const title = section.querySelector(".project-heading, .home-about-title");
+    const target = title || section;
+    target.scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
 /** Shared inline style applied to every nav-link icon for vertical alignment. */

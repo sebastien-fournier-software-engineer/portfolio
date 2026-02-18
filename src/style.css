@@ -698,6 +698,7 @@ a, button, [role="button"], .btn, [data-bs-toggle], .nav-link, .navbar-toggler {
   padding-top: 30px !important;
   min-height: 100vh;
   contain: layout style;
+  scroll-margin-top: 5rem; /* align below fixed navbar when scrolling from nav */
 }
 
 .home-content {
@@ -1148,6 +1149,7 @@ a, button, [role="button"], .btn, [data-bs-toggle], .nav-link, .navbar-toggler {
   font-family: "Space Grotesk", sans-serif !important;
   font-weight: 600 !important;
   margin-bottom: 0.75rem !important;
+  scroll-margin-top: 5rem; /* align title below fixed navbar when scrolling from nav */
 }
 
 .home-about-description {
@@ -1568,6 +1570,7 @@ a, button, [role="button"], .btn, [data-bs-toggle], .nav-link, .navbar-toggler {
   font-weight: 600 !important;
   padding-top: 10px !important;
   font-family: "Space Grotesk", sans-serif;
+  scroll-margin-top: 5rem; /* align title below fixed navbar when scrolling from nav */
 }
 
 @media (max-width: 767px) {
