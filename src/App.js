@@ -53,7 +53,7 @@ function App() {
 // [x] : présentation + CV / Contact Me button(scroll to contact) + animation
 // [x] : About
 // [x] : Compétences + stack
-// [x] : Expériences / clients
+// TODO : Expériences / clients
 // TODO : Projets
 // TODO : Formation + (Certifications)
 // [x] : Contact Section : CTA + Liens : Mail / LinkedIn / GitHub

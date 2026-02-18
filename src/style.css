@@ -2261,14 +2261,8 @@ a, button, [role="button"], .btn, [data-bs-toggle], .nav-link, .navbar-toggler {
   }
 
   .experiences-block-list li {
-    margin-bottom: 10px;
-    padding-left: 20px;
-  }
-
-  .experiences-block-list li::before {
-    width: 5px;
-    height: 5px;
-    top: 0.6em;
+    padding: 10px 10px;
+    margin: 0 -10px;
   }
 
   .experiences-tag {
@@ -2405,11 +2399,36 @@ a, button, [role="button"], .btn, [data-bs-toggle], .nav-link, .navbar-toggler {
   transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
-.experiences-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.08), 0 2px 6px rgba(0, 0, 0, 0.05);
-  border-left-color: var(--imp-text-color, #2d2d2d);
+/* Grille : row 1 = company | role, row 2 = period/duration/location | project/missions/etc. */
+.experiences-card--grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 3fr);
+  grid-template-rows: auto auto;
+  gap: 16px 24px;
+  align-items: stretch;
 }
+
+.experiences-grid-col1 { grid-column: 1; }
+.experiences-grid-col2 { grid-column: 2; }
+.experiences-grid-row1 { grid-row: 1; }
+.experiences-grid-row2 { grid-row: 2; }
+
+/* Alignement vertical de la ligne 1 : company et role alignés en haut (évite le désalignement quand l'un a 2 lignes) */
+.experiences-card--grid .experiences-grid-row1 {
+  display: flex;
+  align-items: flex-start;
+}
+
+.experiences-card--grid .experiences-grid-row1 .experiences-company {
+  margin-bottom: 0;
+}
+
+.experiences-card--grid .experiences-grid-row1 .experiences-role {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
 
 /* Ongoing experience — accent vert, badge et effet visuel */
 .experiences-card--ongoing {
@@ -2417,18 +2436,27 @@ a, button, [role="button"], .btn, [data-bs-toggle], .nav-link, .navbar-toggler {
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04), 0 0 0 1px rgba(22, 163, 74, 0.12);
 }
 
-.experiences-card--ongoing:hover {
-  border-left-color: #15803d;
-  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.08), 0 2px 6px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(22, 163, 74, 0.15);
-}
 
 .experiences-meta {
-  padding-right: 28px;
-  padding-left: 4px;
-  margin-right: -4px;
-  border-right: 1px solid rgba(0, 0, 0, 0.08);
-  background: linear-gradient(to right, rgba(17, 24, 39, 0.02) 0%, transparent 100%);
-  border-radius: 8px 0 0 8px;
+  padding: 16px 20px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-left: 3px solid rgba(45, 45, 45, 0.12);
+  transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.experiences-meta:hover {
+  background: rgba(255, 255, 255, 0.85);
+  border-color: rgba(0, 0, 0, 0.08);
+  border-left-color: rgba(45, 45, 45, 0.25);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  transform: translateY(-1px);
+}
+
+/* La colonne meta ne s'étire pas : le background suit uniquement le contenu */
+.experiences-card--grid .experiences-grid-col1.experiences-grid-row2 {
+  align-self: start;
 }
 
 .experiences-company {
@@ -2522,44 +2550,61 @@ a, button, [role="button"], .btn, [data-bs-toggle], .nav-link, .navbar-toggler {
   font-family: "Inter", sans-serif;
 }
 
-/* Structured blocks: Projet, Missions, Réalisations, Résultats */
+/* Structured blocks: Projet, Missions, Réalisations, Résultats — couleurs désactivées par défaut */
 .experiences-block {
   margin-top: 18px;
   padding: 18px 20px;
-  background: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.5);
   border-radius: 12px;
-  border: 1px solid rgba(0, 0, 0, 0.06);
-  border-left: 3px solid rgba(45, 45, 45, 0.15);
-  transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-left: 3px solid rgba(45, 45, 45, 0.12);
+  transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
 }
 
-.experiences-card:hover .experiences-block {
-  background: rgba(255, 255, 255, 0.8);
+.experiences-block:hover {
+  background: rgba(255, 255, 255, 0.85);
   border-color: rgba(0, 0, 0, 0.08);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  transform: translateY(-1px);
 }
 
 .experiences-content .experiences-block:first-of-type {
   margin-top: 0;
 }
 
-.experiences-block--project {
+.experiences-block--project:hover {
   border-left-color: rgba(45, 45, 45, 0.25);
 }
 
-.experiences-block--missions {
+.experiences-block--missions:hover {
   border-left-color: rgba(22, 163, 74, 0.35);
 }
 
-.experiences-block--achievements {
+.experiences-block--achievements:hover {
   border-left-color: rgba(59, 130, 246, 0.35);
 }
 
-.experiences-block--results {
+.experiences-block--results:hover {
   border-left-color: rgba(124, 58, 237, 0.35);
 }
 
-.experiences-block--tools {
+.experiences-result-number {
+  font-size: 0.9em;
+  font-weight: 700;
+  color: #7c3aed;
+  font-family: "JetBrains Mono", "Fira Code", "SF Mono", Consolas, monospace;
+  padding: 0 4px;
+  border-radius: 4px;
+  background: rgba(124, 58, 237, 0.08);
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.experiences-block--results:hover .experiences-result-number {
+  background: rgba(124, 58, 237, 0.12);
+  color: #6d28d9;
+}
+
+.experiences-block--tools:hover {
   border-left-color: rgba(217, 119, 6, 0.4);
 }
 
@@ -2583,29 +2628,36 @@ a, button, [role="button"], .btn, [data-bs-toggle], .nav-link, .navbar-toggler {
   height: 30px;
   border-radius: 8px;
   flex-shrink: 0;
+  background: rgba(45, 45, 45, 0.06);
+  transition: background 0.2s ease;
 }
 
-.experiences-block--project .experiences-block-icon-wrap {
+.experiences-block--project:hover .experiences-block-icon-wrap {
   background: rgba(45, 45, 45, 0.08);
 }
 
-.experiences-block--missions .experiences-block-icon-wrap {
+.experiences-block--missions:hover .experiences-block-icon-wrap {
   background: rgba(22, 163, 74, 0.12);
 }
 
-.experiences-block--achievements .experiences-block-icon-wrap {
+.experiences-block--achievements:hover .experiences-block-icon-wrap {
   background: rgba(59, 130, 246, 0.12);
 }
 
-.experiences-block--results .experiences-block-icon-wrap {
+.experiences-block--results:hover .experiences-block-icon-wrap {
   background: rgba(124, 58, 237, 0.1);
 }
 
-.experiences-block--tools .experiences-block-icon-wrap {
+.experiences-block--tools:hover .experiences-block-icon-wrap {
   background: rgba(245, 158, 11, 0.1);
 }
 
 .experiences-block--tools .experiences-block-icon {
+  color: #6b7280;
+  transition: color 0.2s ease;
+}
+
+.experiences-block--tools:hover .experiences-block-icon {
   color: #d97706;
 }
 
@@ -2620,19 +2672,20 @@ a, button, [role="button"], .btn, [data-bs-toggle], .nav-link, .navbar-toggler {
 
 .experiences-block-icon {
   font-size: 0.9em;
-  color: #374151;
+  color: #6b7280;
   flex-shrink: 0;
+  transition: color 0.2s ease;
 }
 
-.experiences-block--missions .experiences-block-icon {
+.experiences-block--missions:hover .experiences-block-icon {
   color: #16a34a;
 }
 
-.experiences-block--achievements .experiences-block-icon {
+.experiences-block--achievements:hover .experiences-block-icon {
   color: #2563eb;
 }
 
-.experiences-block--results .experiences-block-icon {
+.experiences-block--results:hover .experiences-block-icon {
   color: #7c3aed;
 }
 
@@ -2656,7 +2709,7 @@ a, button, [role="button"], .btn, [data-bs-toggle], .nav-link, .navbar-toggler {
   padding-right: 0;
   list-style: none;
   color: #374151;
-  font-size: 0.92em;
+  font-size: 0.86em;
   line-height: 1.75;
   font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
   letter-spacing: 0.01em;
@@ -2664,35 +2717,19 @@ a, button, [role="button"], .btn, [data-bs-toggle], .nav-link, .navbar-toggler {
 
 .experiences-block-list li {
   position: relative;
-  margin-bottom: 12px;
-  padding-left: 22px;
+  padding: 12px 12px;
+  margin: 0 -12px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 6px;
+  transition: background 0.2s ease;
 }
 
-.experiences-block-list li::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0.65em;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: rgba(45, 45, 45, 0.2);
+.experiences-block-list li:hover {
+  background: rgba(0, 0, 0, 0.04);
 }
 
 .experiences-block-list li:last-child {
-  margin-bottom: 0;
-}
-
-.experiences-block--missions .experiences-block-list li::before {
-  background: rgba(22, 163, 74, 0.4);
-}
-
-.experiences-block--achievements .experiences-block-list li::before {
-  background: rgba(59, 130, 246, 0.45);
-}
-
-.experiences-block--results .experiences-block-list li::before {
-  background: rgba(124, 58, 237, 0.4);
+  border-bottom: none;
 }
 
 .experiences-tags {
@@ -2741,21 +2778,36 @@ a, button, [role="button"], .btn, [data-bs-toggle], .nav-link, .navbar-toggler {
   }
   .experiences-card {
     padding: 20px;
+    min-width: 0;
+    overflow-wrap: break-word;
   }
+  .experiences-card--grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto auto;
+    gap: 12px 0;
+  }
+  .experiences-card--grid .experiences-grid-col1,
+  .experiences-card--grid .experiences-grid-col2 {
+    grid-column: 1;
+    min-width: 0;
+  }
+  .experiences-card--grid .experiences-grid-col1.experiences-grid-row1 { grid-row: 1; }
+  .experiences-card--grid .experiences-grid-col2.experiences-grid-row1 { grid-row: 2; }
+  .experiences-card--grid .experiences-grid-col1.experiences-grid-row2 { grid-row: 3; }
+  .experiences-card--grid .experiences-grid-col2.experiences-grid-row2 { grid-row: 4; }
   .experiences-meta {
     padding: 14px 16px;
-    margin-right: 0;
-    margin-bottom: 16px;
-    border-right: none;
-    border-bottom: none;
-    background: rgba(17, 24, 39, 0.03);
-    border-radius: 8px;
+    margin-bottom: 0;
   }
   .experiences-meta > div:last-child {
     margin-bottom: 0;
   }
   .experiences-content {
     padding-left: 0;
+    min-width: 0;
+  }
+  .experiences-block {
+    min-width: 0;
   }
   .experiences-role {
     padding-bottom: 10px;

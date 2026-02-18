@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import {
     AiOutlineCalendar,
     AiOutlineProject,
@@ -59,17 +59,33 @@ function ExperienceBlockHeader({ labelKey, Icon }) {
     );
 }
 
+/**
+ * Enveloppe les valeurs chiffrées (ex: 35%, 50%) dans un span pour le style results.
+ */
+function formatResultWithNumbers(text) {
+    if (typeof text !== "string") return text;
+    const parts = text.split(/(\d+%?)/g);
+    return parts.map((part, i) =>
+        /^\d+%?$/.test(part) ? (
+            <span key={i} className="experiences-result-number">{part}</span>
+        ) : (
+            part
+        )
+    );
+}
+
 function ExperienceListBlock({ labelKey, Icon, items }) {
     if (!items || (Array.isArray(items) && items.length === 0)) return null;
 
     const list = Array.isArray(items) ? items : [items];
+    const isResults = labelKey === "results";
 
     return (
         <div className={`experiences-block experiences-block--${labelKey}`}>
             <ExperienceBlockHeader labelKey={labelKey} Icon={Icon} />
             <ul className="experiences-block-list">
                 {list.map((item, i) => (
-                    <li key={i}>{item}</li>
+                    <li key={i}>{isResults ? formatResultWithNumbers(item) : item}</li>
                 ))}
             </ul>
         </div>
@@ -94,65 +110,67 @@ function ExperienceCard({ exp }) {
         : exp.duration;
 
     return (
-        <div className={`experiences-card${exp.isCurrent ? " experiences-card--ongoing" : ""}`}>
-            <Row className="align-items-start">
-                {/* Colonne gauche : entreprise, période, durée cumulée, lieu */}
-                <Col md={3} className="experiences-meta">
-                    <div className="experiences-company">
-                        {exp.company}
-                        {exp.isCurrent && (
-                            <span className="experiences-ongoing-badge">{t("experiences.ongoing")}</span>
-                        )}
-                    </div>
-                    <div className="experiences-period">
-                        <AiOutlineCalendar className="experiences-meta-icon" />
-                        <span>{exp.period}</span>
-                    </div>
-                    {duration && (
-                        <div className="experiences-meta-row">
-                            <AiOutlineClockCircle className="experiences-meta-icon" />
-                            <span>{duration}</span>
-                        </div>
+        <div className={`experiences-card experiences-card--grid${exp.isCurrent ? " experiences-card--ongoing" : ""}`}>
+            {/* Row 1 : company | role */}
+            <div className="experiences-grid-col1 experiences-grid-row1">
+                <div className="experiences-company">
+                    {exp.company}
+                    {exp.isCurrent && (
+                        <span className="experiences-ongoing-badge">{t("experiences.ongoing")}</span>
                     )}
-                    {exp.location && (
-                        <div className="experiences-meta-row">
-                            <AiOutlineEnvironment className="experiences-meta-icon" />
-                            <span>{exp.location}</span>
-                        </div>
-                    )}
-                </Col>
-                {/* Colonne droite : poste, contexte, missions, réalisations, résultats, outils */}
-                <Col md={9} className="experiences-content">
-                    <div className="experiences-role">
-                        <FaBriefcase className="experiences-meta-icon" />
-                        <strong>{exp.role}</strong>
+                </div>
+            </div>
+            <div className="experiences-grid-col2 experiences-grid-row1">
+                <div className="experiences-role">
+                    <FaBriefcase className="experiences-meta-icon" />
+                    <strong>{exp.role}</strong>
+                </div>
+            </div>
+
+            {/* Row 2+ : period/duration/location | project/missions/achievements/results/tags */}
+            <div className="experiences-grid-col1 experiences-grid-row2 experiences-meta">
+                <div className="experiences-period">
+                    <AiOutlineCalendar className="experiences-meta-icon" />
+                    <span>{exp.period}</span>
+                </div>
+                {duration && (
+                    <div className="experiences-meta-row">
+                        <AiOutlineClockCircle className="experiences-meta-icon" />
+                        <span>{duration}</span>
                     </div>
+                )}
+                {exp.location && (
+                    <div className="experiences-meta-row">
+                        <AiOutlineEnvironment className="experiences-meta-icon" />
+                        <span>{exp.location}</span>
+                    </div>
+                )}
+            </div>
+            <div className="experiences-grid-col2 experiences-grid-row2 experiences-content">
+                <ExperienceProjectBlock project={exp.project} />
 
-                    <ExperienceProjectBlock project={exp.project} />
+                {LIST_BLOCKS.map(({ labelKey, Icon, dataKey }) => (
+                    <ExperienceListBlock
+                        key={labelKey}
+                        labelKey={labelKey}
+                        Icon={Icon}
+                        items={exp[dataKey]}
+                    />
+                ))}
 
-                    {LIST_BLOCKS.map(({ labelKey, Icon, dataKey }) => (
-                        <ExperienceListBlock
-                            key={labelKey}
-                            labelKey={labelKey}
-                            Icon={Icon}
-                            items={exp[dataKey]}
-                        />
-                    ))}
-
-                    {exp.tags?.length > 0 && (
-                        <div className="experiences-block experiences-block--tools">
-                            <ExperienceBlockHeader labelKey="tools" Icon={AiOutlineTool} />
-                            <div className="experiences-tags">
-                                {exp.tags.map((tag, i) => (
-                                    <span key={i} className="experiences-tag">
-                                        {tag}
-                                    </span>
-                                ))}
-                            </div>
+                {exp.tags?.length > 0 && (
+                    <div className="experiences-block experiences-block--tools">
+                        <ExperienceBlockHeader labelKey="tools" Icon={AiOutlineTool} />
+                        <div className="experiences-tags">
+                            {exp.tags.map((tag, i) => (
+                                <span key={i} className="experiences-tag">
+                                    {tag}
+                                </span>
+                            ))}
                         </div>
-                    )}
-                </Col>
-            </Row>
+                    </div>
+                )}
+            </div>
         </div>
     );
 }
