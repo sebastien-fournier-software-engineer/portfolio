@@ -1,7 +1,63 @@
 import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
-import { AiOutlineCalendar, AiOutlineRead } from "react-icons/ai";
+import { Container } from "react-bootstrap";
+import { AiOutlineCalendar } from "react-icons/ai";
+import { MdOutlineMenuBook } from "react-icons/md";
 import { useLanguage } from "../../Context/LanguageContext";
+
+function parseEducationPeriod(period) {
+  if (!period || typeof period !== "string") return { start: period, end: null, separator: null };
+  const match = period.match(/^(.+?)\s+[–-]\s+(.+)$/);
+  if (match) return { start: match[1].trim(), end: match[2].trim(), separator: " – " };
+  return { start: period, end: null, separator: null };
+}
+
+function EducationCard({ entry }) {
+  const { t } = useLanguage();
+  const { start, end, separator } = parseEducationPeriod(entry.period);
+
+  return (
+    <div className="experiences-card experiences-card--grid">
+      <div className="experiences-grid-col1 experiences-grid-row1">
+        <div className="experiences-company">{entry.school}</div>
+      </div>
+      <div className="experiences-grid-col2 experiences-grid-row1">
+        <div className="experiences-role">{entry.degree}</div>
+      </div>
+
+      <div className="experiences-grid-col1 experiences-grid-row2 experiences-meta">
+        <div className="experiences-period">
+          <span className="experiences-meta-icon-wrap">
+            <AiOutlineCalendar className="experiences-meta-icon" />
+          </span>
+          <div className="experiences-period-content">
+            <span className="experiences-period-start">{start}</span>
+            {end && <span className="experiences-period-end">{separator}{end}</span>}
+          </div>
+        </div>
+      </div>
+      <div className="experiences-grid-col2 experiences-grid-row2 experiences-content">
+        {entry.description && (
+          <div className="experiences-description">{entry.description}</div>
+        )}
+        {entry.tags && entry.tags.length > 0 && (
+          <div className="experiences-block experiences-block--tags">
+            <div className="experiences-block-header">
+              <span className="experiences-block-icon-wrap">
+                <MdOutlineMenuBook className="experiences-block-icon" />
+              </span>
+              <span className="experiences-block-label">{t("education.labels.subjects")}</span>
+            </div>
+            <div className="experiences-tags">
+              {entry.tags.map((tag, i) => (
+                <span key={i} className="experiences-tag">{tag}</span>
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
 
 function Education() {
   const { t } = useLanguage();
@@ -21,31 +77,7 @@ function Education() {
                 <span className="experiences-timeline-node-dot" />
               </div>
               <div className="experiences-timeline-connector" aria-hidden="true" />
-              <div className="experiences-card">
-                <Row className="align-items-start">
-                  <Col md={3} className="experiences-meta">
-                    <div className="experiences-period">
-                      <AiOutlineCalendar className="experiences-meta-icon" />
-                      <span>{entry.period}</span>
-                    </div>
-                    <div className="experiences-company">{entry.school}</div>
-                  </Col>
-                  <Col md={9} className="experiences-content">
-                    <div className="experiences-role">
-                      <AiOutlineRead className="experiences-meta-icon" />
-                      <strong>{entry.degree}</strong>
-                    </div>
-                    <div className="experiences-description">{entry.description}</div>
-                    {entry.tags && entry.tags.length > 0 && (
-                      <div className="experiences-tags">
-                        {entry.tags.map((tag, i) => (
-                          <span key={i} className="experiences-tag">{tag}</span>
-                        ))}
-                      </div>
-                    )}
-                  </Col>
-                </Row>
-              </div>
+              <EducationCard entry={entry} />
             </div>
           ))}
         </div>

@@ -2766,7 +2766,7 @@ a, button, [role="button"], .btn, [data-bs-toggle], .nav-link, .navbar-toggler {
 }
 
 .experiences-block-icon {
-  font-size: 0.9em;
+  font-size: 1.1em;
   color: #6b7280;
   flex-shrink: 0;
   transition: color 0.2s ease;

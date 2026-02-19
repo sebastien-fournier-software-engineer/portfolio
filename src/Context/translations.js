@@ -971,6 +971,9 @@ const translations = {
     /*  Education / Formation                                              */
     /* ------------------------------------------------------------------ */
     education: {
+        labels: {
+            subjects: { en: "Subjects", fr: "Matières" },
+        },
         title: {
             en: <>Academic <strong className="purple">Formation</strong> & <strong className="purple">Certifications</strong></>,
             fr: <>Formation <strong className="purple">académique</strong> & <strong className="purple">certifications</strong></>,
@@ -982,34 +985,46 @@ const translations = {
         entries: {
             en: [
                 {
-                    school: "School or University name",
-                    degree: "Degree / Certification (e.g. Engineering degree, Master)",
-                    period: "2018 – 2021",
-                    description: "Describe your degree, main courses, thesis or major projects. Highlight robotics, software, AI or relevant fields.",
-                    tags: ["Robotics", "Computer Vision", "Machine Learning"],
+                    school: "INSA Rennes",
+                    degree: "Engineering degree, Electronics and Industrial Computer Science, research specialization",
+                    period: "Sept. 2012 – June 2017",
+                    tags: ["Electronics", "Industrial Computing", "Research"],
                 },
                 {
-                    school: "Another institution",
-                    degree: "Previous degree or certification",
-                    period: "2015 – 2018",
-                    description: "Another formation description. Adapt to your background.",
-                    tags: ["C++", "Python", "Embedded"],
+                    school: "University of Strathclyde",
+                    degree: "Master of Engineering - MEng, Robotics, Networks and Electronics Engineering",
+                    period: "Sept. 2017 – Aug. 2018",
+                    description: "Mention \"International Studies\".",
+                    tags: ["Robotics", "Networks", "Electronics"],
+                },
+                {
+                    school: "Lycée Pontus de Tyard",
+                    degree: "European Baccalaureate in Science, S-SVT stream, Mathematics and English",
+                    period: "Sept. 2009 – June 2012",
+                    description: "Grade: Distinction (Très Bien).",
+                    tags: ["Mathematics", "Sciences", "English"],
                 },
             ],
             fr: [
                 {
-                    school: "École ou université",
-                    degree: "Diplôme / Certification (ex. diplôme d'ingénieur, Master)",
-                    period: "2018 – 2021",
-                    description: "Décrivez votre diplôme, les cours principaux, le mémoire ou les projets majeurs. Mettez en avant robotique, logiciel, IA ou domaines pertinents.",
-                    tags: ["Robotique", "Computer Vision", "Machine Learning"],
+                    school: "INSA Rennes",
+                    degree: "Diplôme d'ingénieur, Electronique et Informatique Industrielle, spécialisation recherche",
+                    period: "sept. 2012 – juin 2017",
+                    tags: ["Électronique", "Informatique industrielle", "Recherche"],
                 },
                 {
-                    school: "Autre établissement",
-                    degree: "Autre diplôme ou certification",
-                    period: "2015 – 2018",
-                    description: "Autre description de formation. Adaptez à votre parcours.",
-                    tags: ["C++", "Python", "Embedded"],
+                    school: "University of Strathclyde",
+                    degree: "Master of Engineering - MEng, Ingénierie robotique, réseaux et électronique",
+                    period: "sept. 2017 – août 2018",
+                    description: "Mention \"International Studies\".",
+                    tags: ["Robotique", "Réseaux", "Électronique"],
+                },
+                {
+                    school: "Lycée Pontus de Tyard",
+                    degree: "Baccalauréat scientifique européen, S-SVT, Mathématiques Anglais",
+                    period: "sept. 2009 – juin 2012",
+                    description: "Mention Très Bien.",
+                    tags: ["Mathématiques", "Sciences", "Anglais"],
                 },
             ],
         },
