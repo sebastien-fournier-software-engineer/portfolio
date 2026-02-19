@@ -3,7 +3,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import { AiFillGithub } from "react-icons/ai";
 import { FaLinkedinIn } from "react-icons/fa";
 import { MdOutlineEmail } from "react-icons/md";
-import { useLanguage } from "../Context/LanguageContext";
+import { useLanguage } from "../../context/LanguageContext";
 
 function FindMeOn() {
     const { t } = useLanguage();

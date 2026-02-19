@@ -27,8 +27,8 @@ import {
     SiRobotframework,
     SiJira,
 } from "react-icons/si";
-import { useLanguage } from "../../Context/LanguageContext";
-import translations from "../../Context/translations";
+import { useLanguage } from "../../context/LanguageContext";
+import translations from "../../context/translations";
 
 import Nav2Icon from "../../Assets/TechIcons/Nav2.png";
 import PythonIcon from "../../Assets/TechIcons/Python.svg";

@@ -1,0 +1,76 @@
+/* ============================================================
+   ORIENTATION & LANDSCAPE — Safe area, viewport court
+   ============================================================ */
+
+@media (orientation: landscape) and (max-height: 500px) {
+  .home-section {
+    min-height: auto;
+    padding-top: 20px !important;
+    padding-bottom: 20px !important;
+  }
+  .home-content {
+    padding: 5rem 1rem 1rem !important;
+  }
+  .home-about-section {
+    min-height: auto;
+    padding-top: 1.5rem !important;
+    padding-bottom: 1.5rem !important;
+  }
+  .project-section,
+  .about-section,
+  .contact-section {
+    padding-top: 80px !important;
+    padding-bottom: 24px !important;
+  }
+  .skills-section,
+  .experiences-section,
+  .education-section {
+    padding: 50px 0 30px !important;
+  }
+  .flip-avatar-container {
+    max-width: 140px;
+  }
+  .myAvtar {
+    padding-top: 1em !important;
+    padding-bottom: 1em !important;
+  }
+}
+
+@media (orientation: landscape) and (min-width: 768px) and (max-height: 600px) {
+  .home-content {
+    padding: 6rem 0 1.5rem !important;
+  }
+  .heading,
+  .heading-name {
+    font-size: 1.8em !important;
+  }
+}
+
+@supports (padding: max(0px)) {
+  .navbar {
+    padding-left: max(1rem, env(safe-area-inset-left)) !important;
+    padding-right: max(1rem, env(safe-area-inset-right)) !important;
+  }
+  .footer {
+    padding-bottom: max(14px, env(safe-area-inset-bottom)) !important;
+  }
+  .home-buttons {
+    padding-left: max(1rem, env(safe-area-inset-left));
+  }
+}
+
+@media (max-width: 767px) {
+  @supports (padding: max(0px)) {
+    .navbar {
+      padding-left: max(0.75rem, env(safe-area-inset-left)) !important;
+      padding-right: max(0.75rem, env(safe-area-inset-right)) !important;
+    }
+    .home-content,
+    .home-about-section .container,
+    .project-section .container,
+    .contact-section .container {
+      padding-left: max(1rem, env(safe-area-inset-left)) !important;
+      padding-right: max(1rem, env(safe-area-inset-right)) !important;
+    }
+  }
+}

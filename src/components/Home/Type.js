@@ -1,6 +1,6 @@
 import React from "react";
 import Typewriter from "typewriter-effect";
-import { useLanguage } from "../../Context/LanguageContext";
+import { useLanguage } from "../../context/LanguageContext";
 
 function Type() {
     const { t } = useLanguage();

@@ -5,8 +5,8 @@ import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import { AiOutlineUser, AiOutlineMail, AiFillGithub, AiOutlineCode, AiOutlineHistory, AiOutlineFolderOpen, AiOutlineRead } from "react-icons/ai";
 import { FaLinkedinIn } from "react-icons/fa";
-import { useLanguage } from "../Context/LanguageContext";
-import logo from "../Assets/home_logo.png";
+import { useLanguage } from "../../context/LanguageContext";
+import logo from "../../Assets/home_logo.png";
 
 /* ------------------------------------------------------------------ */
 /*  Helpers                                                            */

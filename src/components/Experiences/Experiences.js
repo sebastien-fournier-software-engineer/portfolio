@@ -10,7 +10,7 @@ import {
     AiOutlineEnvironment,
 } from "react-icons/ai";
 import { FaTag } from "react-icons/fa";
-import { useLanguage } from "../../Context/LanguageContext";
+import { useLanguage } from "../../context/LanguageContext";
 
 /**
  * Calcule la durée entre startDate (YYYY-MM) et aujourd'hui.

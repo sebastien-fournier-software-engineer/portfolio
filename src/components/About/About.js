@@ -2,7 +2,7 @@ import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import FlipAvatar from "./FlipAvatar";
 import CustomerCarousel from "../Home/CustomerCarousel";
-import { useLanguage } from "../../Context/LanguageContext";
+import { useLanguage } from "../../context/LanguageContext";
 
 function About() {
   const { t } = useLanguage();

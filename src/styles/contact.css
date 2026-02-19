@@ -1,0 +1,69 @@
+/* ============================================================
+   CONTACT (FindMeOn) SECTION
+   ============================================================ */
+
+.contact-section {
+  position: relative !important;
+  z-index: 1;
+  padding-top: 150px !important;
+  padding-bottom: 80px !important;
+  background: transparent !important;
+  color: var(--color-text-primary) !important;
+}
+
+.contact-section .home-about-social {
+  max-width: 920px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contact-section .project-heading {
+  padding-bottom: 10px;
+}
+
+.contact-section .contact-subtitle {
+  color: #555555;
+  font-size: 1.05em;
+  line-height: 1.6;
+  padding-bottom: 25px;
+}
+
+.contact-section .home-about-social-links {
+  padding-top: 20px !important;
+}
+
+.contact-section .home-social-icons::before {
+  display: none;
+}
+
+.contact-section .home-social-icons:hover {
+  color: var(--color-text-primary) !important;
+  background: var(--color-bg-white) !important;
+  border-color: var(--color-text-primary) !important;
+  transform: translateY(-4px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+}
+
+@media (max-width: 767px) {
+  .contact-section {
+    padding-top: 80px !important;
+    padding-bottom: 50px !important;
+  }
+  .contact-section .project-heading {
+    font-size: 1.75em !important;
+  }
+  .contact-section .contact-subtitle {
+    font-size: 0.95em;
+    padding-bottom: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-section {
+    padding-top: 60px !important;
+    padding-bottom: 40px !important;
+  }
+  .contact-section .project-heading {
+    font-size: 1.5em !important;
+  }
+}

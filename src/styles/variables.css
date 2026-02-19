@@ -1,0 +1,47 @@
+/* ============================================================
+   CSS Custom Properties (Design Tokens)
+   ============================================================
+   Centralise les couleurs, espacements et valeurs réutilisables
+   ============================================================ */
+
+:root {
+  /* Palette principale */
+  --color-text-primary: #1a1a1a;
+  --color-text-secondary: #333333;
+  --color-text-muted: #4a4a4a;
+  --color-text-accent: #2d2d2d;
+  --color-text-light: #e0e0e0;
+
+  /* Alias pour compatibilité */
+  --imp-text-color: var(--color-text-accent);
+
+  /* Backgrounds */
+  --color-bg-white: #ffffff;
+  --color-bg-light: #f8f8f8;
+  --color-bg-dark: #1a1a1a;
+
+  /* Bordures & ombres */
+  --color-border: #d0d0d0;
+  --color-border-light: rgba(0, 0, 0, 0.06);
+  --shadow-sm: 0 2px 12px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.1);
+
+  /* Gradients */
+  --section-background-color: linear-gradient(to bottom left, #f8f8f8, #ffffff);
+  --image-gradient: linear-gradient(
+    to bottom left,
+    rgba(248, 248, 248, 0.9),
+    rgba(255, 255, 255, 0.95)
+  );
+
+  /* Typography */
+  --font-heading: "Space Grotesk", sans-serif;
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: "JetBrains Mono", "Fira Code", "SF Mono", Consolas, monospace;
+
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-base: 0.3s ease;
+  --transition-slow: 0.4s ease;
+}

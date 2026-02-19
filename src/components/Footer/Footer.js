@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import { useLanguage } from "../Context/LanguageContext";
+import { useLanguage } from "../../context/LanguageContext";
 
 function Footer() {
     const { t } = useLanguage();

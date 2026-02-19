@@ -1,13 +1,13 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
-import ParticleSphere from "../ParticleSphere";
+import { ParticleSphere } from "../shared";
 import Type from "./Type";
 import {
     AiOutlineDownload,
 } from "react-icons/ai";
 import { MdOutlineEmail } from "react-icons/md";
-import { useLanguage } from "../../Context/LanguageContext";
+import { useLanguage } from "../../context/LanguageContext";
 import pdf from "../../Assets/../Assets/CV_ingenieur_robotique_vision.pdf";
 
 function Home() {

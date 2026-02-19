@@ -2,7 +2,7 @@ import React from "react";
 import { Container } from "react-bootstrap";
 import { AiOutlineCalendar } from "react-icons/ai";
 import { MdOutlineMenuBook } from "react-icons/md";
-import { useLanguage } from "../../Context/LanguageContext";
+import { useLanguage } from "../../context/LanguageContext";
 
 function parseEducationPeriod(period) {
   if (!period || typeof period !== "string") return { start: period, end: null, separator: null };

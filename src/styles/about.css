@@ -1,0 +1,110 @@
+/* ============================================================
+   ABOUT — Section & tech icons
+   ============================================================ */
+
+.about-section {
+  position: relative !important;
+  z-index: 1;
+  padding-top: 150px !important;
+  padding-bottom: 30px !important;
+  color: var(--color-text-primary) !important;
+  background: transparent;
+}
+
+@media (max-width: 767px) {
+  .about-section {
+    padding-top: 80px !important;
+    padding-bottom: 20px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-section {
+    padding-top: 60px !important;
+  }
+}
+
+.tech-icons {
+  display: flex !important;
+  align-self: center !important;
+  justify-content: center !important;
+  font-size: 1rem !important;
+  margin: 15px !important;
+  padding: 10px 20px !important;
+  opacity: 1 !important;
+  outline: 1.5px solid var(--color-border) !important;
+  vertical-align: middle !important;
+  text-align: center !important;
+  border-radius: 24px !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+  overflow: hidden !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, outline-color 0.3s ease;
+  width: fit-content !important;
+  cursor: pointer !important;
+  color: var(--color-text-secondary);
+  background: rgba(255, 255, 255, 0.85);
+}
+
+.tech-icons:hover {
+  transform: translateY(-2px) !important;
+  overflow: hidden !important;
+  outline: 1.5px solid #888888 !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08) !important;
+}
+
+.tech-icons-text {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+  color: var(--color-text-secondary);
+  font-weight: 500;
+}
+
+.tech-icon-images {
+  height: 1.6rem;
+  line-height: 1.6 !important;
+}
+
+@media (max-width: 767px) {
+  .tech-icons {
+    margin: 8px !important;
+    padding: 8px 14px !important;
+    font-size: 0.9rem !important;
+  }
+  .tech-icon-images {
+    height: 1.4rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .tech-icons {
+    margin: 6px !important;
+    padding: 6px 12px !important;
+    font-size: 0.82rem !important;
+  }
+  .tech-icon-images {
+    height: 1.2rem;
+  }
+  .tech-icons-text {
+    margin-left: 6px;
+    font-size: 0.9em;
+  }
+}
+
+.quote-card-view {
+  border: none !important;
+  color: var(--color-text-primary) !important;
+  background-color: transparent !important;
+}
+
+.about-activity {
+  list-style: none !important;
+  text-align: left !important;
+  padding-left: 1px !important;
+}
+
+@media (max-width: 767px) {
+  .about-img {
+    padding-top: 0 !important;
+  }
+}

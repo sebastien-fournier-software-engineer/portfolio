@@ -1,0 +1,179 @@
+/* ============================================================
+   LANGUAGE TOGGLE — Rectangle with corner brackets
+   ============================================================ */
+
+.lang-toggle-btn {
+  position: relative !important;
+  background-color: transparent !important;
+  border: none !important;
+  color: var(--color-text-primary) !important;
+  padding: 0.6rem 1.1rem !important;
+  font-weight: 600 !important;
+  font-size: 0.9em !important;
+  letter-spacing: 1px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  overflow: visible !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.25rem;
+  line-height: 1 !important;
+}
+
+.lang-toggle-btn::before,
+.lang-toggle-btn::after,
+.lang-toggle-corners::before,
+.lang-toggle-corners::after {
+  content: "" !important;
+  position: absolute !important;
+  width: 10px !important;
+  height: 10px !important;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+  display: block !important;
+  background: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  z-index: 2 !important;
+}
+
+.lang-toggle-btn::before {
+  top: 0 !important;
+  left: 0 !important;
+  border-top: 2px solid var(--color-text-primary) !important;
+  border-left: 2px solid var(--color-text-primary) !important;
+  border-bottom: none !important;
+  border-right: none !important;
+}
+
+.lang-toggle-btn::after {
+  bottom: 0 !important;
+  right: 0 !important;
+  top: auto !important;
+  left: auto !important;
+  border-bottom: 2px solid var(--color-text-primary) !important;
+  border-right: 2px solid var(--color-text-primary) !important;
+  border-top: none !important;
+  border-left: none !important;
+  width: 10px !important;
+  height: 10px !important;
+}
+
+.lang-toggle-corners {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  pointer-events: none !important;
+}
+
+.lang-toggle-corners::before {
+  content: "" !important;
+  top: 0 !important;
+  right: 0 !important;
+  left: auto !important;
+  border-top: 2px solid var(--color-text-primary) !important;
+  border-right: 2px solid var(--color-text-primary) !important;
+  border-bottom: none !important;
+  border-left: none !important;
+}
+
+.lang-toggle-corners::after {
+  content: "" !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  top: auto !important;
+  right: auto !important;
+  border-bottom: 2px solid var(--color-text-primary) !important;
+  border-left: 2px solid var(--color-text-primary) !important;
+  border-top: none !important;
+  border-right: none !important;
+}
+
+.lang-toggle-btn:hover::before {
+  top: -2px !important;
+  left: -2px !important;
+  border-color: #000000 !important;
+  box-shadow: 0 0 8px rgba(26, 26, 26, 0.35) !important;
+}
+
+.lang-toggle-btn:hover::after {
+  bottom: -2px !important;
+  right: -2px !important;
+  border-color: #000000 !important;
+  box-shadow: 0 0 8px rgba(26, 26, 26, 0.35) !important;
+}
+
+.lang-toggle-btn:hover .lang-toggle-corners::before {
+  top: -2px !important;
+  right: -2px !important;
+  border-color: #000000 !important;
+  box-shadow: 0 0 8px rgba(26, 26, 26, 0.35) !important;
+}
+
+.lang-toggle-btn:hover .lang-toggle-corners::after {
+  bottom: -2px !important;
+  left: -2px !important;
+  border-color: #000000 !important;
+  box-shadow: 0 0 8px rgba(26, 26, 26, 0.35) !important;
+}
+
+.lang-toggle-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 0 20px rgba(26, 26, 26, 0.1), 0 4px 12px rgba(0, 0, 0, 0.12);
+  background-color: rgba(0, 0, 0, 0.05) !important;
+}
+
+.lang-toggle-btn:focus {
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+.lang-flag {
+  display: block;
+  flex-shrink: 0;
+  border-radius: 2px;
+  transition: opacity 0.3s ease;
+}
+
+.lang-flag.lang-active {
+  opacity: 1;
+}
+
+.lang-flag.lang-inactive {
+  opacity: 0.35;
+}
+
+.lang-separator {
+  color: #b0b0b0;
+  margin: 0 0.3em;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.lang-transition {
+  opacity: 1;
+  transform: none;
+}
+
+.lang-transition.lang-exit {
+  transition: transform 0.2s cubic-bezier(0.4, 0, 1, 1),
+              opacity  0.2s cubic-bezier(0.4, 0, 1, 1);
+  transform: translateX(-18px);
+  opacity: 0;
+}
+
+.lang-transition.lang-enter {
+  transition: none;
+  transform: translateX(18px);
+  opacity: 0;
+}
+
+.lang-transition:not(.lang-exit):not(.lang-enter) {
+  transition: transform 0.25s cubic-bezier(0, 0, 0.2, 1),
+              opacity  0.25s cubic-bezier(0, 0, 0.2, 1);
+}
+
+.lang-transition-nav {
+  display: flex;
+  align-items: center;
+}
