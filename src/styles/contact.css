@@ -5,8 +5,8 @@
 .contact-section {
   position: relative !important;
   z-index: 1;
-  padding-top: 150px !important;
-  padding-bottom: 80px !important;
+  padding-top: 300px !important;
+  padding-bottom: 150px !important;
   background: transparent !important;
   color: var(--color-text-primary) !important;
 }
