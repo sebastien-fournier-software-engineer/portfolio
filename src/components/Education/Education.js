@@ -4,11 +4,39 @@ import { AiOutlineCalendar } from "react-icons/ai";
 import { MdOutlineMenuBook } from "react-icons/md";
 import { useLanguage } from "../../context/LanguageContext";
 
+import insaLogo from "../../assets/Schools/insa.png";
+import strathclydeLogo from "../../assets/Schools/strathclyde.png";
+
+const EDUCATION_LOCAL_LOGOS = {
+  insa: insaLogo,
+  strathclyde: strathclydeLogo,
+};
+
 function parseEducationPeriod(period) {
   if (!period || typeof period !== "string") return { start: period, end: null, separator: null };
   const match = period.match(/^(.+?)\s+[–-]\s+(.+)$/);
   if (match) return { start: match[1].trim(), end: match[2].trim(), separator: " – " };
   return { start: period, end: null, separator: null };
+}
+
+function EducationSchoolLogo({ entry }) {
+  const [imgFailed, setImgFailed] = React.useState(false);
+  const logoUrl = entry.logoKey ? EDUCATION_LOCAL_LOGOS[entry.logoKey] : entry.logo;
+  const showImg = logoUrl && !imgFailed;
+  const initial = (entry.school || "?").charAt(0).toUpperCase();
+
+  if (showImg) {
+    return (
+      <span className="experiences-company-logo experiences-company-logo--img">
+        <img src={logoUrl} alt="" onError={() => setImgFailed(true)} />
+      </span>
+    );
+  }
+  return (
+    <span className="experiences-company-logo experiences-company-logo--initial" aria-hidden="true">
+      {initial}
+    </span>
+  );
 }
 
 function EducationCard({ entry }) {
@@ -18,7 +46,10 @@ function EducationCard({ entry }) {
   return (
     <div className="experiences-card experiences-card--grid">
       <div className="experiences-grid-col1 experiences-grid-row1">
-        <div className="experiences-company">{entry.school}</div>
+        <div className="experiences-company">
+          <EducationSchoolLogo entry={entry} />
+          <span className="experiences-company-name">{entry.school}</span>
+        </div>
       </div>
       <div className="experiences-grid-col2 experiences-grid-row1">
         <div className="experiences-role">{entry.degree}</div>

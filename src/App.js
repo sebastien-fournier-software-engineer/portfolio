@@ -53,8 +53,8 @@ function App() {
 // [x] : présentation + CV / Contact Me button(scroll to contact) + animation
 // [x] : About
 // [x] : Compétences + stack
-// TODO : Expériences / clients
+// [x] : Expériences / clients
 // TODO : Projets
-// TODO : Formation + (Certifications)
+// [x] : Formation + (Certifications)
 // [x] : Contact Section : CTA + Liens : Mail / LinkedIn / GitHub
 export default App;

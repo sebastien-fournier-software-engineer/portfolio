@@ -149,12 +149,12 @@
 
 .experiences-card--grid .experiences-grid-col1.experiences-grid-row1,
 .experiences-card--grid .experiences-grid-col2.experiences-grid-row1 {
-  align-self: baseline;
+  align-self: center;
 }
 
 .experiences-card--grid .experiences-grid-row1 {
   display: flex;
-  align-items: baseline;
+  align-items: center;
 }
 
 .experiences-card--grid .experiences-grid-row1 .experiences-company,
@@ -191,8 +191,8 @@
 .experiences-company {
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
-  gap: 8px 10px;
+  flex-wrap: nowrap;
+  gap: 12px;
   font-size: 1.05em;
   font-weight: 700;
   color: #111827;
@@ -200,6 +200,54 @@
   letter-spacing: 0.02em;
   margin-bottom: 14px;
   line-height: 1.3;
+}
+
+.experiences-company-logo {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+  transition: box-shadow 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.experiences-card:hover .experiences-company-logo {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+.experiences-company-logo--img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 4px;
+}
+
+.experiences-company-logo--echosens img {
+  transform: scale(1.35);
+}
+
+.experiences-company-logo--initial {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #374151;
+  background: linear-gradient(135deg, rgba(45, 45, 45, 0.08) 0%, rgba(45, 45, 45, 0.04) 100%);
+  font-family: var(--font-heading);
+}
+
+.experiences-company-name {
+  flex: 1;
+  min-width: 0;
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 10px;
 }
 
 .experiences-ongoing-badge {
@@ -612,6 +660,16 @@
   .experiences-card {
     padding: 16px !important;
   }
+  .experiences-company-logo {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+  }
+
+  .experiences-company-logo--initial {
+    font-size: 0.9rem;
+  }
+
   .experiences-company {
     font-size: 1em;
   }

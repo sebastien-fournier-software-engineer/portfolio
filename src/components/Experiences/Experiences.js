@@ -12,6 +12,24 @@ import {
 import { FaTag } from "react-icons/fa";
 import { useLanguage } from "../../context/LanguageContext";
 
+import geHealthcare from "../../assets/Customers/ge-healthcare.png";
+import echosensLogo from "../../assets/Customers/echosens.png";
+import navyaLogo from "../../assets/Customers/navya.png";
+import upTechnologiesLogo from "../../assets/Customers/up_technologies.png";
+import stoerkTronicLogo from "../../assets/Customers/stoerk-tronic.png";
+import bontronicLogo from "../../assets/Customers/bontronic.png";
+import strathclydeLogo from "../../assets/Customers/strathclyde.png";
+
+const EXPERIENCE_LOCAL_LOGOS = {
+    "ge-healthcare": geHealthcare,
+    "echosens": echosensLogo,
+    "navya": navyaLogo,
+    "up-technologies": upTechnologiesLogo,
+    "stoerk-tronic": stoerkTronicLogo,
+    "bontronic": bontronicLogo,
+    "strathclyde": strathclydeLogo,
+};
+
 /**
  * Calcule la durée entre startDate (YYYY-MM) et aujourd'hui.
  * Retourne une chaîne formatée selon la langue (ex: "9 mois", "2 ans 3 mois").
@@ -166,6 +184,33 @@ function ExperienceSubProjectBlock({ subProject }) {
     );
 }
 
+function ExperienceCompanyLogo({ exp }) {
+    const [imgFailed, setImgFailed] = React.useState(false);
+    const logoUrl = exp.logoKey ? EXPERIENCE_LOCAL_LOGOS[exp.logoKey] : exp.logo;
+    const showImg = logoUrl && !imgFailed;
+    const initial = (exp.company || "?").charAt(0).toUpperCase();
+
+    if (showImg) {
+        const logoClass = exp.logoKey === "echosens"
+            ? "experiences-company-logo experiences-company-logo--img experiences-company-logo--echosens"
+            : "experiences-company-logo experiences-company-logo--img";
+        return (
+            <span className={logoClass}>
+                <img
+                    src={logoUrl}
+                    alt=""
+                    onError={() => setImgFailed(true)}
+                />
+            </span>
+        );
+    }
+    return (
+        <span className="experiences-company-logo experiences-company-logo--initial" aria-hidden="true">
+            {initial}
+        </span>
+    );
+}
+
 function ExperienceCard({ exp }) {
     const { t } = useLanguage();
     const duration = exp.isCurrent && exp.startDate
@@ -177,15 +222,16 @@ function ExperienceCard({ exp }) {
             {/* Row 1 : company | role */}
             <div className="experiences-grid-col1 experiences-grid-row1">
                 <div className="experiences-company">
-                    {exp.company}
-                    {exp.isCurrent && (
-                        <span className="experiences-ongoing-badge">{t("experiences.ongoing")}</span>
-                    )}
+                    <ExperienceCompanyLogo exp={exp} />
+                    <span className="experiences-company-name">{exp.company}</span>
                 </div>
             </div>
             <div className="experiences-grid-col2 experiences-grid-row1">
                 <div className="experiences-role">
                     {exp.role}
+                    {exp.isCurrent && (
+                        <span className="experiences-ongoing-badge">{t("experiences.ongoing")}</span>
+                    )}
                     {exp.experienceType && (
                         <span className={`experiences-type-badge experiences-type-badge--${exp.experienceType}`}>
                             {t(`experiences.experienceTypeBadges.${exp.experienceType}`)}

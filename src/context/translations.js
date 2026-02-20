@@ -317,6 +317,7 @@ const translations = {
             en: [
                 {
                     company: "Freelance",
+                    logo: null,
                     role: "Software Robotics Engineer",
                     period: "May 2025 – Present",
                     startDate: "2025-05",
@@ -370,6 +371,7 @@ const translations = {
                 },
                 {
                     company: "Navya Mobility",
+                    logoKey: "navya",
                     role: "Robotics Project Manager",
                     period: "May 2024 – August 2024",
                     duration: "4 months",
@@ -398,6 +400,7 @@ const translations = {
                 },
                 {
                     company: "GE HealthCare",
+                    logoKey: "ge-healthcare",
                     role: "Lead Software Engineer",
                     experienceType: "consultant",
                     period: "August 2023 – April 2024",
@@ -430,6 +433,7 @@ const translations = {
                 },
                 {
                     company: "Up Technologies",
+                    logoKey: "up-technologies",
                     role: "Robotics Engineer",
                     period: "March 2023 – August 2023",
                     duration: "6 months",
@@ -491,6 +495,7 @@ const translations = {
                 },
                 {
                     company: "Echosens",
+                    logoKey: "echosens",
                     role: "Software and Algorithms Engineer",
                     experienceType: "consultant",
                     period: "October 2022 – March 2023",
@@ -519,6 +524,7 @@ const translations = {
                 },
                 {
                     company: "Navya Mobility",
+                    logoKey: "navya",
                     role: "Software Engineer and Scrum Master",
                     experienceType: "consultant",
                     period: "March 2021 – September 2022",
@@ -555,6 +561,7 @@ const translations = {
                 },
                 {
                     company: "Störk-Tronic",
+                    logoKey: "stoerk-tronic",
                     role: "R&D Software Engineer, Product Owner",
                     period: "October 2018 – February 2021",
                     duration: "2 years 5 months",
@@ -584,6 +591,7 @@ const translations = {
                 },
                 {
                     company: "University of Strathclyde",
+                    logoKey: "strathclyde",
                     role: "Research Engineer",
                     experienceType: "stage",
                     period: "September 2017 – June 2018",
@@ -608,6 +616,7 @@ const translations = {
                 },
                 {
                     company: "Bontronic",
+                    logoKey: "bontronic",
                     role: "Robotics Engineer",
                     experienceType: "stage",
                     period: "May 2017 – August 2017",
@@ -626,6 +635,7 @@ const translations = {
             fr: [
                 {
                     company: "Freelance",
+                    logo: null,
                     role: "Ingénieur en robotique logicielle",
                     period: "mai 2025 – Aujourd'hui",
                     startDate: "2025-05",
@@ -679,6 +689,7 @@ const translations = {
                 },
                 {
                     company: "Navya Mobility",
+                    logoKey: "navya",
                     role: "Chef de projets robotiques",
                     period: "mai 2024 - août 2024",
                     duration: "4 mois",
@@ -717,6 +728,7 @@ const translations = {
                 },
                 {
                     company: "GE HealthCare",
+                    logoKey: "ge-healthcare",
                     role: "Lead Ingénieur logiciel",
                     experienceType: "consultant",
                     period: "août 2023 - avril 2024",
@@ -749,6 +761,7 @@ const translations = {
                 },
                 {
                     company: "Up Technologies",
+                    logoKey: "up-technologies",
                     role: "Ingénieur en robotique",
                     experienceType: "consultant",
                     period: "mars 2023 - août 2023",
@@ -811,6 +824,7 @@ const translations = {
                 },
                 {
                     company: "Echosens",
+                    logoKey: "echosens",
                     role: "Ingénieur logiciel et algorithmes",
                     experienceType: "consultant",
                     period: "octobre 2022 - mars 2023",
@@ -839,6 +853,7 @@ const translations = {
                 },
                 {
                     company: "Navya Mobility",
+                    logoKey: "navya",
                     role: "Ingénieur logiciel et Scrum Master",
                     experienceType: "consultant",
                     period: "mars 2021 - septembre 2022",
@@ -875,6 +890,7 @@ const translations = {
                 },
                 {
                     company: "Störk-Tronic",
+                    logoKey: "stoerk-tronic",
                     role: "Ingénieur R&D logiciel, Product Owner",
                     period: "octobre 2018 - février 2021",
                     duration: "2 ans 5 mois",
@@ -904,6 +920,7 @@ const translations = {
                 },
                 {
                     company: "University of Strathclyde",
+                    logoKey: "strathclyde",
                     role: "Ingénieur de recherche",
                     experienceType: "stage",
                     period: "septembre 2017 - juin 2018",
@@ -928,6 +945,7 @@ const translations = {
                 },
                 {
                     company: "Bontronic",
+                    logoKey: "bontronic",
                     role: "Ingénieur en robotique",
                     experienceType: "stage",
                     period: "mai 2017 - août 2017",
@@ -965,12 +983,14 @@ const translations = {
             en: [
                 {
                     school: "INSA Rennes",
+                    logoKey: "insa",
                     degree: "Engineering degree, Electronics and Industrial Computer Science, research specialization",
                     period: "Sept. 2012 – June 2017",
                     tags: ["Electronics", "Industrial Computing", "Research"],
                 },
                 {
                     school: "University of Strathclyde",
+                    logoKey: "strathclyde",
                     degree: "Master of Engineering - Robotics, Networks and Electronics Engineering",
                     period: "Sept. 2017 – Aug. 2018",
                     description: "Mention \"International Studies\".",
@@ -978,6 +998,7 @@ const translations = {
                 },
                 {
                     school: "Lycée Pontus de Tyard",
+                    logo: null,
                     degree: "European Baccalaureate in Science, S-SVT stream, Mathematics and English",
                     period: "Sept. 2009 – June 2012",
                     description: "Grade: Distinction (Très Bien).",
@@ -987,12 +1008,14 @@ const translations = {
             fr: [
                 {
                     school: "INSA Rennes",
+                    logoKey: "insa",
                     degree: "Diplôme d'ingénieur, Electronique et Informatique Industrielle, spécialisation recherche",
                     period: "sept. 2012 – juin 2017",
                     tags: ["Électronique", "Informatique industrielle", "Recherche"],
                 },
                 {
                     school: "University of Strathclyde",
+                    logoKey: "strathclyde",
                     degree: "Master of Engineering - Ingénierie robotique, réseaux et électronique",
                     period: "sept. 2017 – août 2018",
                     description: "Mention \"International Studies\".",
@@ -1000,6 +1023,7 @@ const translations = {
                 },
                 {
                     school: "Lycée Pontus de Tyard",
+                    logo: null,
                     degree: "Baccalauréat scientifique européen, S-SVT, Mathématiques Anglais",
                     period: "sept. 2009 – juin 2012",
                     description: "Mention Très Bien.",
