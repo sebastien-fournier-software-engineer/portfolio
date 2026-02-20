@@ -65,11 +65,13 @@ function EducationCard({ entry }) {
             {end && <span className="experiences-period-end">{separator}{end}</span>}
           </div>
         </div>
+        {entry.mention && (
+          <div className="education-mention-row">
+            <span className="education-mention-badge">{entry.mention}</span>
+          </div>
+        )}
       </div>
       <div className="experiences-grid-col2 experiences-grid-row2 experiences-content">
-        {entry.description && (
-          <div className="experiences-description">{entry.description}</div>
-        )}
         {entry.tags && entry.tags.length > 0 && (
           <div className="experiences-block experiences-block--tags">
             <div className="experiences-block-header">
