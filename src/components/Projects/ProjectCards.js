@@ -3,6 +3,7 @@ import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import { CgWebsite } from "react-icons/cg";
 import { BsGithub } from "react-icons/bs";
+import { useLanguage } from "../../context/LanguageContext";
 
 const hasValidLink = (link) => link && link !== "#";
 
@@ -15,11 +16,18 @@ function ProjectCard({
   ghLink,
   demoLink,
   isBlog = false,
+  ongoing = false,
 }) {
+  const { t } = useLanguage();
   const showActions = hasValidLink(ghLink) || (!isBlog && demoLink);
 
   return (
     <Card className="project-card-view">
+      {ongoing && (
+        <div className="project-card-ongoing-ribbon" aria-hidden="true">
+          <span className="project-card-ongoing-ribbon-text">{t("projects.ongoing")}</span>
+        </div>
+      )}
       <div className="project-card-img-wrap">
         <div className="project-card-img-frame">
           <img

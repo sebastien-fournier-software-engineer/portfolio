@@ -288,18 +288,34 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 6px 14px;
-  font-size: 0.7em;
+  padding: 3px 10px;
+  font-size: 0.6em;
   font-weight: 600;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.08em;
   color: #5b21b6;
-  background: linear-gradient(135deg, rgba(124, 58, 237, 0.08) 0%, rgba(139, 92, 246, 0.06) 100%);
-  border: 1px solid rgba(124, 58, 237, 0.2);
-  border-radius: 20px;
-  box-shadow: 0 1px 2px rgba(124, 58, 237, 0.06);
+  background: rgba(124, 58, 237, 0.12);
+  border: 1px solid rgba(124, 58, 237, 0.25);
+  border-radius: 4px;
   flex-shrink: 0;
   font-family: var(--font-heading);
   line-height: 1.3;
+  text-align: center;
+}
+
+/* Formations : texte un peu plus gros (pas le badge) */
+.education-section .experiences-company,
+.education-section .experiences-role {
+  font-size: 1.08em;
+}
+.education-section .experiences-period,
+.education-section .experiences-meta-row {
+  font-size: 0.8em;
+}
+.education-section .experiences-block-label {
+  font-size: 1.05em;
+}
+.education-section .experiences-tag {
+  font-size: 0.8em;
 }
 
 .experiences-period,
@@ -648,11 +664,10 @@
     min-width: 0;
   }
   .education-mention-badge {
-    font-size: 0.7em;
-    padding: 5px 12px;
+    font-size: 0.6em;
+    padding: 3px 10px;
     max-width: 100%;
-    border-radius: 18px;
-    text-align: center;
+    border-radius: 4px;
   }
 }
 
@@ -756,9 +771,9 @@
   }
 
   .education-mention-badge {
-    padding: 5px 12px;
-    font-size: 0.65em;
-    border-radius: 16px;
+    padding: 3px 8px;
+    font-size: 0.55em;
+    border-radius: 4px;
   }
 
   .experiences-company {

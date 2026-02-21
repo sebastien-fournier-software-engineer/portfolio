@@ -101,6 +101,7 @@
 
 /* --- Project card (aligné expériences / skills) --- */
 .project-card-view {
+  position: relative !important;
   display: flex !important;
   flex-direction: column !important;
   height: 100% !important;
@@ -112,6 +113,37 @@
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04) !important;
   transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease !important;
   overflow: hidden !important;
+}
+
+/* Badge "En cours" — style aligné sur les badges type Experiences (compact, coin) */
+.project-card-ongoing-ribbon {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3px 10px;
+  font-size: 0.6em;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #15803d;
+  background: rgba(22, 163, 74, 0.12);
+  border: 1px solid rgba(22, 163, 74, 0.25);
+  border-radius: 4px;
+  animation: project-card-ongoing-pulse 2.5s ease-in-out infinite;
+}
+
+.project-card-ongoing-ribbon-text {
+  color: inherit;
+  white-space: nowrap;
+}
+
+@keyframes project-card-ongoing-pulse {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(22, 163, 74, 0.2); }
+  50% { opacity: 0.9; box-shadow: 0 0 0 4px rgba(22, 163, 74, 0); }
 }
 
 .project-card-view:hover {

@@ -193,14 +193,14 @@ const translations = {
             leadership: {
                 title: { en: "Collective intelligence", fr: "Intelligence collective" },
                 description: {
-                    en: "Foster communication and collaboration across disciplines.",
+                    en: "Lead the team. Foster exchange between disciplines.",
                     fr: "Animez l’équipe. Favorisez l’échange entre les métiers.",
                 },
             },
             knowledge: {
                 title: { en: "Knowledge transfer", fr: "Transmission" },
                 description: {
-                    en: "Preserve expertise and knowledge.",
+                    en: "Preserve know-how and knowledge.",
                     fr: "Conservez le savoir-faire et les connaissances.",
                 },
             },
@@ -289,11 +289,11 @@ const translations = {
     /* ------------------------------------------------------------------ */
     experiences: {
         title: {
-            en: <>Professional <strong className="purple">Experience</strong> & <strong className="purple">Customers</strong></>,
+            en: <>Professional <strong className="purple">Experience</strong> & <strong className="purple">Clients</strong></>,
             fr: <>Expériences <strong className="purple">professionnelles</strong> & <strong className="purple">Clients</strong></>,
         },
         subtitle: {
-            en: "Key roles and collaborations.",
+            en: "Main roles and collaborations.",
             fr: "Principaux postes et collaborations.",
         },
         labels: {
@@ -528,7 +528,7 @@ const translations = {
                 {
                     company: "Navya Mobility",
                     logoKey: "navya",
-                    role: "Software Engineer and Scrum Master",
+                    role: "Software Robotics Engineer and Scrum Master",
                     experienceType: "consultant",
                     period: "March 2021 – September 2022",
                     duration: "1 year 7 months",
@@ -857,7 +857,7 @@ const translations = {
                 {
                     company: "Navya Mobility",
                     logoKey: "navya",
-                    role: "Ingénieur logiciel et Scrum Master",
+                    role: "Ingénieur en robotique logicielle et Scrum Master",
                     experienceType: "consultant",
                     period: "mars 2021 - septembre 2022",
                     duration: "1 an 7 mois",
@@ -979,6 +979,7 @@ const translations = {
             en: "Here are a few projects I've worked on.",
             fr: "Voici quelques projets sur lesquels j'ai travaillé.",
         },
+        ongoing: { en: "Ongoing", fr: "En cours" },
         entries: {
             en: [
                 {
@@ -1010,7 +1011,7 @@ const translations = {
                     stack: ["Modelling", "ARM", "Multi-core", "Energy optimization"],
                 },
                 {
-                    title: "Towerfall-style video game (C)",
+                    title: "Towerfall-like video game (C)",
                     description:
                         "2D game engine in C (Towerfall-inspired, local multiplayer). Architecture and game loop from scratch; 2D physics, collisions and rendering.",
                     imgAlt: "2D Towerfall-style game",
@@ -1047,7 +1048,7 @@ const translations = {
                     stack: ["Modélisation", "ARM", "Multi-cœur", "Optimisation énergétique"],
                 },
                 {
-                    title: "Jeu vidéo style Towerfall (C)",
+                    title: "Jeu vidéo type Towerfall (C)",
                     description:
                         "Moteur de jeu 2D en C (inspiré Towerfall, multijoueur local). Architecture et boucle de jeu de zéro ; physique 2D, collisions et rendu.",
                     imgAlt: "Jeu 2D Towerfall",
@@ -1079,7 +1080,7 @@ const translations = {
                     logoKey: "strathclyde",
                     degree: "Master of Engineering: Robotics, Networks and Electronics Engineering",
                     period: "2017 – 2018",
-                    mention: "International Studies Award",
+                    mention: <>International Studies<br />Award</>,
                     tags: ["Robotics", "Networks", "Electrical Engineering", "Embedded Systems", "Communication Systems", "Machine Learning", "Computer Vision", "International Studies"],
                 },
                 {
@@ -1094,7 +1095,7 @@ const translations = {
                     logo: null,
                     degree: "European Baccalaureate: Sciences, Mathematics and English",
                     period: "2009 – 2012",
-                    mention: "Distinction",
+                    mention: "With Honors",
                     tags: ["Mathematics", "Sciences", "Physics", "English"],
                 },
             ],
@@ -1104,7 +1105,7 @@ const translations = {
                     logoKey: "strathclyde",
                     degree: "Master of Engineering - Ingénierie robotique, réseaux et électronique",
                     period: "sept. 2017 – août 2018",
-                    mention: "Mention International Studies",
+                    mention: <>Mention<br />International Studies</>,
                     tags: ["Robotique", "Réseaux", "Électronique", "Automatique", "Systèmes embarqués", "Systèmes de communication", "Traitement du signal", "Machine Learning", "Vision par ordinateur", "International Studies"],
                 },
                 {
@@ -1131,8 +1132,8 @@ const translations = {
     /* ------------------------------------------------------------------ */
     findMeOn: {
         title: {
-            en: <>Get In <strong className="purple">Touch</strong></>,
-            fr: <>Me <strong className="purple">contacter</strong></>,
+            en: <>Contact <strong className="purple">me</strong></>,
+            fr: <>Contactez <strong className="purple">moi</strong></>,
         },
         subtitle: {
             en: (

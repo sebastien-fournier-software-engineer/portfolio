@@ -10,7 +10,7 @@ import towerfallImg from "../../assets/Projects/towerfall.png";
 
 /** Order must match projects.entries in translations.js */
 const PROJECT_META = [
-  { imgPath: jetroverImg, ghLink: "https://github.com/sebastien-fournier-software-robotics/solaris_basis" },
+  { imgPath: jetroverImg, ghLink: "https://github.com/sebastien-fournier-software-robotics/solaris_basis", ongoing: true },
   { imgPath: robotCarImg, ghLink: "" },
   { imgPath: djangoPythonImg, ghLink: "https://github.com/sebastien-fournier-software-robotics/Django-Web-Server" },
   { imgPath: armImg, ghLink: "" },
