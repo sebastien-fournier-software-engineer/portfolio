@@ -1,76 +1,94 @@
-<h2 align="center">
-  Portfolio Website - v2.0<br/>
-  <a href="https://soumyajit.vercel.app/" target="_blank">soumyajit.tech</a>
-</h2>
-<div align="center">
-  <img alt="Demo" src="./Images/readme-img1.png" />
-</div>
+# Portfolio — Sébastien Fournier
 
-<br/>
+Professional portfolio presenting my profile as a **Software Robotics Engineer & Architect**: expertise in autonomous robotics, computer vision, embedded AI, and software architecture.
 
-<center>
+---
 
-[![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com) &nbsp;
-[![forthebadge](https://forthebadge.com/images/badges/made-with-javascript.svg)](https://forthebadge.com) &nbsp;
-[![forthebadge](https://forthebadge.com/images/badges/open-source.svg)](https://forthebadge.com) &nbsp;
-![GitHub Repo stars](https://img.shields.io/github/stars/soumyajit4419/Portfolio?color=red&logo=github&style=for-the-badge) &nbsp;
-![GitHub forks](https://img.shields.io/github/forks/soumyajit4419/Portfolio?color=red&logo=github&style=for-the-badge)
+## Overview
 
-</center>
+This single-page application showcases:
 
-<h3 align="center">
-    🔹
-    <a href="https://github.com/soumyajit4419/Portfolio/issues">Report Bug</a> &nbsp; &nbsp;
-    🔹
-    <a href="https://github.com/soumyajit4419/Portfolio/issues">Request Feature</a>
-</h3>
+- **Profile & CV** — Introduction, downloadable CV, and contact call-to-action
+- **About** — Expertise in robotics, computer vision, and software; roles (Architect, Field & Infrastructure, Strategic Partner)
+- **Skills** — Professional skillset and technical stack (architecture, robotics, DevOps, observability, etc.)
+- **Experience** — Professional experience and key clients, with timeline and detailed missions
+- **Projects** — Selected projects (e.g. autonomous rover, REST API Fin-Tech, game engine in C) with stack and links
+- **Education** — Degrees and certifications (INSA Rennes, University of Strathclyde)
+- **Contact** — CTA and links (email, LinkedIn, GitHub)
 
-## TL;DR
+The site is **bilingual (French / English)** with a language toggle and smooth transition between locales. Content is driven by a centralised translation file for easy maintenance.
 
-You can fork this repo to modify and make changes of your own. Please give me proper credit by linking back to [Soumyajit4419](https://github.com/soumyajit4419/Portfolio). Thanks!
+---
 
-## Built With
+## Tech Stack
 
-My personal portfolio <a href="https://soumyajit.vercel.app/" target="_blank">soumyajit.tech</a> which features some of my github projects as well as my resume and technical skills.<br/>
+- **React** 17
+- **React Bootstrap** — Layout and UI components
+- **React Context** — Language and UI state
+- **CSS** — Custom styles, design tokens (colors, typography), responsive layout
+- **react-icons** — Icons
+- **react-tsparticles** — Background particles (home)
+- **typewriter-effect** — Home hero typing animation
 
-This project was built using these technologies.
-
-- React.js
-- Node.js
-- Express.js
-- CSS3
-- VsCode
-- Vercel
-
-## Features
-
-**📖 Multi-Page Layout**
-
-**🎨 Styled with React-Bootstrap and Css with easy to customize colors**
-
-**📱 Fully Responsive**
+---
 
 ## Getting Started
 
-Clone down this repository. You will need `node.js` and `git` installed globally on your machine.
+### Prerequisites
 
-## 🛠 Installation and Setup Instructions
+- **Node.js** (LTS recommended)
+- **npm** or **yarn**
 
-1. Installation: `npm install`
+### Install and run
 
-2. In the project directory, you can run: `npm start`
+```bash
+# Install dependencies
+npm install
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-The page will reload if you make edits.
+# Start development server
+npm start
+```
 
-## Usage Instructions
+The app runs at [http://localhost:3000](http://localhost:3000).
 
-Open the project folder and Navigate to `/src/components/`. <br/>
-You will find all the components used and you can edit your information accordingly.
+### Build for production
 
-### Show your support
+```bash
+npm run build
+```
 
-Give a ⭐ if you like this website!
+Output is in the `build/` folder (static assets ready to deploy).
 
-<a href="https://www.buymeacoffee.com/soumyajit4419" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-violet.png" alt="Buy Me A Coffee" height= "60px" width= "217px" ></a>
+---
+
+## Project Structure (main parts)
+
+| Path | Role |
+|------|------|
+| `src/App.js` | App shell, section order, language provider |
+| `src/context/translations.js` | All copy (EN/FR); section order matches page order |
+| `src/context/LanguageContext.js` | Language state and `t()` helper |
+| `src/components/Home/` | Hero, typewriter, CTA |
+| `src/components/About/` | About section and avatar |
+| `src/components/Skills/` | Skills and categories |
+| `src/components/Experiences/` | Experience timeline and cards |
+| `src/components/Projects/` | Project cards and “ongoing” badge |
+| `src/components/Education/` | Education timeline and cards |
+| `src/components/FindMeOn/` | Contact CTA and links |
+| `src/styles/` | Global and section-specific CSS (variables, cards, experiences, etc.) |
+
+To change copy or add a language, edit `src/context/translations.js`. To add or reorder sections, update `App.js` and the translation keys accordingly.
+
+---
+
+## License
+
+This project is private. All rights reserved.
+
+---
+
+## Contact
+
+- **Email:** [seb.fournier.tech@proton.me](mailto:seb.fournier.tech@proton.me)
+- **LinkedIn:** [Sébastien Fournier](https://www.linkedin.com/in/sebastien-fournier-software-robotics/)
+- **GitHub:** [sebastien-fournier-software-robotics](https://github.com/sebastien-fournier-software-robotics)
