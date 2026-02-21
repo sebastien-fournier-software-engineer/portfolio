@@ -167,6 +167,114 @@
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04), 0 0 0 1px rgba(22, 163, 74, 0.12);
 }
 
+/* Toggle : carte repliée = détail animé (max-height) + centrage vertical */
+.experiences-card-detail {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 3fr);
+  gap: 16px 24px;
+  align-items: start;
+  overflow: hidden;
+  /* Valeur volontairement haute pour ne jamais tronquer le contenu (animation fluide conservée) */
+  max-height: 6000px;
+  opacity: 1;
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease-out;
+}
+
+.experiences-card--collapsed .experiences-card-detail {
+  max-height: 0;
+  opacity: 0;
+}
+
+.experiences-card--collapsed.experiences-card--grid {
+  grid-template-rows: 1fr;
+  align-items: center;
+  min-height: 72px;
+  row-gap: 0;
+  transition: row-gap 0.35s ease;
+}
+
+.experiences-card:not(.experiences-card--collapsed).experiences-card--grid {
+  row-gap: 16px;
+}
+
+.experiences-card-header {
+  cursor: pointer;
+  user-select: none;
+  outline: none;
+  position: relative;
+}
+
+.experiences-card-header:hover {
+  color: var(--imp-text-color, #2d2d2d);
+}
+
+.experiences-card-header:focus-visible {
+  border-radius: 8px;
+  box-shadow: 0 0 0 2px rgba(45, 45, 45, 0.35);
+}
+
+.experiences-card--grid .experiences-grid-col2.experiences-grid-row1 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+/* Bouton toggle : pill avec chevron */
+.experiences-card-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  color: #4b5563;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.experiences-card-header:hover .experiences-card-toggle-btn {
+  background: rgba(0, 0, 0, 0.09);
+  border-color: rgba(0, 0, 0, 0.12);
+  color: #374151;
+}
+
+.experiences-card-header:active .experiences-card-toggle-btn {
+  transform: scale(0.96);
+  background: rgba(0, 0, 0, 0.11);
+}
+
+.experiences-card-header:focus-visible .experiences-card-toggle-btn {
+  box-shadow: 0 0 0 2px rgba(45, 45, 45, 0.4);
+}
+
+.experiences-card-chevron {
+  width: 1rem;
+  height: 1rem;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.experiences-card:not(.experiences-card--collapsed) .experiences-card-chevron {
+  transform: rotate(180deg);
+}
+
+/* Carte en cours : accent vert sur le toggle au hover */
+.experiences-card--ongoing .experiences-card-toggle-btn {
+  background: rgba(22, 163, 74, 0.08);
+  border-color: rgba(22, 163, 74, 0.15);
+  color: #15803d;
+}
+
+.experiences-card--ongoing .experiences-card-header:hover .experiences-card-toggle-btn {
+  background: rgba(22, 163, 74, 0.12);
+  border-color: rgba(22, 163, 74, 0.25);
+  color: #16a34a;
+}
+
 .experiences-meta {
   padding: 16px 20px;
   background: rgba(255, 255, 255, 0.5);
@@ -713,7 +821,7 @@
   }
   .experiences-card--grid {
     grid-template-columns: 1fr;
-    grid-template-rows: auto auto auto auto;
+    grid-template-rows: auto auto auto;
     gap: 12px 0;
   }
   .experiences-card--grid .experiences-grid-col1,
@@ -723,8 +831,15 @@
   }
   .experiences-card--grid .experiences-grid-col1.experiences-grid-row1 { grid-row: 1; }
   .experiences-card--grid .experiences-grid-col2.experiences-grid-row1 { grid-row: 2; }
-  .experiences-card--grid .experiences-grid-col1.experiences-grid-row2 { grid-row: 3; }
-  .experiences-card--grid .experiences-grid-col2.experiences-grid-row2 { grid-row: 4; }
+  .experiences-card-detail {
+    grid-row: 3;
+    grid-template-columns: 1fr;
+    gap: 12px 0;
+  }
+  .experiences-card--collapsed.experiences-card--grid {
+    grid-template-rows: 1fr;
+    align-items: center;
+  }
   .experiences-meta {
     padding: 14px 16px;
     margin-bottom: 0;
@@ -781,6 +896,15 @@
   }
   .experiences-role {
     font-size: 0.95em;
+  }
+  .experiences-card-toggle-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+  }
+  .experiences-card-chevron {
+    width: 0.9rem;
+    height: 0.9rem;
   }
   .experiences-description {
     font-size: 0.88em;

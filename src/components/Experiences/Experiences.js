@@ -8,6 +8,7 @@ import {
     AiOutlineLineChart,
     AiOutlineClockCircle,
     AiOutlineEnvironment,
+    AiOutlineDown,
 } from "react-icons/ai";
 import { FaTag } from "react-icons/fa";
 import { useLanguage } from "../../context/LanguageContext";
@@ -211,22 +212,45 @@ function ExperienceCompanyLogo({ exp }) {
     );
 }
 
-function ExperienceCard({ exp }) {
+function ExperienceCard({ exp, isExpanded, onToggle }) {
     const { t } = useLanguage();
     const duration = exp.isCurrent && exp.startDate
         ? formatDurationFromStart(exp.startDate, t)
         : exp.duration;
 
+    const cardClass = [
+        "experiences-card",
+        "experiences-card--grid",
+        exp.isCurrent && "experiences-card--ongoing",
+        !isExpanded && "experiences-card--collapsed",
+    ].filter(Boolean).join(" ");
+
     return (
-        <div className={`experiences-card experiences-card--grid${exp.isCurrent ? " experiences-card--ongoing" : ""}`}>
-            {/* Row 1 : company | role */}
-            <div className="experiences-grid-col1 experiences-grid-row1">
+        <div className={cardClass}>
+            {/* Row 1 : company | role — cliquable pour toggle */}
+            <div
+                className="experiences-grid-col1 experiences-grid-row1 experiences-card-header"
+                onClick={onToggle}
+                onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); onToggle(); } }}
+                role="button"
+                tabIndex={0}
+                aria-expanded={isExpanded}
+                aria-label={isExpanded ? t("experiences.toggleCollapse") : t("experiences.toggleExpand")}
+            >
                 <div className="experiences-company">
                     <ExperienceCompanyLogo exp={exp} />
                     <span className="experiences-company-name">{exp.company}</span>
                 </div>
             </div>
-            <div className="experiences-grid-col2 experiences-grid-row1">
+            <div
+                className="experiences-grid-col2 experiences-grid-row1 experiences-card-header"
+                onClick={onToggle}
+                onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); onToggle(); } }}
+                role="button"
+                tabIndex={0}
+                aria-expanded={isExpanded}
+                aria-label={isExpanded ? t("experiences.toggleCollapse") : t("experiences.toggleExpand")}
+            >
                 <div className="experiences-role">
                     {exp.role}
                     {exp.isCurrent && (
@@ -238,29 +262,33 @@ function ExperienceCard({ exp }) {
                         </span>
                     )}
                 </div>
+                <span className="experiences-card-toggle-btn">
+                    <AiOutlineDown className="experiences-card-chevron" aria-hidden="true" />
+                </span>
             </div>
 
-            {/* Row 2+ : period/duration/location | project/missions/achievements/results/tags */}
-            <div className="experiences-grid-col1 experiences-grid-row2 experiences-meta">
-                <ExperiencePeriod period={exp.period} />
-                {duration && (
-                    <div className="experiences-meta-row">
-                        <span className="experiences-meta-icon-wrap">
-                            <AiOutlineClockCircle className="experiences-meta-icon" />
-                        </span>
-                        <span>{duration}</span>
-                    </div>
-                )}
-                {exp.location && (
-                    <div className="experiences-meta-row experiences-meta-row--location">
-                        <span className="experiences-meta-icon-wrap">
-                            <AiOutlineEnvironment className="experiences-meta-icon" />
-                        </span>
-                        <span>{exp.location}</span>
-                    </div>
-                )}
-            </div>
-            <div className="experiences-grid-col2 experiences-grid-row2 experiences-content">
+            {/* Row 2 : détail animé (expand/collapse) */}
+            <div className="experiences-card-detail">
+                <div className="experiences-grid-col1 experiences-meta">
+                    <ExperiencePeriod period={exp.period} />
+                    {duration && (
+                        <div className="experiences-meta-row">
+                            <span className="experiences-meta-icon-wrap">
+                                <AiOutlineClockCircle className="experiences-meta-icon" />
+                            </span>
+                            <span>{duration}</span>
+                        </div>
+                    )}
+                    {exp.location && (
+                        <div className="experiences-meta-row experiences-meta-row--location">
+                            <span className="experiences-meta-icon-wrap">
+                                <AiOutlineEnvironment className="experiences-meta-icon" />
+                            </span>
+                            <span>{exp.location}</span>
+                        </div>
+                    )}
+                </div>
+                <div className="experiences-grid-col2 experiences-content">
                 <ExperienceProjectBlock project={exp.project} />
 
                 {exp.projects ? (
@@ -290,19 +318,20 @@ function ExperienceCard({ exp }) {
                         </div>
                     </div>
                 )}
+                </div>
             </div>
         </div>
     );
 }
 
-function ExperienceTimelineItem({ exp }) {
+function ExperienceTimelineItem({ exp, index, isExpanded, onToggle }) {
     return (
         <div className={`experiences-timeline-item${exp.isCurrent ? " experiences-timeline-item--ongoing" : ""}`}>
             <div className="experiences-timeline-node">
                 <span className="experiences-timeline-node-dot" />
             </div>
             <div className="experiences-timeline-connector" aria-hidden="true" />
-            <ExperienceCard exp={exp} />
+            <ExperienceCard exp={exp} isExpanded={isExpanded} onToggle={() => onToggle(index)} />
         </div>
     );
 }
@@ -310,6 +339,16 @@ function ExperienceTimelineItem({ exp }) {
 function Experiences() {
     const { t } = useLanguage();
     const entries = t("experiences.entries") || [];
+    const [expandedCards, setExpandedCards] = React.useState(() => new Set([0]));
+
+    const toggleCard = (index) => {
+        setExpandedCards((prev) => {
+            const next = new Set(prev);
+            if (next.has(index)) next.delete(index);
+            else next.add(index);
+            return next;
+        });
+    };
 
     return (
         <section id="experiences" className="experiences-section" style={{ minHeight: "50vh", padding: "80px 0" }}>
@@ -320,7 +359,13 @@ function Experiences() {
                 <div className="experiences-timeline">
                     <div className="experiences-timeline-track" aria-hidden="true" />
                     {entries.map((exp, index) => (
-                        <ExperienceTimelineItem key={index} exp={exp} />
+                        <ExperienceTimelineItem
+                            key={index}
+                            exp={exp}
+                            index={index}
+                            isExpanded={expandedCards.has(index)}
+                            onToggle={toggleCard}
+                        />
                     ))}
                 </div>
             </Container>

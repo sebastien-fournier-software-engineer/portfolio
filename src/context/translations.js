@@ -316,6 +316,8 @@ const translations = {
             consultant: { en: "Consultant", fr: "Consultant" },
             stage: { en: "Internship", fr: "Stage" },
         },
+        toggleExpand: { en: "Show details", fr: "Afficher le détail" },
+        toggleCollapse: { en: "Hide details", fr: "Masquer le détail" },
         entries: {
             en: [
                 {
