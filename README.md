@@ -59,6 +59,20 @@ npm run build
 
 Output is in the `build/` folder (static assets ready to deploy).
 
+### Deploy on GitHub Pages
+
+The site is set up to be hosted on **GitHub Pages** at the URL defined in `package.json` (`homepage`).
+
+**Option 1 — Automatic deployment (recommended)**  
+A GitHub Actions workflow (`.github/workflows/deploy-pages.yml`) builds and deploys the site on every push to `main` or `master`. To enable it:
+
+1. On GitHub: repo **Settings** → **Pages**
+2. Under **Build and deployment**, **Source**: select **GitHub Actions**
+3. Push this repo (with the workflow) to `main`/`master`; deployment runs automatically
+
+**Option 2 — Manual deployment**  
+Locally: run `npm install` then `npm run deploy`. This builds the project and pushes the contents of `build/` to the `gh-pages` branch. In **Settings → Pages**, set the source to the **gh-pages** branch.
+
 ---
 
 ## Project Structure (main parts)
