@@ -3,7 +3,10 @@
  *
  * Structure:  translations.<section>.<key>  →  { en: "…", fr: "…" }
  *
- * To add a new language later, simply add a third property to each entry
+ * Section order matches the page order in App.js:
+ *   Navbar → Home (+ Typewriter) → About → Skills → Experiences → Projects → Education → FindMeOn → Footer
+ *
+ * To add a new language later, add a third property to each entry
  * (e.g. `es: "…"`) and update the toggle logic in LanguageContext.
  */
 
@@ -965,6 +968,96 @@ const translations = {
     },
 
     /* ------------------------------------------------------------------ */
+    /*  Projects                                                           */
+    /* ------------------------------------------------------------------ */
+    projects: {
+        title: {
+            en: <>My <strong className="purple">Projects</strong></>,
+            fr: <>Mes <strong className="purple">projets</strong></>,
+        },
+        subtitle: {
+            en: "Here are a few projects I've worked on.",
+            fr: "Voici quelques projets sur lesquels j'ai travaillé.",
+        },
+        entries: {
+            en: [
+                {
+                    title: "Autonomous inspection rover for solar farms",
+                    description:
+                        "Design and development of an autonomous rover for defect inspection in solar farms. Autonomous navigation and anomaly detection on photovoltaic panels.",
+                    imgAlt: "Autonomous inspection rover",
+                    stack: ["ROS2", "Nav2", "C++", "OpenCV", "FoxGlove", "Docker", "NVIDIA Jetson"],
+                },
+                {
+                    title: "Wi-Fi robotic car",
+                    description:
+                        "Design and development of an Android application to drive a robotic car via Wi-Fi. Real-time communication, intuitive user interface, embedded command handling, PID control and full electronic integration.",
+                    imgAlt: "Robotic control and development",
+                    stack: ["Android", "Wi-Fi", "Real-time", "Embedded"],
+                },
+                {
+                    title: "REST API Fin-Tech",
+                    description:
+                        "Python project in two apps: a REST API for a web metadata database, and a service exposing a dictionary (15min-delayed BTC/EUR, ECB monthly EUR→GBP rate, BTC in GBP). API documented via two Postman collections (JSON). Deploy: venv + requirements.txt.",
+                    imgAlt: "Python API",
+                    stack: ["Python", "REST", "PostgreSQL", "Web crawler"],
+                },
+                {
+                    title: "ARM energy optimization",
+                    description:
+                        "Modelling and energy optimization of multi-core ARM processors. Power consumption analysis and power management strategies.",
+                    imgAlt: "ARM processor optimization",
+                    stack: ["Modelling", "ARM", "Multi-core", "Energy optimization"],
+                },
+                {
+                    title: "Towerfall-style video game (C)",
+                    description:
+                        "2D game engine in C (Towerfall-inspired, local multiplayer). Architecture and game loop from scratch; 2D physics, collisions and rendering.",
+                    imgAlt: "2D Towerfall-style game",
+                    stack: ["C", "2D game", "Local multiplayer", "Physics"],
+                },
+            ],
+            fr: [
+                {
+                    title: "Rover autonome d'inspection de fermes solaires",
+                    description:
+                        "Conception et développement d'un rover autonome d'inspection de défauts en fermes solaires. Navigation autonome et détection des anomalies sur panneaux photovoltaïques.",
+                    imgAlt: "Rover autonome d'inspection",
+                    stack: ["ROS2", "Nav2", "C++", "OpenCV", "FoxGlove", "Docker", "NVIDIA Jetson"],
+                },
+                {
+                    title: "Voiture robotisée Wi-Fi",
+                    description:
+                        "Conception et développement d'une application Android pour piloter une voiture robotisée via Wi-Fi. Communication en temps réel, interface utilisateur intuitive, gestion embarquée des commandes, contrôle PID et intégration électronique complète.",
+                    imgAlt: "Contrôle robotisé et développement",
+                    stack: ["Android", "Wi-Fi", "Temps réel", "Embedded"],
+                },
+                {
+                    title: "API REST Fin-Tech",
+                    description:
+                        "Projet Python en deux apps : API REST pour une base de métadonnées web, et un service exposant un dictionnaire (BTC/EUR 15 min, taux mensuel EUR→GBP BCE, BTC en GBP). API documentée par deux collections Postman (JSON). Déploiement : venv + requirements.txt.",
+                    imgAlt: "API Python",
+                    stack: ["Python", "REST", "PostgreSQL", "Web crawler"],
+                },
+                {
+                    title: "Optimisation énergétique ARM",
+                    description:
+                        "Modélisation et optimisation énergétique des processeurs multi-cœurs ARM. Analyse des consommations et stratégies de gestion de la puissance.",
+                    imgAlt: "Optimisation processeurs ARM",
+                    stack: ["Modélisation", "ARM", "Multi-cœur", "Optimisation énergétique"],
+                },
+                {
+                    title: "Jeu vidéo style Towerfall (C)",
+                    description:
+                        "Moteur de jeu 2D en C (inspiré Towerfall, multijoueur local). Architecture et boucle de jeu de zéro ; physique 2D, collisions et rendu.",
+                    imgAlt: "Jeu 2D Towerfall",
+                    stack: ["C", "Jeu 2D", "Multijoueur local", "Physique"],
+                },
+            ],
+        },
+    },
+
+    /* ------------------------------------------------------------------ */
     /*  Education / Formation                                              */
     /* ------------------------------------------------------------------ */
     education: {
@@ -1030,20 +1123,6 @@ const translations = {
                     tags: ["Mathématiques", "Sciences","Physique-Chimie", "Anglais"],
                 },
             ],
-        },
-    },
-
-    /* ------------------------------------------------------------------ */
-    /*  Projects                                                           */
-    /* ------------------------------------------------------------------ */
-    projects: {
-        title: {
-            en: <>My <strong className="purple">Projects</strong></>,
-            fr: <>Mes <strong className="purple">projets</strong></>,
-        },
-        subtitle: {
-            en: "Here are a few projects I've worked on.",
-            fr: "Voici quelques projets sur lesquels j'ai travaillé.",
         },
     },
 
