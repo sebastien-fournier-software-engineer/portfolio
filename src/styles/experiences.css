@@ -413,10 +413,18 @@
 .education-card__header {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 14px;
   margin: 0;
   padding: 0;
   border: none;
+}
+
+.education-card__header-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 0;
 }
 
 .education-card__logo {
@@ -1030,10 +1038,16 @@
   .education-card__period {
     font-size: 0.75em;
   }
+  .education-card__header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
   .education-card__mention {
     padding: 3px 8px;
     font-size: 0.6em;
     border-radius: 4px;
+    align-self: center;
   }
 
   .experiences-company {

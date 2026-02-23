@@ -44,14 +44,16 @@ function EducationCard({ entry }) {
   return (
     <div className="education-card">
       <header className="education-card__header">
-        <EducationSchoolLogo entry={entry} />
-        <span className="education-card__school">{entry.school}</span>
-      </header>
-      <h3 className="education-card__degree">{entry.degree}</h3>
-      <div className="education-card__meta">
+        <span className="education-card__header-left">
+          <EducationSchoolLogo entry={entry} />
+          <span className="education-card__school">{entry.school}</span>
+        </span>
         {entry.mention && (
           <span className="education-card__mention">{entry.mention}</span>
         )}
+      </header>
+      <h3 className="education-card__degree">{entry.degree}</h3>
+      <div className="education-card__meta">
         <div className="education-card__period">
           <span className="education-card__period-icon" aria-hidden="true">
             <AiOutlineCalendar />

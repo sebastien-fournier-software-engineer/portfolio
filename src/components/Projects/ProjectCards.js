@@ -23,11 +23,6 @@ function ProjectCard({
 
   return (
     <Card className="project-card-view">
-      {ongoing && (
-        <div className="project-card-ongoing-ribbon" aria-hidden="true">
-          <span className="project-card-ongoing-ribbon-text">{t("projects.ongoing")}</span>
-        </div>
-      )}
       <div className="project-card-img-wrap">
         <div className="project-card-img-frame">
           <img
@@ -36,6 +31,11 @@ function ProjectCard({
             className="project-card-img"
           />
         </div>
+        {ongoing && (
+        <div className="project-card-ongoing-ribbon" aria-hidden="true">
+          <span className="project-card-ongoing-ribbon-text">{t("projects.ongoing")}</span>
+        </div>
+      )}
       </div>
       <Card.Body>
         <Card.Title>{title}</Card.Title>
