@@ -59,7 +59,7 @@
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   @supports (padding: max(0px)) {
     .navbar {
       padding-left: max(0.75rem, env(safe-area-inset-left)) !important;

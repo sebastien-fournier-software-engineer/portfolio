@@ -60,7 +60,7 @@
   z-index: 2;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .home-section .container.home-content {
     padding: 6rem 1.5rem 1.5rem !important;
     padding-left: 1.75rem !important;
@@ -152,7 +152,7 @@
   color: var(--color-text-primary);
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .heading,
   .heading-name {
     padding-left: 0 !important;
@@ -225,7 +225,7 @@
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .home-type-wrap {
     padding: 1.5rem 1rem;
     text-align: center;
@@ -265,7 +265,7 @@
   .Typewriter__cursor { font-size: 1.8em !important; }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .Typewriter__wrapper { font-size: 1.4em !important; font-weight: 500 !important; }
   .Typewriter__cursor { font-size: 1.5em !important; }
 }
@@ -339,7 +339,7 @@
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .home-buttons {
     padding-left: 0;
     padding-right: 0;
@@ -397,7 +397,7 @@
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .particle-sphere-container {
     aspect-ratio: 1;
     height: auto !important;
@@ -419,7 +419,7 @@
   padding-top: 9em !important;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .myAvtar {
     padding-top: 2em !important;
     padding-bottom: 2em !important;
@@ -571,7 +571,7 @@
   margin-bottom: 0.6rem;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .home-about-section {
     padding: 60px 0 40px !important;
   }
@@ -748,7 +748,7 @@
   border: 1.5px solid var(--color-border) !important;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .home-social-icons {
     width: 48px !important;
     height: 48px !important;

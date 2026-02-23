@@ -238,7 +238,7 @@
   border-color: rgba(0, 0, 0, 0.12);
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .skills-section {
     padding: 60px 0 40px !important;
   }

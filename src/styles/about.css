@@ -43,7 +43,7 @@
   line-height: 1.6 !important;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .tech-icons {
     margin: 8px !important;
     padding: 8px 14px !important;

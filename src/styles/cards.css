@@ -23,7 +23,7 @@
   scroll-margin-top: 5rem;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .project-section {
     padding-top: 100px !important;
     padding-bottom: 20px !important;
@@ -56,7 +56,7 @@
   height: auto !important;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .project-section .row {
     row-gap: 24px;
   }
@@ -96,15 +96,26 @@
   overflow: hidden !important;
 }
 
-/* Badge "En cours" — style aligné sur les badges type Experiences (compact, coin) */
+/* Badge "En cours" — sous l'image, centré (tous écrans: mobile, tablette, laptop) */
+.project-card-img-wrap {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.project-card-img-frame {
+  order: 1;
+}
+
 .project-card-ongoing-ribbon {
-  position: absolute;
-  top: 14px;
-  right: 14px;
-  z-index: 2;
+  position: static;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  width: fit-content;
+  margin: 0 auto;
+  order: 2;
   padding: 3px 10px;
   font-size: 0.6em;
   font-weight: 600;
@@ -115,23 +126,6 @@
   border: 1px solid rgba(22, 163, 74, 0.25);
   border-radius: 4px;
   animation: project-card-ongoing-pulse 2.5s ease-in-out infinite;
-}
-
-/* Tablette + Mobile S: badge sous l'image (à l'intérieur du wrap) */
-@media (max-width: 768px) {
-  .project-card-img-wrap {
-    flex-direction: column;
-    gap: 8px;
-  }
-  .project-card-ongoing-ribbon {
-    position: static;
-    width: fit-content;
-    margin: 0 auto;
-    order: 2;
-  }
-  .project-card-img-frame {
-    order: 1;
-  }
 }
 
 .project-card-ongoing-ribbon-text {
@@ -263,7 +257,7 @@
   display: block;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .project-card-view .card-body {
     padding: 20px 20px 24px !important;
   }
@@ -343,7 +337,7 @@
   border-radius: 10px !important;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .card-img-top { padding: 16px !important; }
 }
 

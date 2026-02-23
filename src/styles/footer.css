@@ -10,7 +10,7 @@
   padding: 14px 0 !important;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .footer {
     padding: 12px 16px !important;
   }

@@ -27,7 +27,7 @@ function Projects() {
         <h1 className="project-heading">{t("projects.title")}</h1>
         <Row className="justify-content-center" style={{ paddingBottom: "10px" }}>
           {entries.map((entry, index) => (
-            <Col key={entry.title} md={4} className="project-card">
+            <Col key={entry.title} xs={12} lg={4} className="project-card">
               <ProjectCard {...entry} {...PROJECT_META[index]} />
             </Col>
           ))}
