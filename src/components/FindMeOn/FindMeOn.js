@@ -1,14 +1,10 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Container, Row, Col, Card, Form, Button } from "react-bootstrap";
-import HCaptcha from "@hcaptcha/react-hcaptcha";
 import { AiFillGithub } from "react-icons/ai";
 import { FaLinkedinIn } from "react-icons/fa";
 import { MdOutlineEmail } from "react-icons/md";
 import { HiOutlinePaperAirplane } from "react-icons/hi";
 import { useLanguage } from "../../context/LanguageContext";
-
-// Web3Forms free plan: use this site key; paid plans can set REACT_APP_HCAPTCHA_SITE_KEY
-const HCAPTCHA_SITE_KEY = process.env.REACT_APP_HCAPTCHA_SITE_KEY || "50b2fe65-b00b-4b9e-ad62-3ba471098be2";
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 // International format: optional + or 00 prefix, then digits and common separators (spaces, dots, dashes, parentheses)
@@ -45,10 +41,7 @@ function FindMeOn() {
     const [panelVisible, setPanelVisible] = useState(false);
     const [submitStatus, setSubmitStatus] = useState("idle"); // idle | sending | success | error
     const [submitErrorMessage, setSubmitErrorMessage] = useState(null); // API error message when submitStatus === "error"
-    const [hCaptchaToken, setHCaptchaToken] = useState(null);
-    const [captchaError, setCaptchaError] = useState(null);
     const panelCloseTimerRef = useRef(null);
-    const hCaptchaRef = useRef(null);
 
     useEffect(() => {
         if (!panelVisible) return;
@@ -88,12 +81,6 @@ function FindMeOn() {
         });
         if (!firstNameValid || !lastNameValid || !emailValid || !phoneValid) return;
 
-        if (!hCaptchaToken) {
-            setCaptchaError(true);
-            return;
-        }
-        setCaptchaError(null);
-
         const accessKey = process.env.REACT_APP_WEB3FORMS_ACCESS_KEY;
         if (!accessKey) {
             setSubmitErrorMessage("REACT_APP_WEB3FORMS_ACCESS_KEY is missing. Add it to .env and restart the dev server.");
@@ -113,7 +100,6 @@ function FindMeOn() {
             email,
             ...(phone ? { phone } : {}),
             message,
-            "h-captcha-response": hCaptchaToken,
         };
 
         try {
@@ -131,21 +117,10 @@ function FindMeOn() {
                 setEmail("");
                 setPhone("");
                 setMessage("");
-                setHCaptchaToken(null);
-                setCaptchaError(null);
-                hCaptchaRef.current?.resetCaptcha();
             } else {
                 const apiMessage = data.body?.message || data.message || (res.status === 429 ? "Too many requests. Please try again later." : null);
-                const isSecurityError = apiMessage && /security|sécurité/i.test(apiMessage);
-                setSubmitErrorMessage(
-                    isSecurityError && apiMessage
-                        ? `${apiMessage} ${t("findMeOn.formSubmitErrorCaptchaHint")}`
-                        : apiMessage || null
-                );
+                setSubmitErrorMessage(apiMessage || null);
                 setSubmitStatus("error");
-                setHCaptchaToken(null);
-                setCaptchaError(null);
-                hCaptchaRef.current?.resetCaptcha();
                 if (process.env.NODE_ENV === "development") {
                     console.error("[Contact form] Web3Forms error:", res.status, data);
                 }
@@ -153,9 +128,6 @@ function FindMeOn() {
         } catch (err) {
             setSubmitErrorMessage(process.env.NODE_ENV === "development" ? err.message : null);
             setSubmitStatus("error");
-            setHCaptchaToken(null);
-            setCaptchaError(null);
-            hCaptchaRef.current?.resetCaptcha();
             if (process.env.NODE_ENV === "development") {
                 console.error("[Contact form] Network or parse error:", err);
             }
@@ -281,20 +253,6 @@ function FindMeOn() {
                                             onChange={(e) => { setMessage(e.target.value); clearSubmitStatus(); }}
                                             required
                                         />
-                                    </Form.Group>
-                                    <Form.Group className="mb-3" controlId="contact-captcha">
-                                        <HCaptcha
-                                            ref={hCaptchaRef}
-                                            sitekey={HCAPTCHA_SITE_KEY}
-                                            onVerify={(token) => { setHCaptchaToken(token); setCaptchaError(null); clearSubmitStatus(); }}
-                                            onExpire={() => setHCaptchaToken(null)}
-                                            reCaptchaCompat={false}
-                                        />
-                                        {captchaError && (
-                                            <div className="invalid-feedback d-block">
-                                                {t("findMeOn.formErrorCaptchaRequired")}
-                                            </div>
-                                        )}
                                     </Form.Group>
                                     {submitStatus === "success" && (
                                         <div className="contact-form-feedback contact-form-feedback--success" role="status">

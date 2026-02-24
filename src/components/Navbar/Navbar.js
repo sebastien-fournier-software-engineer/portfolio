@@ -13,14 +13,12 @@ import logo from "../../assets/home_logo.png";
 /* ------------------------------------------------------------------ */
 
 /** Section IDs that may fit in the viewport; when they do, we center them on click. */
-const SECTIONS_CENTER_IF_FIT = ["about", "education", "contact"];
+const SECTIONS_CENTER_IF_FIT = ["about", "education"];
 
 /**
  * Smoothly scrolls the viewport to the section matching `sectionId`.
+ * Contact: scrolls so the block (FindMeOn + Footer) is in view with the footer at the bottom of the screen, so contact content and footer are always displayed together.
  * For about and education: if the section height fits in the viewport, scrolls so the section is vertically centered.
- * For contact: on desktop (≥768px) scrolls so FindMeOn + Footer are visible; if the block fits in viewport, centers it;
- *   if it overflows (e.g. 1024px), uses block "end" so the footer stays fully visible at the bottom of the screen.
- *   On mobile, scrolls to the top of the section.
  * For other sections, scrolls to the section title (h1) at a consistent height below the navbar.
  */
 function scrollToSection(e, sectionId) {
@@ -30,16 +28,14 @@ function scrollToSection(e, sectionId) {
 
     const vh = window.innerHeight;
     const sectionHeight = section.offsetHeight;
-    const isMobile = window.innerWidth < 768;
 
     if (sectionId === "contact") {
-        if (isMobile) {
-            section.scrollIntoView({ behavior: "smooth", block: "start" });
-        } else if (sectionHeight <= vh) {
-            section.scrollIntoView({ behavior: "smooth", block: "center" });
-        } else {
-            section.scrollIntoView({ behavior: "smooth", block: "end" });
-        }
+        const isNarrowViewport = window.innerWidth <= 1024;
+        section.scrollIntoView({
+            behavior: "smooth",
+            block: isNarrowViewport ? "start" : "end",
+            inline: "nearest",
+        });
         return;
     }
 

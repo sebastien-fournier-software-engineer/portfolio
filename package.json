@@ -4,7 +4,6 @@
   "private": true,
   "homepage": "https://sebastien-fournier-software-robotics.github.io/portfolio/",
   "dependencies": {
-    "@hcaptcha/react-hcaptcha": "^2.0.2",
     "@react-pdf/renderer": "^2.2.0",
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.4",
