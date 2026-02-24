@@ -17,8 +17,10 @@ const SECTIONS_CENTER_IF_FIT = ["about", "education", "contact"];
 
 /**
  * Smoothly scrolls the viewport to the section matching `sectionId`.
- * For about, education and contact: if the section height fits in the viewport,
- * scrolls so the section is vertically centered; otherwise scrolls to the top.
+ * For about and education: if the section height fits in the viewport, scrolls so the section is vertically centered.
+ * For contact: on desktop (≥768px) scrolls so FindMeOn + Footer are visible; if the block fits in viewport, centers it;
+ *   if it overflows (e.g. 1024px), uses block "end" so the footer stays fully visible at the bottom of the screen.
+ *   On mobile, scrolls to the top of the section.
  * For other sections, scrolls to the section title (h1) at a consistent height below the navbar.
  */
 function scrollToSection(e, sectionId) {
@@ -28,8 +30,20 @@ function scrollToSection(e, sectionId) {
 
     const vh = window.innerHeight;
     const sectionHeight = section.offsetHeight;
-    const shouldCenter = SECTIONS_CENTER_IF_FIT.includes(sectionId) && sectionHeight <= vh;
+    const isMobile = window.innerWidth < 768;
 
+    if (sectionId === "contact") {
+        if (isMobile) {
+            section.scrollIntoView({ behavior: "smooth", block: "start" });
+        } else if (sectionHeight <= vh) {
+            section.scrollIntoView({ behavior: "smooth", block: "center" });
+        } else {
+            section.scrollIntoView({ behavior: "smooth", block: "end" });
+        }
+        return;
+    }
+
+    const shouldCenter = SECTIONS_CENTER_IF_FIT.includes(sectionId) && sectionHeight <= vh;
     if (shouldCenter) {
         section.scrollIntoView({ behavior: "smooth", block: "center" });
         return;
@@ -109,12 +123,12 @@ function NavBar() {
 
     const scrollHandler = useCallback(() => {
         updateNavbar(window.scrollY >= 20);
-        updateExpanded(false); /* fermer le menu au scroll sur mobile */
+        updateExpanded(false); /* close menu on scroll on mobile */
     }, []);
 
     const resizeHandler = useCallback(() => {
         if (window.innerWidth >= 1200) {
-            updateExpanded(false); /* fermer si on repasse en desktop (xl) */
+            updateExpanded(false); /* close when switching back to desktop (xl) */
         }
     }, []);
 

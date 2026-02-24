@@ -51,12 +51,4 @@ function App() {
     </>
   );
 }
-// Portfolio TODO list:
-// [x] : présentation + CV / Contact Me button(scroll to contact) + animation
-// [x] : About
-// [x] : Compétences + stack
-// [x] : Expériences / clients
-// TODO : Projets
-// [x] : Formation + (Certifications)
-// [x] : Contact Section : CTA + Liens : Mail / LinkedIn / GitHub
 export default App;

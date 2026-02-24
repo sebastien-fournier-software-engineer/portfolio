@@ -10,7 +10,7 @@
   background: transparent !important;
 }
 
-/* Titres de section : style commun (couleur, police, taille) */
+/* Section titles: shared style (color, font, size) */
 .project-heading {
   font-family: var(--font-heading);
   font-size: 2.3em !important;
@@ -80,7 +80,7 @@
   }
 }
 
-/* --- Project card (aligné expériences / skills) --- */
+/* --- Project card (aligned with experiences / skills) --- */
 .project-card-view {
   position: relative !important;
   display: flex !important;
@@ -96,7 +96,7 @@
   overflow: hidden !important;
 }
 
-/* Badge "En cours" — sous l'image, centré (tous écrans: mobile, tablette, laptop) */
+/* "In progress" badge — below image, centered (all breakpoints: mobile, tablet, laptop) */
 .project-card-img-wrap {
   flex-direction: column;
   justify-content: center;
@@ -216,7 +216,7 @@
   margin-left: 0 !important;
 }
 
-/* Zone image : conteneur + cadre pour un rendu cohérent avec la page */
+/* Image area: container + frame for consistent look with the page */
 .project-card-img-wrap {
   display: flex;
   align-items: center;
@@ -330,7 +330,7 @@
   }
 }
 
-/* Legacy card-img-top (blog / autres) */
+/* Legacy card-img-top (blog / others) */
 .card-img-top {
   padding: 20px !important;
   opacity: 0.9 !important;

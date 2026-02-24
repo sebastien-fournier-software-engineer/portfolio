@@ -5,15 +5,16 @@
 .contact-section {
   position: relative !important;
   z-index: 1;
-  padding-top: 300px !important;
-  padding-bottom: 220px !important;
+  padding-top: 100px !important;
+  padding-bottom: 2.5rem !important;
   background: transparent !important;
   color: var(--color-text-primary) !important;
 }
 
+/* Tighter spacing so contact + footer fit in viewport when navbar "Contact" centers the block */
 @media (max-width: 1024px) {
   .contact-section {
-    padding-bottom: 180px !important;
+    padding-bottom: 2rem !important;
   }
 }
 
@@ -25,18 +26,277 @@
 
 .contact-section .project-heading {
   margin-bottom: var(--section-heading-gap);
-  /* police, couleur, taille : héritées de .project-heading (cards.css) */
+  /* font, color, size: inherited from .project-heading (cards.css) */
 }
 
 .contact-section .contact-subtitle {
-  color: #555555;
+  color: var(--color-text-muted);
   font-size: 1.05em;
   line-height: 1.6;
   padding-bottom: 25px;
 }
 
+/* --- Contact form card (premium, tech, sober — aligned with project cards) --- */
+.contact-form-card {
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2.5rem;
+  color: var(--color-text-primary);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(250, 250, 250, 0.96) 100%) !important;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-left: 4px solid rgba(45, 45, 45, 0.35);
+  border-radius: 12px;
+  box-shadow: var(--shadow-md), 0 1px 3px rgba(0, 0, 0, 0.04);
+  transition: box-shadow var(--transition-base), border-color var(--transition-base);
+  overflow: hidden;
+}
+
+.contact-form-card .card-body {
+  padding: 1.75rem 1.5rem;
+}
+
+.contact-form-card-intro {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  line-height: 1.65;
+  letter-spacing: 0.02em;
+}
+
+.contact-form-card-intro-col .contact-form-card-intro {
+  margin-bottom: 0;
+}
+
+@media (max-width: 767px) {
+  .contact-form-card-intro-col .contact-form-card-intro {
+    margin-bottom: 1.25rem;
+  }
+}
+
+.contact-form-card .form-label {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-primary);
+  margin-bottom: 0.4rem;
+}
+
+.contact-form-card .form-control {
+  font-family: var(--font-body);
+  border-radius: 6px;
+  border: 1px solid var(--color-border);
+  background: var(--color-bg-white);
+  color: var(--color-text-primary);
+  padding: 0.55rem 0.75rem;
+  font-size: 0.95rem;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.contact-form-card .form-control::placeholder {
+  color: var(--color-text-muted);
+  opacity: 0.8;
+}
+
+.contact-form-card .form-control:focus {
+  border-color: var(--color-text-primary);
+  box-shadow: 0 0 0 2px rgba(26, 26, 26, 0.08);
+  outline: none;
+}
+
+.contact-form-card textarea.form-control {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* Send button — same style as .home-contact-btn */
+.contact-form-send-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.15rem;
+  padding: 0.55rem 1.5rem !important;
+  border-radius: 6px !important;
+  font-family: var(--font-heading) !important;
+  font-weight: 500 !important;
+  font-size: 1rem !important;
+  letter-spacing: 0.02em;
+  color: var(--color-bg-white) !important;
+  background-color: var(--color-bg-dark) !important;
+  border: 1.5px solid var(--color-bg-dark) !important;
+  transition: all 0.3s ease !important;
+  white-space: nowrap;
+}
+
+.contact-form-send-btn:hover {
+  color: var(--color-bg-white) !important;
+  background-color: var(--color-text-secondary) !important;
+  border-color: var(--color-text-secondary) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+}
+
+.contact-form-send-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  transform: rotate(45deg) translateY(-5px); /* diagonal + nudge up to align with text */
+  margin-right: 0.2rem; /* extra space before text */
+}
+
+.contact-form-send-icon svg {
+  display: block;
+  vertical-align: middle;
+}
+
+@media (max-width: 768px) {
+  .contact-form-card .card-body {
+    padding: 1.25rem 1.25rem;
+  }
+  .contact-form-card-intro {
+    font-size: 0.9rem;
+    margin-bottom: 1.1rem;
+  }
+  .contact-form-card .form-label {
+    font-size: 0.65rem;
+  }
+}
+
 .contact-section .home-about-social-links {
   padding-top: 20px !important;
+}
+
+/* Email: same icon as others (hover = animation); address + copy panel on hover */
+.contact-email-copy-wrap {
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
+}
+
+/* Keep icon identical to others (circle, same size, same hover) */
+.contact-email-copy-btn {
+  cursor: pointer;
+}
+
+/* Panel: absolute so it doesn't take layout space (mail icon aligned with others) */
+.contact-email-copy-panel {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  padding: 0 0.5rem;
+  margin-top: 0;
+  background: var(--color-bg-white);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  width: 220px;
+  min-width: 220px;
+  max-width: min(280px, calc(100vw - 2rem));
+  box-sizing: border-box;
+  transition: max-height var(--transition-base), opacity var(--transition-base), padding var(--transition-base), margin var(--transition-base);
+  transition-delay: 0s;
+}
+
+.contact-email-copy-wrap:hover .contact-email-copy-panel,
+.contact-email-copy-wrap:focus-within .contact-email-copy-panel {
+  max-height: 120px;
+  opacity: 1;
+  padding: 0.6rem 0.75rem;
+  margin-top: 8px;
+  transition-delay: 0s;
+}
+
+/* Slight delay on close so panel stays visible when leaving icon */
+.contact-email-copy-wrap .contact-email-copy-panel {
+  transition-delay: 0.15s;
+}
+.contact-email-copy-wrap:hover .contact-email-copy-panel,
+.contact-email-copy-wrap:focus-within .contact-email-copy-panel {
+  transition-delay: 0s;
+}
+
+.contact-email-copy-panel .contact-email-address {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  white-space: nowrap;
+  text-align: center;
+  line-height: 1.3;
+  color: var(--color-text-primary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.contact-email-copy-panel .contact-email-hint {
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+
+/* Copy validation: smooth transition, no scale (avoids blur) */
+.contact-email-copy-panel--copied {
+  border-color: rgba(34, 139, 34, 0.5);
+  background: rgba(240, 252, 240, 0.98);
+  box-shadow: 0 4px 12px rgba(34, 139, 34, 0.15);
+  transition: border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+}
+
+.contact-email-copy-panel--copied .contact-email-address {
+  color: var(--color-text-primary);
+}
+
+.contact-email-copy-panel--copied .contact-email-hint {
+  color: #2d6a2d;
+  font-weight: 500;
+  animation: contact-email-hint-appear 0.3s ease;
+}
+
+@keyframes contact-email-hint-appear {
+  0% {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.contact-email-copy-btn:focus {
+  outline: none;
+}
+
+/* Responsive: panel readable on small screens, no overflow */
+@media (max-width: 480px) {
+  .contact-email-copy-panel {
+    width: auto;
+    min-width: 160px;
+    max-width: calc(100vw - 2rem);
+  }
+  .contact-email-copy-panel .contact-email-address {
+    font-size: 0.65rem;
+    white-space: normal;
+    word-break: break-all;
+  }
+  .contact-email-copy-panel .contact-email-hint {
+    font-size: 0.6rem;
+    white-space: normal;
+    text-align: center;
+  }
 }
 
 .contact-section .home-social-icons::before {
@@ -53,8 +313,8 @@
 
 @media (max-width: 768px) {
   .contact-section {
-    padding-top: 80px !important;
-    padding-bottom: 120px !important;
+    padding-top: 60px !important;
+    padding-bottom: 1.5rem !important;
   }
   .contact-section .contact-subtitle {
     font-size: 0.95em;
@@ -64,7 +324,7 @@
 
 @media (max-width: 480px) {
   .contact-section {
-    padding-top: 60px !important;
-    padding-bottom: 60px !important;
+    padding-top: 40px !important;
+    padding-bottom: 1rem !important;
   }
 }

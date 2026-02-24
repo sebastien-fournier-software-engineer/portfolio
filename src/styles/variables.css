@@ -1,18 +1,18 @@
 /* ============================================================
    CSS Custom Properties (Design Tokens)
    ============================================================
-   Centralise les couleurs, espacements et valeurs réutilisables
+   Centralizes colors, spacing and reusable values
    ============================================================ */
 
 :root {
-  /* Palette principale */
+  /* Main palette */
   --color-text-primary: #1a1a1a;
   --color-text-secondary: #333333;
   --color-text-muted: #4a4a4a;
   --color-text-accent: #2d2d2d;
   --color-text-light: #e0e0e0;
 
-  /* Alias pour compatibilité */
+  /* Alias for backward compatibility */
   --imp-text-color: var(--color-text-accent);
 
   /* Backgrounds */
@@ -20,7 +20,7 @@
   --color-bg-light: #f8f8f8;
   --color-bg-dark: #1a1a1a;
 
-  /* Bordures & ombres */
+  /* Borders & shadows */
   --color-border: #d0d0d0;
   --color-border-light: rgba(0, 0, 0, 0.06);
   --shadow-sm: 0 2px 12px rgba(0, 0, 0, 0.06);
@@ -45,6 +45,6 @@
   --transition-base: 0.3s ease;
   --transition-slow: 0.4s ease;
 
-  /* Section layout: espace constant entre titre de section et le contenu */
+  /* Section layout: constant spacing between section title and content */
   --section-heading-gap: 2rem;
 }

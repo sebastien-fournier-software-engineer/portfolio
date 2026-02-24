@@ -967,7 +967,7 @@ const translations = {
     },
 
     /* ------------------------------------------------------------------ */
-    /*  Education / Formation                                              */
+    /*  Education                                                           */
     /* ------------------------------------------------------------------ */
     education: {
         title: {
@@ -1016,7 +1016,7 @@ const translations = {
             en: <>Contact <strong className="purple">me</strong></>,
             fr: <>Contactez-<strong className="purple">moi</strong></>,
         },
-        subtitle: {
+        cardIntro: {
             en: (
                 <>
                     Whether you lead the{" "}
@@ -1047,6 +1047,36 @@ const translations = {
                     Rencontrons-nous pour donner vie à vos projets les plus ambitieux.
                 </>
             ),
+        },
+        formFirstName: { en: "First name", fr: "Prénom" },
+        formFirstNamePlaceholder: { en: "John", fr: "Jean" },
+        formLastName: { en: "Last name", fr: "Nom" },
+        formLastNamePlaceholder: { en: "Doe", fr: "Dupont" },
+        formEmail: { en: "Email", fr: "Email" },
+        formEmailPlaceholder: { en: "you@example.com", fr: "vous@exemple.com" },
+        formPhone: { en: "Phone (optional)", fr: "Téléphone (facultatif)" },
+        formPhonePlaceholder: { en: "+1 234 567 8900", fr: "+33 6 12 34 56 78" },
+        formMessageLabel: { en: "Message", fr: "Message" },
+        formMessagePlaceholder: {
+            en: "Describe your project or question...",
+            fr: "Décrivez votre projet ou question...",
+        },
+        formSend: { en: "Send", fr: "Envoyer" },
+        formErrorEmailInvalid: {
+            en: "Please enter a valid email address (e.g. name@example.com).",
+            fr: "Veuillez saisir une adresse email valide (ex. nom@exemple.com).",
+        },
+        formErrorPhoneInvalid: {
+            en: "Please enter a valid international number (e.g. +33 6 12 34 56 78 or +1 234 567 8900). Between 10 and 15 digits.",
+            fr: "Veuillez saisir un numéro international valide (ex. +33 6 12 34 56 78). Entre 10 et 15 chiffres.",
+        },
+        emailCopyHint: {
+            en: "Click to copy to clipboard",
+            fr: "Cliquer pour copier dans le presse-papier",
+        },
+        emailCopied: {
+            en: "Copied to clipboard",
+            fr: "Copié dans le presse-papier",
         },
     },
 

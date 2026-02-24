@@ -30,8 +30,8 @@ const EXPERIENCE_LOCAL_LOGOS = {
 };
 
 /**
- * Calcule la durée entre startDate (YYYY-MM) et aujourd'hui.
- * Retourne une chaîne formatée selon la langue (ex: "9 mois", "2 ans 3 mois").
+ * Computes the duration between startDate (YYYY-MM) and today.
+ * Returns a formatted string according to language (e.g. "9 months", "2 years 3 months").
  */
 function formatDurationFromStart(startDateStr, t) {
     const [year, month] = startDateStr.split("-").map(Number);
@@ -76,8 +76,8 @@ function ExperienceBlockHeader({ labelKey, Icon }) {
 }
 
 /**
- * Enveloppe la première valeur chiffrée (sans le séparateur "·") dans un span pour le style results.
- * Gère les nombres avec séparateur de milliers, pourcentages, unités (h) et unités avec espace (milli-seconde).
+ * Wraps the first numeric value (before the "·" separator) in a span for results styling.
+ * Handles numbers with thousands separator, percentages, units (h) and units with space (e.g. milli-second).
  */
 function formatResultWithNumbers(text) {
     if (typeof text !== "string") return text;
@@ -225,7 +225,7 @@ function ExperienceCard({ exp, isExpanded, onToggle }) {
 
     return (
         <div className={cardClass}>
-            {/* Row 1 : company | role — cliquable pour toggle */}
+            {/* Row 1: company | role — clickable to toggle */}
             <div
                 className="experiences-grid-col1 experiences-grid-row1 experiences-card-header"
                 onClick={onToggle}
@@ -265,7 +265,7 @@ function ExperienceCard({ exp, isExpanded, onToggle }) {
                 </span>
             </div>
 
-            {/* Row 2 : détail animé (expand/collapse) */}
+            {/* Row 2: animated detail (expand/collapse) */}
             <div className="experiences-card-detail">
                 <div className="experiences-grid-col1 experiences-meta">
                     <ExperiencePeriod period={exp.period} />
