@@ -8,7 +8,7 @@ import { useLanguage } from "../../context/LanguageContext";
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 // International format: optional + or 00 prefix, then digits and common separators (spaces, dots, dashes, parentheses)
-const PHONE_FORMAT_REGEX = /^[\+]?[0-9\s.\-()]+$/;
+const PHONE_FORMAT_REGEX = /^[+]?[0-9\s.\-()]+$/;
 const PHONE_DIGITS_MIN = 10;
 const PHONE_DIGITS_MAX = 15; // E.164
 const CONTACT_EMAIL = "seb.fournier.tech@proton.me";
