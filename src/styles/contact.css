@@ -6,15 +6,15 @@
   position: relative !important;
   z-index: 1;
   padding-top: 100px !important;
-  padding-bottom: 2.5rem !important;
+  padding-bottom: 4rem !important;
   background: transparent !important;
   color: var(--color-text-primary) !important;
 }
 
-/* Tighter spacing so contact + footer fit in viewport when navbar "Contact" centers the block */
+/* Space below mail/social icons so the email copy panel doesn't meet the footer */
 @media (max-width: 1024px) {
   .contact-section {
-    padding-bottom: 2rem !important;
+    padding-bottom: 3rem !important;
   }
 }
 
@@ -171,24 +171,24 @@
   padding-top: 20px !important;
 }
 
-/* Email: same icon as others (hover = animation); address + copy panel on hover */
+/* Email: same icon as others; panel shown on first click, copy on second click (no hover) */
 .contact-email-copy-wrap {
   display: inline-block;
   vertical-align: top;
   position: relative;
 }
 
-/* Keep icon identical to others (circle, same size, same hover) */
 .contact-email-copy-btn {
   cursor: pointer;
 }
 
-/* Panel: absolute so it doesn't take layout space (mail icon aligned with others) */
+/* Panel: absolute, visible only when .contact-email-copy-wrap--panel-open */
 .contact-email-copy-panel {
   position: absolute;
   top: 100%;
   left: 50%;
   transform: translateX(-50%);
+  z-index: 10;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -207,25 +207,27 @@
   max-width: min(280px, calc(100vw - 2rem));
   box-sizing: border-box;
   transition: max-height var(--transition-base), opacity var(--transition-base), padding var(--transition-base), margin var(--transition-base);
-  transition-delay: 0s;
 }
 
-.contact-email-copy-wrap:hover .contact-email-copy-panel,
-.contact-email-copy-wrap:focus-within .contact-email-copy-panel {
+.contact-email-copy-wrap--panel-open .contact-email-copy-panel {
   max-height: 120px;
   opacity: 1;
   padding: 0.6rem 0.75rem;
   margin-top: 8px;
-  transition-delay: 0s;
 }
 
-/* Slight delay on close so panel stays visible when leaving icon */
-.contact-email-copy-wrap .contact-email-copy-panel {
-  transition-delay: 0.15s;
-}
-.contact-email-copy-wrap:hover .contact-email-copy-panel,
-.contact-email-copy-wrap:focus-within .contact-email-copy-panel {
-  transition-delay: 0s;
+/* Under 1440px: open panel above the icon so it doesn't overlap the footer */
+@media (max-width: 1439px) {
+  .contact-email-copy-panel {
+    top: auto;
+    bottom: 100%;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  .contact-email-copy-wrap--panel-open .contact-email-copy-panel {
+    margin-top: 0;
+    margin-bottom: 8px;
+  }
 }
 
 .contact-email-copy-panel .contact-email-address {
@@ -314,7 +316,7 @@
 @media (max-width: 768px) {
   .contact-section {
     padding-top: 60px !important;
-    padding-bottom: 1.5rem !important;
+    padding-bottom: 2.5rem !important;
   }
   .contact-section .contact-subtitle {
     font-size: 0.95em;
@@ -325,6 +327,6 @@
 @media (max-width: 480px) {
   .contact-section {
     padding-top: 40px !important;
-    padding-bottom: 1rem !important;
+    padding-bottom: 2rem !important;
   }
 }

@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Container, Row, Col, Card, Form, Button } from "react-bootstrap";
 import { AiFillGithub } from "react-icons/ai";
 import { FaLinkedinIn } from "react-icons/fa";
@@ -12,6 +12,7 @@ const PHONE_FORMAT_REGEX = /^[+]?[0-9\s.\-()]+$/;
 const PHONE_DIGITS_MIN = 10;
 const PHONE_DIGITS_MAX = 15; // E.164
 const CONTACT_EMAIL = "seb.fournier.tech@proton.me";
+const PANEL_AUTO_CLOSE_MS = 5000;
 
 function validateEmail(value) {
     if (!value.trim()) return false;
@@ -37,13 +38,28 @@ function FindMeOn() {
     const [message, setMessage] = useState("");
     const [errors, setErrors] = useState({ email: null, phone: null });
     const [emailCopied, setEmailCopied] = useState(false);
-    const emailCopyWrapRef = useRef(null);
+    const [panelVisible, setPanelVisible] = useState(false);
+    const panelCloseTimerRef = useRef(null);
+
+    useEffect(() => {
+        if (!panelVisible) return;
+        panelCloseTimerRef.current = setTimeout(() => setPanelVisible(false), PANEL_AUTO_CLOSE_MS);
+        return () => {
+            if (panelCloseTimerRef.current) clearTimeout(panelCloseTimerRef.current);
+        };
+    }, [panelVisible]);
 
     const handleCopyEmail = () => {
+        if (!panelVisible) {
+            setPanelVisible(true);
+            return;
+        }
         navigator.clipboard.writeText(CONTACT_EMAIL).then(
             () => {
                 setEmailCopied(true);
-                setTimeout(() => setEmailCopied(false), 2000);
+                setTimeout(() => setEmailCopied(false), 4500);
+                if (panelCloseTimerRef.current) clearTimeout(panelCloseTimerRef.current);
+                panelCloseTimerRef.current = setTimeout(() => setPanelVisible(false), PANEL_AUTO_CLOSE_MS);
             },
             () => {}
         );
@@ -72,12 +88,6 @@ function FindMeOn() {
 
     const clearError = (field) => {
         setErrors((prev) => ({ ...prev, [field]: null }));
-    };
-
-    const handleEmailCopyWrapLeave = () => {
-        if (emailCopyWrapRef.current?.contains(document.activeElement)) {
-            document.activeElement.blur();
-        }
     };
 
     return (
@@ -187,9 +197,7 @@ function FindMeOn() {
 
                         <ul className="home-about-social-links">
                             <li
-                                ref={emailCopyWrapRef}
-                                className="social-icons contact-email-copy-wrap"
-                                onMouseLeave={handleEmailCopyWrapLeave}
+                                className={`social-icons contact-email-copy-wrap${panelVisible ? " contact-email-copy-wrap--panel-open" : ""}`}
                             >
                                 <button
                                     type="button"
