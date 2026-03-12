@@ -360,12 +360,11 @@
   font-style: bold;
 }
 
-/* --- Typewriter --- */
+/* --- Typewriter / Roles rotator --- */
 .home-type-wrap {
   padding: 2rem 0;
   text-align: left;
-  height: 6em;
-  min-height: 6em;
+  min-height: 3.5em;
   display: flex;
   align-items: center;
   box-sizing: border-box;
@@ -374,16 +373,12 @@
 @media (max-width: 1200px) {
   .home-type-wrap {
     padding: 1.75rem 0;
-    height: 5.5em;
-    min-height: 5.5em;
   }
 }
 
 @media (max-width: 991px) {
   .home-type-wrap {
     padding: 1.5rem 0;
-    height: 5em;
-    min-height: 5em;
   }
 }
 
@@ -392,49 +387,80 @@
     padding: 1.5rem 1rem;
     text-align: center;
     justify-content: center;
-    height: 4.5em;
-    min-height: 4.5em;
   }
 }
 
 @media (max-width: 480px) {
   .home-type-wrap {
     padding: 1rem 0.75rem;
-    height: 4em;
-    min-height: 4em;
   }
 }
 
-.Typewriter__wrapper {
-  font-size: 2.2em !important;
-  color: var(--color-text-muted) !important;
-  font-weight: 500 !important;
-  font-family: var(--font-heading) !important;
+.home-roles-rotator {
+  font-size: 2.1em;
+  color: var(--color-text-primary);
+  font-weight: 500;
+  font-family: var(--font-heading);
+  min-height: 1.4em;
+  line-height: 1.2;
 }
 
-.Typewriter__cursor {
-  font-size: 2.4em !important;
-  color: var(--color-text-muted) !important;
+.home-roles-rotator-text {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(6px);
+  white-space: nowrap;
+  max-width: 100%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  letter-spacing: 0.04em;
+  background: linear-gradient(90deg, var(--color-text-primary), var(--color-text-secondary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: homeRoleFadeIn 600ms ease-out forwards;
+}
+
+@keyframes homeRoleFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+    filter: blur(3px);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
 }
 
 @media (max-width: 1200px) {
-  .Typewriter__wrapper { font-size: 1.9em !important; }
-  .Typewriter__cursor { font-size: 2.1em !important; }
+  .home-roles-rotator {
+    font-size: 1.9em;
+  }
 }
 
 @media (max-width: 991px) {
-  .Typewriter__wrapper { font-size: 1.6em !important; }
-  .Typewriter__cursor { font-size: 1.8em !important; }
+  .home-roles-rotator {
+    font-size: 1.6em;
+  }
 }
 
 @media (max-width: 768px) {
-  .Typewriter__wrapper { font-size: 1.4em !important; font-weight: 500 !important; }
-  .Typewriter__cursor { font-size: 1.5em !important; }
+  .home-roles-rotator {
+    font-size: 1.4em;
+  }
 }
 
 @media (max-width: 480px) {
-  .Typewriter__wrapper { font-size: 1.15em !important; }
-  .Typewriter__cursor { font-size: 1.25em !important; }
+  .home-roles-rotator {
+    font-size: 1.15em;
+  }
 }
 
 /* --- CTA buttons --- */
@@ -454,6 +480,9 @@
 }
 
 .home-contact-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   color: var(--color-bg-white) !important;
   background-color: var(--color-bg-dark) !important;
   border: 1.5px solid var(--color-bg-dark) !important;
@@ -464,7 +493,9 @@
   padding: 0.55rem 1.5rem !important;
   font-size: 1rem !important;
   transition: all 0.3s ease !important;
-  white-space: nowrap;
+  white-space: normal;
+  text-align: center;
+  max-width: 100%;
 }
 
 .home-contact-btn:hover {
@@ -476,6 +507,9 @@
 }
 
 .home-download-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 6px !important;
   font-weight: 500 !important;
   font-family: var(--font-heading) !important;
@@ -486,7 +520,9 @@
   color: var(--color-text-primary) !important;
   border: 1.5px solid var(--color-text-primary) !important;
   transition: all 0.3s ease !important;
-  white-space: nowrap;
+  white-space: normal;
+  text-align: center;
+  max-width: 100%;
 }
 
 .home-download-btn:hover {
@@ -498,7 +534,6 @@
 
 @media (min-width: 1280px) {
   .home-buttons {
-    margin-left: 5.5rem;
   }
 }
 
@@ -518,6 +553,8 @@
     font-size: 0.9rem !important;
     padding: 0.5rem 1.1rem !important;
     min-height: 44px;
+    width: 100%;
+    max-width: 320px;
   }
 }
 

@@ -30,7 +30,7 @@ const translations = {
         greeting: { en: "Hello There!", fr: "Bonjour !" },
         iAm: { en: "I'M", fr: "Je suis" },
         contactBtn: { en: "Contact Me", fr: "Contactez-moi" },
-        downloadCV: { en: "Download CV", fr: "Télécharger CV" },
+        downloadCV: { en: "Download Skills Portfolio", fr: "Télécharger Dossier de compétences" },
         scrollHint: { en: "Scroll with your mouse", fr: "Défiler avec la souris" },
     },
 

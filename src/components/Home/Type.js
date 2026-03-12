@@ -1,23 +1,38 @@
-import React, { useMemo } from "react";
-import Typewriter from "typewriter-effect";
+import React, { useEffect, useMemo, useState } from "react";
 import { useLanguage } from "../../context/LanguageContext";
-
-const TYPEWRITER_OPTIONS = {
-    autoStart: true,
-    loop: true,
-    delay: 40,
-    deleteSpeed: 30,
-};
 
 function Type() {
     const { t } = useLanguage();
-    const strings = t("typewriter.strings");
-    const options = useMemo(
-        () => ({ ...TYPEWRITER_OPTIONS, strings }),
-        [strings]
-    );
+    const strings = useMemo(() => t("typewriter.strings") || [], [t]);
 
-    return <Typewriter options={options} />;
+    const [activeIndex, setActiveIndex] = useState(0);
+
+    useEffect(() => {
+        if (!Array.isArray(strings) || strings.length === 0) {
+            return undefined;
+        }
+
+        const interval = setInterval(() => {
+            setActiveIndex((prev) => (prev + 1) % strings.length);
+        }, 1000);
+
+        return () => clearInterval(interval);
+    }, [strings]);
+
+    if (!Array.isArray(strings) || strings.length === 0) {
+        return null;
+    }
+
+    return (
+        <div className="home-roles-rotator" aria-live="polite">
+            <span
+                key={activeIndex}
+                className="home-roles-rotator-text"
+            >
+                {strings[activeIndex]}
+            </span>
+        </div>
+    );
 }
 
 export default Type;
