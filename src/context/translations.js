@@ -130,12 +130,12 @@ const translations = {
     /* ------------------------------------------------------------------ */
     skills: {
         title: {
-            en: <>Professional <strong className="purple">Skillset</strong> & <strong className="purple">Tools</strong></>,
-            fr: <>Compétences <strong className="purple">professionnelles</strong> & <strong className="purple">outils</strong></>,
+            en: <>Professional <strong className="purple">Skillset</strong></>,
+            fr: <>Compétences <strong className="purple">professionnelles</strong></>,
         },
         valuePillarsTitle: {
-            en: "What I bring to the table",
-            fr: "Ma valeur apportée",
+            en: "What my clients value",
+            fr: "Ce que mes clients apprécient",
         },
         valuePillars: {
             delivery: {
@@ -168,57 +168,33 @@ const translations = {
             },
         },
         categoriesTitle: {
-            en: "Technical expertise",
-            fr: "Expertise technique",
+            en: "My areas of expertise",
+            fr: "Mes domaines d'expertise",
         },
         categories: {
             architecture: {
                 title: { en: "Architecture & Software Development", fr: "Architecture et développement logiciel" },
                 description: {
-                    en: "Design of systems with modern, modular, robust and maintainable code, suited to production and deployment requirements.",
-                    fr: "Conception de systèmes avec code moderne, modulaire, robuste et maintenable, adaptés aux exigences de production et du déploiement.",
+                    en: "Design and development of modular and robust systems. Modern and maintainable code. Clean and Event-Driven architecture. SOLID principles. Microservices.",
+                    fr: "Conception et développement de systèmes modulaires et robustes. Code moderne et maintenable. Architecture Clean et Event Driven. Principes SOLID. Microservices.",
                 },
-                tech: ["C++", "Python", "microservices", "API Rest", "FastAPI"],
-            },
-            robotics: {
-                title: { en: "Robotics", fr: "Robotique" },
-                description: {
-                    en: "Navigation and control, sensor fusion, 2D/3D localization and mapping, path planning, obstacle detection and avoidance.",
-                    fr: "Navigation et contrôle, fusion de capteurs, localisation et cartographie 2D/3D, planification de trajectoires, détection et évitement d'obstacles.",
-                },
-                tech: ["ROS2", "Nav2", "SLAM Toolbox", "RTAB-Map", "Cartographer"],
+                tech: ["C++", "Python", "SQL", "Microservices", "FastAPI", "Numpy", "Pandas"],
             },
             computerVision: {
                 title: { en: "Computer Vision & Machine Learning", fr: "Computer Vision & Machine Learning" },
                 description: {
-                    en: "Optimization and industrialization of your perception and machine learning pipelines on embedded targets.",
-                    fr: "Pipelines de perception : détection, segmentation d'images, tracking. Entrainement, tuning, optimisation. Deep Learning. Déploiement serveur ou embarqué.",
+                    en: "Computer vision pipelines. Detection, segmentation, tracking. Training, tuning, optimization. Deep Learning. Deployment on server or embedded targets.",
+                    fr: "Pipelines de perception. Détection, segmentation d'images, tracking. Entrainement, tuning, optimisation. Deep Learning. Déploiement serveur ou embarqué.",
                 },
-                tech: ["OpenCV", "PyTorch", "TensorFlow","YOLOv8", "HuggingFace", "TensorRT"],
+                tech: ["OpenCV", "PyTorch", "TensorFlow","YOLOv8", "HuggingFace", "TensorRT", "ONNX", "Scikit-learn"],
             },
             devops: {
-                title: { en: "Automation & DevOps", fr: "Automatisation, DevOps" },
+                title: { en: "Automation & DevOps", fr: "Automatisation & DevOps" },
                 description: {
-                    en: "CI/CD, pipelines and infrastructure automation.",
-                    fr: "CI/CD, pipelines et automatisation d'infrastructure.",
+                    en: "Automation of integration and delivery pipelines (CI/CD), observability.",
+                    fr: "Automatisation de pipelines d'intégration et livraison continue (CI/CD), observabilité.",
                 },
-                tech: ["GitLab CI", "GitHub Actions", "Docker"],
-            },
-            observability: {
-                title: { en: "Observability", fr: "Observabilité" },
-                description: {
-                    en: "Monitoring, visualization and analysis of system data.",
-                    fr: "Monitoring, visualisation et analyse des données système.",
-                },
-                tech: ["PlotJuggler", "FoxGlove", "Grafana"],
-            },
-            simulation: {
-                title: { en: "Simulation", fr: "Simulation" },
-                description: {
-                    en: "Reducing the Sim-to-Real gap for robust deployment.",
-                    fr: "Réduction du « Sim-to-Real gap » pour un déploiement robuste.",
-                },
-                tech: ["Gazebo", "Isaac Sim", "RViz"],
+                tech: ["GitLab CI", "GitHub Actions", "Docker", "Grafana", "PlotJuggler", "FoxGlove"],
             },
             qa: {
                 title: { en: "Q&A", fr: "Q&A" },
@@ -226,7 +202,31 @@ const translations = {
                     en: "Unit and functional testing, non-regression.",
                     fr: "Tests unitaires et fonctionnels, non-régression.",
                 },
-                tech: ["Google Test", "Boost.test", "PyTest", "Robot Framework"],
+                tech: ["Google Test", "Boost.test", "PyTest", "Robot Framework", "Cucumber"],
+            },
+            embedded: {
+                title: { en: "Embedded Systems", fr: "Systèmes embarqués" },
+                description: {
+                    en: "Development of firmware and middleware for real-time systems. Hardware/software integration. Industrial protocols (CAN, I2C, serial).",
+                    fr: "Développement firmware et middleware temps-réel. Intégration hardware/software. Protocoles industriels (CAN, I2C, série).",
+                },
+                tech: ["NVIDIA Jetson", "STM32", "Raspberry Pi", "Arduino", "FreeRTOS", "Linux"],
+            },
+            robotics: {
+                title: { en: "Robotics", fr: "Robotique" },
+                description: {
+                    en: "Sensor fusion, 2D/3D localization and mapping, navigation, perception, obstacle detection and avoidance.",
+                    fr: "Fusion de capteurs, localisation et cartographie 2D/3D, navigation, perception,détection et évitement d'obstacles.",
+                },
+                tech: ["ROS2", "Nav2", "SLAM Toolbox", "RTAB-Map", "Cartographer"],
+            },
+            simulation: {
+                title: { en: "Simulation", fr: "Simulation" },
+                description: {
+                    en: "Environment simulation. Reducing the Sim-to-Real gap for robust deployment.",
+                    fr: "Simulation d'environnement. Réduction du « Sim-to-Real gap » pour un déploiement robuste.",
+                },
+                tech: ["Gazebo", "Isaac Sim", "RViz"],
             },
             strategy: {
                 title: { en: "Strategy & Business Vision", fr: "Stratégie et vision business" },

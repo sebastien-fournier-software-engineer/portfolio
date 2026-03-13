@@ -127,12 +127,12 @@ const VALUE_PILLARS = [
 
 const CATEGORY_KEYS = [
     "architecture",
-    "robotics",
     "computerVision",
     "devops",
-    "observability",
-    "simulation",
     "qa",
+    "embedded",
+    "robotics",
+    "simulation",
     "strategy",
 ];
 
