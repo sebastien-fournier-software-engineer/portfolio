@@ -32,34 +32,64 @@ import translations from "../../context/translations";
 
 import Nav2Icon from "../../assets/TechIcons/Nav2.png";
 import PythonIcon from "../../assets/TechIcons/Python.svg";
+import SqlIcon from "../../assets/TechIcons/sql.png";
+import NumpyIcon from "../../assets/TechIcons/Numpy.png";
+import PandasIcon from "../../assets/TechIcons/pandas.png";
 import OpenCVIcon from "../../assets/TechIcons/OpenCV.svg";
+import YoloV8Icon from "../../assets/TechIcons/yolov8.png";
 import PyTestIcon from "../../assets/TechIcons/PyTest.svg";
 import HuggingFaceIcon from "../../assets/TechIcons/HuggingFace.svg";
+import OnnxIcon from "../../assets/TechIcons/ONNX.png";
+import ScikitLearnIcon from "../../assets/TechIcons/scikit-learn.png";
 import PlotJugglerIcon from "../../assets/TechIcons/PlotJuggler.svg";
 import FoxGloveIcon from "../../assets/TechIcons/FoxGlove.svg";
+import GitIcon from "../../assets/TechIcons/Git.svg";
 import GoogleIcon from "../../assets/TechIcons/Google.svg";
+import CucumberIcon from "../../assets/TechIcons/cucumber.png";
+import Stm32Icon from "../../assets/TechIcons/stm32.jpg";
+import RaspberryPiIcon from "../../assets/TechIcons/Raspberry-Pi.png";
+import ArduinoIcon from "../../assets/TechIcons/arduino-logo.png";
+import FreeRtosIcon from "../../assets/TechIcons/free-rtos.png";
+import LinuxIcon from "../../assets/TechIcons/linux.png";
 import GazeboIcon from "../../assets/TechIcons/Gazebo.svg";
+import RVizIcon from "../../assets/TechIcons/RViz.svg";
 import TensorRTIcon from "../../assets/TechIcons/TensorRT.svg";
+import VModelIcon from "../../assets/TechIcons/letter-v.png";
 
 const DEFAULT_BADGE_COLOR = "#444";
 
 const TECH_ICON_IMGS = {
     "Nav2": Nav2Icon,
     "Python": PythonIcon,
+    "SQL": SqlIcon,
+    "Numpy": NumpyIcon,
+    "Pandas": PandasIcon,
     "OpenCV": OpenCVIcon,
+    "YOLOv8": YoloV8Icon,
     "PyTest": PyTestIcon,
     "HuggingFace": HuggingFaceIcon,
+    "ONNX": OnnxIcon,
+    "Scikit-learn": ScikitLearnIcon,
     "PlotJuggler": PlotJugglerIcon,
     "FoxGlove": FoxGloveIcon,
+    "Git": GitIcon,
     "Google Test": GoogleIcon,
+    "Cucumber": CucumberIcon,
+    "STM32": Stm32Icon,
+    "Raspberry Pi": RaspberryPiIcon,
+    "Arduino": ArduinoIcon,
+    "FreeRTOS": FreeRtosIcon,
+    "Linux": LinuxIcon,
     "Gazebo": GazeboIcon,
+    "RViz": RVizIcon,
     "TensorRT": TensorRTIcon,
+    "V-Model": VModelIcon,
 };
 
 const TECH_COLORS = {
     "C++": "#00599C",
     "Python": "#FFD43B",
-    "microservices": "#000000",
+    "Microservices": "#000000",
     "API Rest": "#000000",
     "FastAPI": "#009688",
     "ROS2": "#22314E",
@@ -85,7 +115,7 @@ const TECH_COLORS = {
 const TECH_ICONS = {
     "C++": SiCplusplus,
     "Python": null,
-    "microservices": AiOutlineCluster,
+    "Microservices": AiOutlineCluster,
     "API Rest": SiSwagger,
     "FastAPI": SiFastapi,
     "ROS2": SiRos,

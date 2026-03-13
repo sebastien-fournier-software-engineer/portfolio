@@ -194,7 +194,7 @@ const translations = {
                     en: "Automation of integration and delivery pipelines (CI/CD), observability.",
                     fr: "Automatisation de pipelines d'intégration et livraison continue (CI/CD), observabilité.",
                 },
-                tech: ["GitLab CI", "GitHub Actions", "Docker", "Grafana", "PlotJuggler", "FoxGlove"],
+                tech: ["Git", "GitLab CI", "GitHub Actions", "Docker", "Grafana", "PlotJuggler", "FoxGlove"],
             },
             qa: {
                 title: { en: "Q&A", fr: "Q&A" },
@@ -229,12 +229,11 @@ const translations = {
                 tech: ["Gazebo", "Isaac Sim", "RViz"],
             },
             strategy: {
-                title: { en: "Strategy & Business Vision", fr: "Stratégie et vision business" },
+                title: { en: "Projects", fr: "Projets" },
                 description: {
-                    en: "Align teams and stakeholders through clear, bilingual (FR/EN) communication and shared vision.",
-                    fr: "Aligner les métiers grâce à une communication claire, bilingue (FR/EN) et une vision partagée.",
-                },
-                tech: ["Agile", "Scrum", "Facilitation", "Roadmap"],
+                    en: "Lead Developer. Technical referent. Writing studies and specifications. Technological watch.",
+                    fr: "Lead Developer. Référent technique. Rédaction d’études et spécifications. Veille technologique."},
+                tech: ["Agile", "Scrum", "V-Model", "Facilitation"],
             },
         },
     },
