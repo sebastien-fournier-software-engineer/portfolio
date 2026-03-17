@@ -1080,6 +1080,7 @@ const translations = {
             fr: "Décrivez votre projet ou question...",
         },
         formSend: { en: "Send", fr: "Envoyer" },
+        calendlyCta: { en: "Book a 15-min call", fr: "Réserver un appel de 15 min" },
         formSubmitSending: { en: "Sending…", fr: "Envoi en cours…" },
         formSubmitSuccess: {
             en: "Message sent successfully. I'll get back to you soon.",

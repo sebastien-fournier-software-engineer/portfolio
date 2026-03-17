@@ -1,46 +1,19 @@
 import React, { useState, useRef, useEffect, useCallback } from "react";
-import { Container, Row, Col, Card, Form, Button } from "react-bootstrap";
+import { Container, Row, Col, Card, Button } from "react-bootstrap";
 import { AiFillGithub } from "react-icons/ai";
 import { FaLinkedinIn } from "react-icons/fa";
 import { MdOutlineEmail } from "react-icons/md";
 import { HiOutlinePaperAirplane } from "react-icons/hi";
 import { useLanguage } from "../../context/LanguageContext";
 
-const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-// International format: optional + or 00 prefix, then digits and common separators (spaces, dots, dashes, parentheses)
-const PHONE_FORMAT_REGEX = /^[+]?[0-9\s.\-()]+$/;
-const PHONE_DIGITS_MIN = 10;
-const PHONE_DIGITS_MAX = 15; // E.164
 const CONTACT_EMAIL = "seb.fournier.tech@proton.me";
+const CALENDLY_URL = "https://calendly.com/sebastien-fournier-software-engineer/15min";
 const PANEL_AUTO_CLOSE_MS = 5000;
-
-function validateEmail(value) {
-    if (!value.trim()) return false;
-    return EMAIL_REGEX.test(value.trim());
-}
-
-function validatePhone(value) {
-    const trimmed = value.trim();
-    if (!trimmed) return true;
-    // Only allowed characters (international format)
-    if (!PHONE_FORMAT_REGEX.test(trimmed)) return false;
-    const digitsOnly = trimmed.replace(/\D/g, "");
-    const len = digitsOnly.length;
-    return len >= PHONE_DIGITS_MIN && len <= PHONE_DIGITS_MAX;
-}
 
 function FindMeOn() {
     const { t } = useLanguage();
-    const [firstName, setFirstName] = useState("");
-    const [lastName, setLastName] = useState("");
-    const [email, setEmail] = useState("");
-    const [phone, setPhone] = useState("");
-    const [message, setMessage] = useState("");
-    const [errors, setErrors] = useState({ firstName: null, lastName: null, email: null, phone: null });
     const [emailCopied, setEmailCopied] = useState(false);
     const [panelVisible, setPanelVisible] = useState(false);
-    const [submitStatus, setSubmitStatus] = useState("idle"); // idle | sending | success | error
-    const [submitErrorMessage, setSubmitErrorMessage] = useState(null); // API error message when submitStatus === "error"
     const panelCloseTimerRef = useRef(null);
 
     useEffect(() => {
@@ -67,87 +40,6 @@ function FindMeOn() {
         );
     }, [panelVisible]);
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        const firstNameValid = firstName.trim().length > 0;
-        const lastNameValid = lastName.trim().length > 0;
-        const emailValid = validateEmail(email);
-        const phoneValid = validatePhone(phone);
-        setErrors({
-            firstName: firstNameValid ? null : "required",
-            lastName: lastNameValid ? null : "required",
-            email: emailValid ? null : "email",
-            phone: phoneValid ? null : "phone",
-        });
-        if (!firstNameValid || !lastNameValid || !emailValid || !phoneValid) return;
-
-        const accessKey = process.env.REACT_APP_WEB3FORMS_ACCESS_KEY;
-        if (!accessKey) {
-            setSubmitErrorMessage("REACT_APP_WEB3FORMS_ACCESS_KEY is missing. Add it to .env and restart the dev server.");
-            setSubmitStatus("error");
-            return;
-        }
-
-        setSubmitStatus("sending");
-        setSubmitErrorMessage(null);
-
-        const payload = {
-            access_key: accessKey,
-            subject: "Contact from portfolio",
-            from_name: [firstName, lastName].filter(Boolean).join(" ") || "Contact form",
-            "First name": firstName,
-            "Last name": lastName,
-            email,
-            ...(phone ? { phone } : {}),
-            message,
-        };
-
-        try {
-            const res = await fetch("https://api.web3forms.com/submit", {
-                method: "POST",
-                headers: { "Content-Type": "application/json", Accept: "application/json" },
-                body: JSON.stringify(payload),
-            });
-            const data = await res.json().catch(() => ({}));
-            if (res.ok && data.success) {
-                setSubmitStatus("success");
-                setSubmitErrorMessage(null);
-                setFirstName("");
-                setLastName("");
-                setEmail("");
-                setPhone("");
-                setMessage("");
-            } else {
-                const apiMessage = data.body?.message || data.message || (res.status === 429 ? "Too many requests. Please try again later." : null);
-                setSubmitErrorMessage(apiMessage || null);
-                setSubmitStatus("error");
-                if (process.env.NODE_ENV === "development") {
-                    console.error("[Contact form] Web3Forms error:", res.status, data);
-                }
-            }
-        } catch (err) {
-            setSubmitErrorMessage(process.env.NODE_ENV === "development" ? err.message : null);
-            setSubmitStatus("error");
-            if (process.env.NODE_ENV === "development") {
-                console.error("[Contact form] Network or parse error:", err);
-            }
-        }
-    };
-
-    const clearError = useCallback((field) => {
-        setErrors((prev) => ({ ...prev, [field]: null }));
-    }, []);
-
-    const clearSubmitStatus = useCallback(() => {
-        setSubmitStatus((prev) => {
-            if (prev === "success" || prev === "error") {
-                setSubmitErrorMessage(null);
-                return "idle";
-            }
-            return prev;
-        });
-    }, []);
-
     return (
         <Container fluid className="contact-section">
             <Container>
@@ -157,128 +49,20 @@ function FindMeOn() {
 
                         <Card className="contact-form-card">
                             <Card.Body>
-                                <Row className="g-4 align-items-start">
-                                    <Col md={5} className="contact-form-card-intro-col">
-                                        <p className="contact-form-card-intro">{t("findMeOn.cardIntro")}</p>
-                                    </Col>
-                                    <Col md={7}>
-                                        <Form onSubmit={handleSubmit}>
-                                    <Row className="g-3 mb-3">
-                                        <Col md={6}>
-                                            <Form.Group controlId="contact-firstName">
-                                                <Form.Label>{t("findMeOn.formFirstName")}</Form.Label>
-                                                <Form.Control
-                                                    type="text"
-                                                    placeholder={t("findMeOn.formFirstNamePlaceholder")}
-                                                    value={firstName}
-                                                    onChange={(e) => { setFirstName(e.target.value); clearError("firstName"); clearSubmitStatus(); }}
-                                                    isInvalid={!!errors.firstName}
-                                                    required
-                                                />
-                                                {errors.firstName && (
-                                                    <Form.Control.Feedback type="invalid">
-                                                        {t("findMeOn.formErrorRequired")}
-                                                    </Form.Control.Feedback>
-                                                )}
-                                            </Form.Group>
-                                        </Col>
-                                        <Col md={6}>
-                                            <Form.Group controlId="contact-lastName">
-                                                <Form.Label>{t("findMeOn.formLastName")}</Form.Label>
-                                                <Form.Control
-                                                    type="text"
-                                                    placeholder={t("findMeOn.formLastNamePlaceholder")}
-                                                    value={lastName}
-                                                    onChange={(e) => { setLastName(e.target.value); clearError("lastName"); clearSubmitStatus(); }}
-                                                    isInvalid={!!errors.lastName}
-                                                    required
-                                                />
-                                                {errors.lastName && (
-                                                    <Form.Control.Feedback type="invalid">
-                                                        {t("findMeOn.formErrorRequired")}
-                                                    </Form.Control.Feedback>
-                                                )}
-                                            </Form.Group>
-                                        </Col>
-                                    </Row>
-                                    <Row className="g-3 mb-3">
-                                        <Col md={6}>
-                                            <Form.Group controlId="contact-email">
-                                                <Form.Label>{t("findMeOn.formEmail")}</Form.Label>
-                                                <Form.Control
-                                                    type="email"
-                                                    placeholder={t("findMeOn.formEmailPlaceholder")}
-                                                    value={email}
-                                                    onChange={(e) => {
-                                                        setEmail(e.target.value);
-                                                        clearError("email");
-                                                        clearSubmitStatus();
-                                                    }}
-                                                    isInvalid={!!errors.email}
-                                                    required
-                                                />
-                                                {errors.email && (
-                                                    <Form.Control.Feedback type="invalid">
-                                                        {t("findMeOn.formErrorEmailInvalid")}
-                                                    </Form.Control.Feedback>
-                                                )}
-                                            </Form.Group>
-                                        </Col>
-                                        <Col md={6}>
-                                            <Form.Group controlId="contact-phone">
-                                                <Form.Label>{t("findMeOn.formPhone")}</Form.Label>
-                                                <Form.Control
-                                                    type="tel"
-                                                    placeholder={t("findMeOn.formPhonePlaceholder")}
-                                                    value={phone}
-                                                    onChange={(e) => {
-                                                        setPhone(e.target.value);
-                                                        clearError("phone");
-                                                        clearSubmitStatus();
-                                                    }}
-                                                    isInvalid={!!errors.phone}
-                                                />
-                                                {errors.phone && (
-                                                    <Form.Control.Feedback type="invalid">
-                                                        {t("findMeOn.formErrorPhoneInvalid")}
-                                                    </Form.Control.Feedback>
-                                                )}
-                                            </Form.Group>
-                                        </Col>
-                                    </Row>
-                                    <Form.Group className="mb-4" controlId="contact-message">
-                                        <Form.Label>{t("findMeOn.formMessageLabel")}</Form.Label>
-                                        <Form.Control
-                                            as="textarea"
-                                            rows={4}
-                                            placeholder={t("findMeOn.formMessagePlaceholder")}
-                                            value={message}
-                                            onChange={(e) => { setMessage(e.target.value); clearSubmitStatus(); }}
-                                            required
-                                        />
-                                    </Form.Group>
-                                    {submitStatus === "success" && (
-                                        <div className="contact-form-feedback contact-form-feedback--success" role="status">
-                                            {t("findMeOn.formSubmitSuccess")}
-                                        </div>
-                                    )}
-                                    {submitStatus === "error" && (
-                                        <div className="contact-form-feedback contact-form-feedback--error" role="alert">
-                                            {submitErrorMessage || t("findMeOn.formSubmitError")}
-                                        </div>
-                                    )}
+                                <div>
+                                    <p className="contact-form-card-intro">{t("findMeOn.cardIntro")}</p>
                                     <Button
-                                        type="submit"
+                                        as="a"
+                                        href={CALENDLY_URL}
+                                        target="_blank"
+                                        rel="noreferrer"
                                         variant="primary"
                                         className="contact-form-send-btn"
-                                        disabled={submitStatus === "sending"}
                                     >
                                         <HiOutlinePaperAirplane className="contact-form-send-icon" aria-hidden />
-                                        {submitStatus === "sending" ? t("findMeOn.formSubmitSending") : t("findMeOn.formSend")}
+                                        {t("findMeOn.calendlyCta")}
                                     </Button>
-                                        </Form>
-                                    </Col>
-                                </Row>
+                                </div>
                             </Card.Body>
                         </Card>
 

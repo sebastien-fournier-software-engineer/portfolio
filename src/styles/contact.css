@@ -118,6 +118,7 @@
   align-items: center;
   justify-content: center;
   gap: 1.15rem;
+  margin-top: 1rem;
   padding: 0.55rem 1.5rem !important;
   border-radius: 6px !important;
   font-family: var(--font-heading) !important;
@@ -151,7 +152,6 @@
 
 .contact-form-send-icon svg {
   display: block;
-  vertical-align: middle;
 }
 
 @media (max-width: 768px) {
@@ -164,6 +164,19 @@
   }
   .contact-form-card .form-label {
     font-size: 0.65rem;
+  }
+  .contact-form-send-btn {
+    width: 100%;
+    justify-content: center;
+    white-space: normal;
+    gap: 0.9rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .contact-form-send-btn {
+    padding: 0.6rem 1.1rem !important;
+    font-size: 0.95rem !important;
   }
 }
 
