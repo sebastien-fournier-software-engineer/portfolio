@@ -7,7 +7,6 @@ import { HiOutlinePaperAirplane } from "react-icons/hi";
 import { useLanguage } from "../../context/LanguageContext";
 
 const CONTACT_EMAIL = "seb.fournier.tech@proton.me";
-const CALENDLY_URL = "https://calendly.com/sebastien-fournier-software-engineer/15min";
 const PANEL_AUTO_CLOSE_MS = 5000;
 
 function FindMeOn() {
@@ -53,7 +52,7 @@ function FindMeOn() {
                                     <p className="contact-form-card-intro">{t("findMeOn.cardIntro")}</p>
                                     <Button
                                         as="a"
-                                        href={CALENDLY_URL}
+                                        href={t("findMeOn.calendlyUrl")}
                                         target="_blank"
                                         rel="noreferrer"
                                         variant="primary"
